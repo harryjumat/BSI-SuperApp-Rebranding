@@ -1,0 +1,382 @@
+﻿Function ViewListRecentTransaction(x)
+	If x = "Positive" Then
+		'Melakukan Pencarian Nama Kontak Melalui Menu Daftar Transfer
+		Call react.Addtitle("Melakukan Pencarian Nama Kontak Melalui Menu Daftar Transfer")
+		Call Login()
+		If ai_transfer.Exist Then
+			ai_transfer.Click
+		End If
+		Call LoopUntil(lbl_transfer)
+		Call Capture(lbl_transfer,"Dev","Transfer","Berhasil menampilkan menu transfer, cari kontak")
+		If txt_cari.Exist Then
+			txt_cari.Set "Harry"
+			wait 1
+		End If
+		Call Capture(txt_cari,"Dev","Pencarian Kontak","Berhasil menampilkan kontak yang dicari")
+		
+		'Hapus field pencarian dengan mengklik icon "X"
+		Call react.Addtitle("Hapus Field Pencarian Dengan Mengklik Icon 'X'")
+		Call Login()
+		If ai_transfer.Exist Then
+			ai_transfer.Click
+		End If
+		Call LoopUntil(lbl_transfer)
+		Call Capture(lbl_transfer,"Dev","Transfer","Berhasil menampilkan menu transfer, cari kontak")
+		If txt_cari.Exist Then
+			txt_cari.Set "Harry"
+			wait 1
+		End If
+		Call Capture(txt_cari,"Dev","Pencarian Kontak","Berhasil menampilkan kontak yang dicari")
+		'tambahin done
+		
+		'Melakukan Pencarian Nama Kontak Melalui Tab Favorit
+		Call react.Addtitle("Melakukan Pencarian Nama Kontak Melalui Tab Favorit")
+		Call Login()
+		If ai_transfer.Exist Then
+			ai_transfer.Click
+		End If
+		Call LoopUntil(lbl_transfer)
+		Call Capture(lbl_transfer,"Dev","Transfer","Berhasil menampilkan menu transfer, klik tab favorit")
+		If lbl_favorit.Exist Then
+			lbl_favorit.Tap
+			wait 1
+		End If
+		If txt_cari.Exist Then
+			txt_cari.Set "Harry"
+			wait 1
+		End If
+		Call Capture(txt_cari,"Dev","Pencarian Kontak","Berhasil menampilkan kontak yang dicari")
+		
+		'Hapus field pencarian dengan mengklik icon "X" pada Tab Favorit
+		Call react.Addtitle("Hapus field pencarian dengan mengklik icon 'X' pada Tab Favorit")
+		Call Login()
+		If ai_transfer.Exist Then
+			ai_transfer.Click
+		End If
+		Call LoopUntil(lbl_transfer)
+		Call Capture(lbl_transfer,"Dev","Transfer","Berhasil menampilkan menu transfer, cari kontak")
+		If lbl_favorit.Exist Then
+			lbl_favorit.Tap
+			wait 1
+		End If
+		If txt_cari.Exist Then
+			txt_cari.Set "Harry"
+			wait 1
+		End If
+		Call Capture(txt_cari,"Dev","Pencarian Kontak","Berhasil menampilkan kontak yang dicari")
+	End If
+	If x = "Negative" Then
+		'Melakukan Pencarian Nama Kontak Yang Tidak Ditemukan
+		Call react.Addtitle("Melakukan Pencarian Nama Kontak Yang Tidak Ditemukan")
+		Call Login()
+		If ai_transfer.Exist Then
+			ai_transfer.Click
+		End If
+		Call LoopUntil(lbl_transfer)
+		Call Capture(lbl_transfer,"Dev","Transfer","Berhasil menampilkan menu transfer, cari kontak")
+		If txt_cari.Exist Then
+			txt_cari.Set "aaaaaaaa"
+			wait 1
+		End If
+		Call Capture(txt_cari,"Dev","Pencarian Kontak","Kontak yang dicari tidak ditemukan, klik icon x")
+		If inobj_x.Exist Then
+			inobj_x.Click
+		End If
+		Call Capture(txt_cari,"Dev","Hapus Pencarian","Berhasil menghapus pencarian")
+		
+		'Melakukan Pencarian Nama Kontak Yang Tidak Ditemukan pada Tab Favorit
+		Call react.Addtitle("Melakukan Pencarian Nama Kontak Yang Tidak Ditemukan pada Tab Favorit")
+		Call Login()
+		If ai_transfer.Exist Then
+			ai_transfer.Click
+		End If
+		Call LoopUntil(lbl_transfer)
+		Call Capture(lbl_transfer,"Dev","Transfer","Berhasil menampilkan menu transfer, klik tab favorit dan cari kontak")
+		If lbl_favorit.Exist Then
+			lbl_favorit.Tap
+			wait 1
+		End If
+		If txt_cari.Exist Then
+			txt_cari.Set "aaaaaaaa"
+			wait 1
+		End If
+		Call Capture(txt_cari,"Dev","Pencarian Kontak","Kontak yang dicari tidak ditemukan, klik icon x")
+		If inobj_x.Exist Then
+			inobj_x.Click
+		End If
+		Call Capture(txt_cari,"Dev","Hapus Pencarian","Berhasil menghapus pencarian")
+	End If
+End Function
+
+Function UpdateListRecentTransaction(x)
+	If x = "Positive" Then
+		'Tambah Favorit pada Kontak yang Berhasil Ditemukan
+		Call react.Addtitle("Tambah Favorit pada Kontak yang Berhasil Ditemukan")
+		Call Login()
+		If ai_transfer.Exist Then
+			ai_transfer.Click
+		End If
+		Call LoopUntil(lbl_transfer)
+		Call Capture(lbl_transfer,"Dev","Transfer","Berhasil menampilkan menu transfer, cari kontak")
+		If txt_cari.Exist Then
+			txt_cari.Set "Harry"
+			wait 1
+		End If
+		Call Capture(txt_cari,"Dev","Pencarian Kontak","Berhasil menampilkan kontak yang dicari")
+		If lbl_fav.Exist Then
+			lbl_fav.Tap
+			wait	 0.8
+		End If
+		Call Capture(lbl_fav,"Dev","Favorit Kontak","Berhasil menambahkan kontak favorit")
+	End If
+	If x = "Negative" Then
+		'Hapus Favorit pada Kontak yang Berhasil Ditemukan
+		Call react.Addtitle("Hapus Favorit pada Kontak yang Berhasil Ditemukan")
+		Call Login()
+		If ai_transfer.Exist Then
+			ai_transfer.Click
+		End If
+		Call LoopUntil(lbl_transfer)
+		Call Capture(lbl_transfer,"Dev","Transfer","Berhasil menampilkan menu transfer, cari kontak")
+		If txt_cari.Exist Then
+			txt_cari.Set "Harry"
+			wait 1
+		End If
+		Call Capture(txt_cari,"Dev","Pencarian Kontak","Berhasil menampilkan kontak yang dicari")
+		If inobj_favoritaktif.Exist Then
+			inobj_favoritaktif.Click
+			wait	 1
+		End If
+		Call LoopUntil(lbl_hapusfavorit)
+		If btn_hapusdarifavorit.Exist Then
+			btn_hapusdarifavorit.Tap
+		End If
+		Call Capture(inobj_favorit,"Dev","Favorit Kontak","Berhasil menghapus kontak favorit")
+		
+		'Hapus Favorit pada Kontak yang Berhasil Ditemukan pada Tab Favorit
+		
+		Call LoginLimit()
+		If ai_transfer.Exist Then
+			ai_transfer.Click
+		End If
+		Call LoopUntil(lbl_transfer)
+		If txt_cari.Exist Then
+			txt_cari.Set "Harry"
+			wait 1
+		End If
+		If lbl_fav.Exist Then
+			lbl_fav.Tap
+			wait	 0.8
+		End If
+		
+		Call react.Addtitle("Hapus Favorit pada Kontak yang Berhasil Ditemukan pada Tab Favorit")
+		Call Login()
+		If ai_transfer.Exist Then
+			ai_transfer.Click
+		End If
+		Call LoopUntil(lbl_transfer)
+		Call Capture(lbl_transfer,"Dev","Transfer","Berhasil menampilkan menu transfer, klik tab favorit cari kontak")
+		If lbl_favorit.Exist Then
+			lbl_favorit.Tap
+			wait 1
+		End If
+		If txt_cari.Exist Then
+			txt_cari.Set "Harry"
+			wait 1
+		End If
+		Call Capture(txt_cari,"Dev","Pencarian Kontak","Berhasil menampilkan kontak yang dicari")
+		If inobj_favoritaktif.Exist Then
+			inobj_favoritaktif.Click
+			wait	 1
+		End If
+		Call LoopUntil(lbl_hapusfavorit)
+		If btn_hapusdarifavorit.Exist Then
+			btn_hapusdarifavorit.Tap
+		End If
+		Call Capture(inobj_favorit,"Dev","Favorit Kontak","Berhasil menghapus kontak favorit")
+	End If
+End Function
+
+Function ViewListRecentTransactionBayarBeli(x)
+	If x = "Positive" Then
+		'menampilkan list transaksi pada tab riwayat
+		Call react.Addtitle("Menampilkan List Transaksi Pada Tab Riwayat")
+		Call Login()
+		AIUtil.FindTextBlock("Bayar & Beli").Click
+		Call LoopUntil(lbl_bayarbeli)
+		Call Capture(lbl_tampilkanlebihbanyak,"Dev","Bayar&Beli","Berhasil menampilkan list transaksi pada tab riwayat")
+		
+		'Melakukan penambahan favorite dari tab riwayat
+		Call react.Addtitle("Melakukan Penambahan Favorite Dari Tab Riwayat")
+		Call Login()
+		AIUtil.FindTextBlock("Bayar & Beli").Click
+		Call LoopUntil(lbl_bayarbeli)
+		Call Capture(lbl_bayarbeli,"Dev","Bayar&Beli","Berhasil menampilkan list transaksi pada tab riwayat, klik icon bintang pada tab riwayat")
+		wait 2
+		If ai_bintangoff.Exist Then
+			ai_bintangoff.Click
+		End If
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "List Data Berhasil Pindah ke Favorite","Berhasil memindahkan data ke tab favorite", ReportStatus.Passed)		
+	End If
+	If x = "Negative" Then
+		'Hapus salah satu list pada tab favorite 
+		Call react.Addtitle("Hapus Salah Satu List Pada Tab Favorite")
+		Call Login()
+		AIUtil.FindTextBlock("Bayar & Beli").Click
+		Call LoopUntil(lbl_bayarbeli)
+		Call Capture(lbl_bayarbeli,"Dev","Bayar&Beli","Berhasil menampilkan list transaksi pada tab riwayat, klik tab favorit")
+		If lbl_fav.Exist Then
+			lbl_fav.Tap
+		End If
+		Call LoopUntil(ai_bintangon)
+		Call Capture(ai_bintangon,"Dev","Tab Favorite","Berhasil menampilkan list transaksi pada tab favorite, klik bintang")
+		If ai_bintangon.Exist Then
+			ai_bintangon.Click
+			wait 2
+		End If
+		Call Capture(lbl_hapusdarifavorit,"Dev","Drawer Hapus Favorit","Berhasil menampilkan drawer hapus favorit, klik hapus dari favorite")
+		wait 2
+		If lbl_hapusdarifavorit.Exist Then
+			lbl_hapusdarifavorit.Tap
+		End If
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Hapus List Favorit","Berhasil menghapus list favorite", ReportStatus.Passed)
+	End If
+End Function
+
+Function UpdateListRecentTransactionBayarBeli()
+	Call Login()
+	Call Navigate("Bayar Beli")
+	If ai_tvkabel.Exist Then
+		ai_tvkabel.Click
+	End If
+	Call LoopUntil(lbl_biznet)
+	Call Capture(lbl_biznet,"Dev","Pilih Provider","Berhasil menampilkan list provider, cari dan klik provider")
+	If txt_cari.Exist Then
+		txt_cari.Set "biznet"
+		wait 1
+	End If
+	If lbl_biznet.Exist Then
+		lbl_biznet.Tap
+	End If
+	Call LoopUntil(lbl_easymudharabah)
+	Call Capture(lbl_easymudharabah,"Dev","Internet/TV Kabel","Berhasil menampilkan halaman internet/tv kabel, masukkan nomor pelanggan dan klik selesai")
+	If txt_cari.Exist Then
+		txt_cari.Set "123456"
+		wait 1
+	End If
+	If btn_selesai.Exist Then
+		btn_selesai.Tap
+	End If
+	Call TabunganSumber("transaksi")
+	Call Capture(lbl_cektagihan,"Dev","Sumber Rekening","Berhasil memilih sumber rekening, klik cek tagihan")
+'	If lbl_cektagihan.Exist Then
+		inobj_cektagihan.Click
+'	End If
+	Call LoopUntil(inobj_konfirmasi)
+	Call Capture(inobj_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan drawer konfirmasi transaksi, klik konfirmasi")
+'	If inobj_konfirmasi.Exist Then
+		inobj_konfirmasi.Click
+'	End If		
+	Call LoopUntil(lbl_konfirmasipin)
+	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
+'	If lbl_1.Exist Then
+		lbl_1.Tap
+'	End If
+'	If lbl_2.Exist Then
+		lbl_2.Tap
+'	End If
+'	If lbl_3.Exist Then
+		lbl_3.Tap
+'	End If
+'	If lbl_4.Exist Then
+		lbl_4.Tap
+'	End If
+'	If lbl_5.Exist Then
+		lbl_5.Tap
+'	End If
+'	If lbl_6.Exist Then
+		lbl_6.Tap
+'	End If
+	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Animasi Loading Konfirmasi PIN","Berhasil menampilkan animasi konfirmasi PIN", ReportStatus.Passed)
+	Call LoopUntil(lbl_detailtransaksi)
+	Call Capture(btn_arrow,"Dev","Transaksi Berhasil","Berhasil menampilkan halaman resi, klik panah bawah detail transaksi")
+'	if btn_arrow.Exist then
+		btn_arrow.Tap
+'	End If
+	wait 1
+	Call Capture(lbl_detailtransaksi,"Dev","Detail Resi","Berhasil menampilkan detail resi, klik lanjutkan")	
+'	If lbl_lanjutkan.Exist Then
+		lbl_lanjutkan.Tap
+'	End If
+	Call LoopUntil(lbl_lewatiinfaq)
+	Call Capture(lbl_lewatiinfaq,"Dev","Infaq","Berhasil menampilkan halaman infaq, klik lewati infaq")	
+'	If lbl_lewatiinfaq.Exist Then
+		lbl_lewatiinfaq.Tap
+'	End If
+	Call LoopUntil(AIUtil.FindTextBlock("Bayar & Beli"))
+	If AIUtil.FindTextBlock("Bayar & Beli").Exist Then
+		AIUtil.FindTextBlock("Bayar & Beli").Click
+	End If
+	Call LoopUntil(lbl_bayarbeli)
+	Call Capture(lbl_tampilkanlebihbanyak,"Dev","Bayar&Beli","Berhasil menampilkan list transaksi pada tab riwayat")		
+End Function
+
+Function TransaksiViaCurrentTransaction()
+	Call Login()
+	AIUtil.FindTextBlock("Bayar & Beli").Click
+	Call LoopUntil(lbl_bayarbeli)
+	Call Capture(lbl_bayarbeli,"Dev","Bayar&Beli","Berhasil menampilkan list transaksi pada tab riwayat, klik salah satu riwayat transaksi")
+	inobj_ovo.Click
+	Call LoopUntil(lbl_namamerchant)
+	Call Capture(lbl_namamerchant,"Dev","Merchant","Berhasil menampilkan halaman merchant, masukkan nominal")
+	If btn_selesai.Exist Then
+		btn_selesai.Tap
+		wait 1
+	End If
+	wait 3
+	If txt_nomorhandphone.Exist Then
+		txt_nomorhandphone.Set "100000"
+	End If
+	If btn_selesai.Exist Then
+		btn_selesai.Tap
+		wait 1
+	End If
+	Call Capture(lbl_easymudharabah,"Dev","Berhasil Input Nominal","Berhasil memasukkan nominal, pilih sumber rekening")
+	Call TabunganSumber("transaksi")
+	Call LoopUntil(lbl_lanjutkan)
+	Call Capture(lbl_lanjutkan,"Dev","Berhasil Pilih Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
+'	If lbl_lanjutkan.Exist Then
+		lbl_lanjutkan.Tap
+'	End If
+	Call LoopUntil(inobj_konfirmasi)
+'	If lbl_konfirmasi.Exist Then
+		Call Capture(inobj_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+'	End If
+'	If lbl_konfirmasi.Exist Then
+		inobj_konfirmasi.Click
+'	End If
+	
+	Call LoopUntil(lbl_konfirmasipin)
+	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
+'	If lbl_1.Exist Then
+		lbl_1.Tap
+'	End If
+'	If lbl_2.Exist Then
+		lbl_2.Tap
+'	End If
+'	If lbl_3.Exist Then
+		lbl_3.Tap
+'	End If
+'	If lbl_4.Exist Then
+		lbl_4.Tap
+'	End If
+'	If lbl_5.Exist Then
+		lbl_5.Tap
+'	End If
+'	If lbl_6.Exist Then
+		lbl_6.Tap
+'	End If
+	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Animasi Loading Konfirmasi PIN","Berhasil menampilkan animasi konfirmasi PIN", ReportStatus.Passed)
+	Call LoopUntil(lbl_detailtransaksi)
+	Call Capture(btn_arrow,"Dev","Transaksi Berhasil","Berhasil menampilkan halaman resi")
+End Function

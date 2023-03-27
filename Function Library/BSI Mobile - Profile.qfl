@@ -1,0 +1,347 @@
+﻿Function ChangeEmail(x)
+	If x = "Positive" Then
+		Call Login()
+		wait 2
+		If lbl_HA.Exist Then
+			lbl_HA.Tap
+		End If
+		Call LoopUntil(inobj_informasiakun)
+		Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik informasi akun")
+		If inobj_informasiakun.Exist Then
+			inobj_informasiakun.Click
+		End If
+		Call LoopUntil(lbl_informasiakun)
+		Call Capture(lbl_informasiakun,"Dev","Informasi Akun","Berhasil menampilkan halaman informasi akun, klik icon pencil pada bagian email")
+		If inobj_pencilemail.Exist Then
+			inobj_pencilemail.Click
+		End If
+		Call LoopUntil(lbl_ubahemail)
+		Call Capture(lbl_ubahemail,"Dev","Ubah Email","Berhasil menampilkan halaman ubah email, ubah email")
+		If inobj_xkecil.Exist Then
+			inobj_xkecil.Click
+		End If
+		If txt_alamatemail.Exist Then
+			txt_alamatemail.Set "harryminos96@gmail.com"
+			wait 1
+		End If
+		Call Capture(lbl_simpan,"Dev","Simpan","Berhasil mengubah email, klik simpan")
+		If lbl_simpan.Exist Then
+			lbl_simpan.Tap
+		End If
+		Call LoopUntil(lvl_verifikasiemailkamu)
+		Call Capture(lvl_verifikasiemailkamu,"Dev","Verifikasi Email","Berhasil menampilkan halaman verifikasi email, masukkan kode OTP")
+		If btn_1.Exist Then
+			btn_1.Tap
+		End If
+		If btn_2.Exist Then
+			btn_2.Tap
+		End If
+		If btn_3.Exist Then
+			btn_3.Tap
+		End If
+		If btn_4.Exist Then
+			btn_4.Tap
+		End If
+		If btn_5.Exist Then
+			btn_5.Tap
+		End If
+		If btn_6.Exist Then
+			btn_6.Tap
+		End If
+		Call LoopUntil(lbl_konfirmasipin)
+		Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
+		lbl_1.Tap
+		lbl_2.Tap
+		lbl_3.Tap
+		lbl_4.Tap
+		lbl_5.Tap
+		lbl_6.Tap
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Animasi Loading Konfirmasi PIN","Berhasil menampilkan animasi konfirmasi PIN", ReportStatus.Passed)
+		wait 1
+		Call Capture(lbl_informasiakun,"Dev","Berhasil Mengubah Email","Berhasil mengubah email")
+		
+		'===================
+		Call LoginLimit()
+		wait 2
+		If lbl_HA.Exist Then
+			lbl_HA.Tap
+		End If
+		Call LoopUntil(inobj_informasiakun)
+		If inobj_informasiakun.Exist Then
+			inobj_informasiakun.Click
+		End If
+		Call LoopUntil(lbl_informasiakun)
+		If inobj_pencilemail.Exist Then
+			inobj_pencilemail.Click
+		End If
+		Call LoopUntil(lbl_ubahemail)
+		If inobj_xkecil.Exist Then
+			inobj_xkecil.Click
+		End If
+		If txt_alamatemail.Exist Then
+			txt_alamatemail.Set "harryminos@gmail.com"
+			wait 1
+		End If
+		If lbl_simpan.Exist Then
+			lbl_simpan.Tap
+		End If
+		Call LoopUntil(lvl_verifikasiemailkamu)
+		If btn_1.Exist Then
+			btn_1.Tap
+		End If
+		If btn_2.Exist Then
+			btn_2.Tap
+		End If
+		If btn_3.Exist Then
+			btn_3.Tap
+		End If
+		If btn_4.Exist Then
+			btn_4.Tap
+		End If
+		If btn_5.Exist Then
+			btn_5.Tap
+		End If
+		If btn_6.Exist Then
+			btn_6.Tap
+		End If
+		lbl_1.Tap
+		lbl_2.Tap
+		lbl_3.Tap
+		lbl_4.Tap
+		lbl_5.Tap
+		lbl_6.Tap
+	End If
+	If x = "Negative" Then
+		'Email Telah Digunakan
+		Call react.Addtitle("Email Telah Digunakan")
+		Call Login()
+		If lbl_HA.Exist Then
+			lbl_HA.Tap
+		End If
+		Call LoopUntil(inobj_informasiakun)
+		Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik informasi akun")
+		If inobj_informasiakun.Exist Then
+			inobj_informasiakun.Click
+		End If
+		Call LoopUntil(lbl_informasiakun)
+		Call Capture(lbl_informasiakun,"Dev","Informasi Akun","Berhasil menampilkan halaman informasi akun, klik icon pencil pada bagian email")
+		If inobj_pencilemail.Exist Then
+			inobj_pencilemail.Click
+		End If
+		Call LoopUntil(lbl_ubahemail)
+		Call Capture(lbl_simpan,"Dev","Simpan","Berhasil mengubah email, klik simpan")
+		If lbl_simpan.Exist Then
+			lbl_simpan.Tap
+		End If
+		Call LoopUntil(lbl_cobalagi)
+		Call Capture(lbl_cobalagi,"Dev","Email Telah Digunakan","Berhasil menampilkan drawer email telah digunakan")
+	
+		'Format Email Tidak Sesuai
+		Call react.Addtitle("Format Email Tidak Sesuai")
+		Call Login()
+		If lbl_HA.Exist Then
+			lbl_HA.Tap
+		End If
+		Call LoopUntil(inobj_informasiakun)
+		Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik informasi akun")
+		If inobj_informasiakun.Exist Then
+			inobj_informasiakun.Click
+		End If
+		Call LoopUntil(lbl_informasiakun)
+		Call Capture(lbl_informasiakun,"Dev","Informasi Akun","Berhasil menampilkan halaman informasi akun, klik icon pencil pada bagian email")
+		If inobj_pencilemail.Exist Then
+			inobj_pencilemail.Click
+		End If
+		Call LoopUntil(lbl_ubahemail)
+		Call Capture(lbl_ubahemail,"Dev","Ubah Email","Berhasil menampilkan halaman ubah email, ubah email")
+		If inobj_xkecil.Exist Then
+			inobj_xkecil.Click
+		End If
+		If txt_alamatemail.Exist Then
+			txt_alamatemail.Set "harryminos@gmailcom"
+			wait 1
+		End If
+		Call Capture(lbl_simpan,"Dev","Format Email Tidak Sesuai","Berhasil menampilkan helper text")
+		
+		'Kode OTP Tidak Sesuai
+		Call react.Addtitle("Kode OTP Tidak Sesuai")
+		Call Login()
+		If lbl_HA.Exist Then
+			lbl_HA.Tap
+		End If
+		Call LoopUntil(inobj_informasiakun)
+		Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik informasi akun")
+		If inobj_informasiakun.Exist Then
+			inobj_informasiakun.Click
+		End If
+		Call LoopUntil(lbl_informasiakun)
+		Call Capture(lbl_informasiakun,"Dev","Informasi Akun","Berhasil menampilkan halaman informasi akun, klik icon pencil pada bagian email")
+		If inobj_pencilemail.Exist Then
+			inobj_pencilemail.Click
+		End If
+		Call LoopUntil(lbl_ubahemail)
+		Call Capture(lbl_ubahemail,"Dev","Ubah Email","Berhasil menampilkan halaman ubah email, ubah email")
+		If inobj_xkecil.Exist Then
+			inobj_xkecil.Click
+		End If
+		If txt_alamatemail.Exist Then
+			txt_alamatemail.Set "harryminos96@gmail.com"
+			wait 1
+		End If
+		Call Capture(lbl_simpan,"Dev","Simpan","Berhasil mengubah email, klik simpan")
+		If lbl_simpan.Exist Then
+			lbl_simpan.Tap
+		End If
+		Call LoopUntil(lvl_verifikasiemailkamu)
+		Call Capture(lvl_verifikasiemailkamu,"Dev","Verifikasi Email","Berhasil menampilkan halaman verifikasi email, masukkan kode OTP")
+		If btn_1.Exist Then
+			btn_1.Tap
+		End If
+		If btn_1.Exist Then
+			btn_1.Tap
+		End If
+		If btn_1.Exist Then
+			btn_1.Tap
+		End If
+		If btn_1.Exist Then
+			btn_1.Tap
+		End If
+		If btn_1.Exist Then
+			btn_1.Tap
+		End If
+		If btn_1.Exist Then
+			btn_1.Tap
+		End If
+		wait 2
+		Call Capture(lvl_verifikasiemailkamu,"Dev","Kode OTP Salah","Berhasil menampilkan helper text")
+	End If
+End Function
+
+Function ChangeProfilePic()
+	'Mengganti Foto Profil dengan Kamera
+	Call react.Addtitle("Mengganti Foto Profil dengan Kamera")
+	Call Login()
+	wait 2
+	If lbl_HA.Exist Then
+		lbl_HA.Tap
+	End If
+	Call LoopUntil(inobj_informasiakun)
+	Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik informasi akun")
+	If btn_iccamera.Exist Then
+		btn_iccamera.Tap
+	End If
+	Call	LoopUntil(lbl_fotoprofil)
+	Call Capture(lbl_fotoprofil,"Dev","Foto Profil","Berhasil menampilkan drawer foto profil, klik ambil foto")
+	If lbl_ambilfoto.Exist Then
+		lbl_ambilfoto.Tap
+	End If
+	Call LoopUntil(btn_ambilgambar)
+	Call Capture(btn_ambilgambar,"Dev","Kamera","Berhasil menampilkan kamera, klik tombol ambil gambar")
+	If btn_ambilgambar.Exist Then
+		btn_ambilgambar.Tap
+	End If
+	Call LoopUntil(btn_gunakanfoto)
+	Call Capture(btn_gunakanfoto,"Dev","Berhasil Mengambil Gambar","Berhasil mengambil gambar, klik gunakan foto")
+	If btn_gunakanfoto.Exist Then
+		btn_gunakanfoto.Tap
+	End If
+	Call LoopUntil(lbl_simpan)
+	Call Capture(lbl_simpan,"Dev","Edit Foto","Berhasil menampilkan halaman edit foto, klik simpan")
+	If lbl_simpan.Exist Then
+		lbl_simpan.Tap
+	End If
+	Call LoopUntil(inobj_informasiakun)
+	Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil mengganti foto profil")
+	
+	'Mengganti Foto Profil dari Galeri
+	Call react.Addtitle("Mengganti Foto Profil dari Galeri")
+	Call Login()
+	wait 2
+	If inobj_profile.Exist Then
+		inobj_profile.Click
+	End If
+	Call LoopUntil(inobj_informasiakun)
+	Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik informasi akun")
+	If btn_iccamera.Exist Then
+		btn_iccamera.Tap
+	End If
+	Call	LoopUntil(lbl_fotoprofil)
+	Call Capture(lbl_fotoprofil,"Dev","Foto Profil","Berhasil menampilkan drawer foto profil, klik pilih dari galeri")
+	If lbl_pilihdarigaleri.Exist Then
+		lbl_pilihdarigaleri.Tap
+	End If
+	Call LoopUntil(btn_batalkan)
+	If inobj_album.Exist Then
+		inobj_album.Click
+		wait 1
+	End If
+	If inobj_favorit.Exist Then
+		inobj_favorit.Click
+		wait 1
+	End If
+	Call Capture(btn_saitama,"Dev","Galeri","Berhasil menampilkan galeri, pilih foto")
+	If btn_saitama.Exist Then
+		btn_saitama.Tap
+	End If
+	Call LoopUntil(lbl_pilih)
+	If lbl_pilih.Exist Then
+		lbl_pilih.Tap
+	End If
+	Call LoopUntil(lbl_simpan)
+	Call Capture(lbl_simpan,"Dev","Edit Foto","Berhasil halaman edit foto, klik simpan")
+	If lbl_simpan.Exist Then
+		lbl_simpan.Tap
+	End If
+	Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil mengubah foto profil")
+End Function
+
+Function DeleteProfilePic()
+	Call Login()
+	wait 2
+	If inobj_profilesaitama.Exist Then
+		inobj_profilesaitama.Click
+	End If
+	Call LoopUntil(inobj_informasiakun)
+	Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik informasi akun")
+	If btn_iccamera.Exist Then
+		btn_iccamera.Tap
+	End If
+	Call	LoopUntil(lbl_fotoprofil)
+	Call Capture(lbl_fotoprofil,"Dev","Foto Profil","Berhasil menampilkan drawer foto profil, klik hapus foto")
+	If lbl_hapusfoto.Exist Then
+		lbl_hapusfoto.Tap
+	End If
+	Call LoopUntil(lbl_hapus)
+	Call Capture(lbl_hapus,"Dev","Konfirmasi Hapus Foto","Berhasil menampilkan drawer konfirmasi hapus foto, klik hapus")
+	If lbl_hapus.Exist Then
+		lbl_hapus.Tap
+		wait 3
+	End If
+	Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menghapus foto profil")
+End Function
+
+Function SocialMedia()
+	Call Login()
+	wait 1
+	If lbl_HA.Exist Then
+		lbl_HA.Tap
+		wait 2
+	End If
+'	Call LoopUntil(inobj_informasiakun)
+	Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, scroll kebawah dan klik pusat bantuan")
+	If obj_mobileviewprofile.Exist Then
+		obj_mobileviewprofile.Swipe "up",205,430
+	End If
+	wait 3
+	If inobj_pusatbantuan.Exist Then
+		inobj_pusatbantuan.Click
+	End If
+	Call LoopUntil(lbl_yangseringditanyakan)
+	Call Capture(lbl_yangseringditanyakan,"Dev","Pusat Bantuan","Berhasil menampilkan halaman pusat bantuan")
+	If lbl_yangseringditanyakan.Exist Then
+		lbl_yangseringditanyakan.Swipe "up",205,430
+		wait 1
+	End If
+	Call LoopUntil(btn_facebook)
+	Call Capture(btn_facebook,"Dev","Social Media","Berhasil menampikan social media")
+End Function
