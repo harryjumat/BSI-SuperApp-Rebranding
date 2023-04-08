@@ -43,7 +43,7 @@ Function LoopUntil1(param)
 End Function
 
 Function LoopUntil()
-	wait 5
+	wait 4
 End Function
 
 Function Login()
@@ -106,31 +106,31 @@ End Function
 Function TransaksiBerhasil(fitur,nomorFT, resi, fiturInfaq, nomorFTInfaq,resiinfaq)
 	Call LoopUntil()
 	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-	If lbl_1.Exist Then
+'	If lbl_1.Exist Then
 		lbl_1.Tap
-	End If
-	If lbl_2.Exist Then
+'	End If
+'	If lbl_2.Exist Then
 		lbl_2.Tap
-	End If
-	If lbl_3.Exist Then
+'	End If
+'	If lbl_3.Exist Then
 		lbl_3.Tap
-	End If
-	If lbl_4.Exist Then
+'	End If
+'	If lbl_4.Exist Then
 		lbl_4.Tap
-	End If
-	If lbl_5.Exist Then
+'	End If
+'	If lbl_5.Exist Then
 		lbl_5.Tap
-	End If
-	If lbl_6.Exist Then
+'	End If
+'	If lbl_6.Exist Then
 		lbl_6.Tap
-	End If
+'	End If
 	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Animasi Loading Konfirmasi PIN","Berhasil menampilkan animasi konfirmasi PIN", ReportStatus.Passed)
-	wait 3
-	If not lbl_detailtransaksi.Exist(5) Then
-		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Notifikasi Gagal", "Gagal Menampilkan Halaman Tujuan", ReportStatus.Failed)
-		Call SaveReact_Merge()
-		ExitActionIteration
-	End If
+	wait 5
+'	If not lbl_detailtransaksi.Exist(5) Then
+'		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Notifikasi Gagal", "Gagal Menampilkan Halaman Tujuan", ReportStatus.Failed)
+'		Call SaveReact_Merge()
+'		ExitActionIteration
+'	End If
 	Call LoopUntil()
 	Call Capture(btn_arrow,"Dev","Transaksi Berhasil","Berhasil menampilkan halaman resi, klik panah bawah detail transaksi")
 	btn_arrow.Tap
@@ -160,31 +160,31 @@ Function TransaksiBerhasil(fitur,nomorFT, resi, fiturInfaq, nomorFTInfaq,resiinf
 	
 	'MENU INFAQ
 	btn_tutup.Tap
-	If lbl_bagikanresi.Exist Then
+'	If lbl_bagikanresi.Exist Then
 		Call LoopUntil()
-	End If
+'	End If
 	Call Capture(lbl_panahkembali,"Dev","Download Resi","Berhasil klik kembali, kembali ke halaman detail resi")
 	lbl_panahkembali.Tap
 	Call LoopUntil()
-	If btn_lanjutkan.Exist Then
+'	If btn_lanjutkan.Exist Then
 		Call Capture(btn_lanjutkan,"Dev","Transaksi Berhasil","Berhasil kembali ke halaman resi")
-	End If
+'	End If
 	btn_lanjutkan.Tap
 	Call LoopUntil()
 	Call Capture(lbl_lewatiinfaq,"Dev","Menu Infaq","Berhasil menampilkan halaman infaq, pilih denom infaq")
-	If lbl_1000.Exist Then
-		lbl_1000.Tap
-	End If
+'	If lbl_1000.Exist Then
+		lbl_2000.Tap
+'	End If
 	Call LoopUntil()
 	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transfer","Berhasil menampilkan konfirmasi transfer infaq, klik konfirmasi")
-	If lbl_konfirmasi.Exist Then
+'	If lbl_konfirmasi.Exist Then
 		lbl_konfirmasi.Tap
-	End If
+'	End If
 	Call LoopUntil()
 	Call Capture(btn_arrow,"Dev","Transaksi Berhasil","Berhasil menampilkan halaman resi infaq, klik panah bawah detail transaksi")
-	If btn_arrow.Exist Then
+'	If btn_arrow.Exist Then
 		btn_arrow.Tap
-	End If
+'	End If
 	wait 1
 	Call Capture(lbl_detailtransaksi,"Dev","Detail Resi","Berhasil menampilkan detail resi, klik download untuk mendownload resi")	
 	do
@@ -215,6 +215,7 @@ Function TransaksiBerhasil(fitur,nomorFT, resi, fiturInfaq, nomorFTInfaq,resiinf
 	Call cekJurnal(fiturInfaq, nomorFTInfaq)
 End Function
 
+'OCP QA
 Function TabunganSumber(x)
 	If x = "transaksi" Then
 		If inobj_ubah.Exist Then
@@ -229,7 +230,6 @@ Function TabunganSumber(x)
 		If inobj_easy.Exist Then
 			inobj_easy.Click	
 		End If
-		wait 1
 	End If
 	If x = "dormant" Then
 		If inobj_ubah.Exist Then
@@ -244,7 +244,6 @@ Function TabunganSumber(x)
 		If inobj_easy.Exist Then
 			inobj_easy.Click	
 		End If
-		wait 1
 	End If
 	If x = "blokir" Then
 		If inobj_ubah.Exist Then
@@ -259,7 +258,6 @@ Function TabunganSumber(x)
 		If inobj_easy.Exist Then
 			inobj_easy.Click	
 		End If
-		wait 1
 	End If
 	If x = "kosong" Then
 		If inobj_ubah.Exist Then
@@ -274,9 +272,8 @@ Function TabunganSumber(x)
 		If inobj_easy.Exist Then
 			inobj_easy.Click	
 		End If
-		wait 1
 	End If
-	If x = "100000" Then
+	If x = "50000" Then
 		If inobj_ubah.Exist Then
 			inobj_ubah.Click
 		End If
@@ -289,9 +286,82 @@ Function TabunganSumber(x)
 		If inobj_easy.Exist Then
 			inobj_easy.Click	
 		End If
-		wait 1
 	End If
 End Function
+
+'DEV | Ubah dulu nomor rekeningnya
+'Function TabunganSumber(x)
+'	If x = "transaksi" Then
+'		If inobj_ubah.Exist Then
+'			inobj_ubah.Click
+'		End If
+'		Call Capture(lbl_pilihtabungansumber,"Dev","Pilih Tabungan Sumber","Berhasil menampilkan list sumber tabungan, cari sumber tabungan")		
+'		If txt_carirekening.Exist Then
+'			txt_carirekening.Set "907"	
+'		End If
+'		wait 1
+'		Call Capture(inobj_easy,"Dev","Cari Sumber Tabungan","Berhasil mencari sumber tabungan, pilih sumber tabungan")	
+'		If inobj_easy.Exist Then
+'			inobj_easy.Click	
+'		End If
+'	End If
+'	If x = "dormant" Then
+'		If inobj_ubah.Exist Then
+'			inobj_ubah.Click
+'		End If
+'		Call Capture(lbl_pilihtabungansumber,"Dev","Pilih Tabungan Sumber","Berhasil menampilkan list sumber tabungan, cari sumber tabungan")		
+'		If txt_carirekening.Exist Then
+'			txt_carirekening.Set "917"	
+'		End If
+'		wait 1
+'		Call Capture(inobj_easy,"Dev","Cari Sumber Tabungan","Berhasil mencari sumber tabungan, pilih sumber tabungan")	
+'		If inobj_easy.Exist Then
+'			inobj_easy.Click	
+'		End If
+'	End If
+'	If x = "blokir" Then
+'		If inobj_ubah.Exist Then
+'			inobj_ubah.Click
+'		End If
+'		Call Capture(lbl_pilihtabungansumber,"Dev","Pilih Tabungan Sumber","Berhasil menampilkan list sumber tabungan, cari sumber tabungan")		
+'		If txt_carirekening.Exist Then
+'			txt_carirekening.Set "777"	
+'		End If
+'		wait 1
+'		Call Capture(inobj_easy,"Dev","Cari Sumber Tabungan","Berhasil mencari sumber tabungan, pilih sumber tabungan")	
+'		If inobj_easy.Exist Then
+'			inobj_easy.Click	
+'		End If
+'	End If
+'	If x = "kosong" Then
+'		If inobj_ubah.Exist Then
+'			inobj_ubah.Click
+'		End If
+'		Call Capture(lbl_pilihtabungansumber,"Dev","Pilih Tabungan Sumber","Berhasil menampilkan list sumber tabungan, cari sumber tabungan")		
+'		If txt_carirekening.Exist Then
+'			txt_carirekening.Set "631"	
+'		End If
+'		wait 1
+'		Call Capture(inobj_easy,"Dev","Cari Sumber Tabungan","Berhasil mencari sumber tabungan, pilih sumber tabungan")	
+'		If inobj_easy.Exist Then
+'			inobj_easy.Click	
+'		End If
+'	End If
+'	If x = "50000" Then
+'		If inobj_ubah.Exist Then
+'			inobj_ubah.Click
+'		End If
+'		Call Capture(lbl_pilihtabungansumber,"Dev","Pilih Tabungan Sumber","Berhasil menampilkan list sumber tabungan, cari sumber tabungan")		
+'		If txt_carirekening.Exist Then
+'			txt_carirekening.Set "065"	
+'		End If
+'		wait 1
+'		Call Capture(inobj_easy,"Dev","Cari Sumber Tabungan","Berhasil mencari sumber tabungan, pilih sumber tabungan")	
+'		If inobj_easy.Exist Then
+'			inobj_easy.Click	
+'		End If
+'	End If
+'End Function
 
 Function PengaturanPerizinan(param)
 	If param = "kontak" Then
@@ -400,9 +470,10 @@ Function SetLimitHarian(param)
 		wait 2
 		inobj_aturlimit.Click
 		Call LoopUntil()
-		do
-		inobj_pencilpembelian.Swipe "up",205,430
-		Loop until lbl_pembayaran.Exist
+'		do
+		list_downloadresi.Swipe "up",205,430
+'		Loop until lbl_pembayaran.Exist
+		wait 2
 		inobj_pencilpembayaran.Click
 		wait 1
 		txt_carirekening.Set "10000"
@@ -428,12 +499,13 @@ Function SetLimitHarian(param)
 		wait 2
 		inobj_aturlimit.Click
 		Call LoopUntil()
-		do
-		inobj_pencilpembelian.Swipe "up",205,430
-		Loop until lbl_pembayaran.Exist
+'		do
+		list_downloadresi.Swipe "up",205,430
+		wait 2
+'		Loop until lbl_pembayaran.Exist
 		inobj_penciltariktunai.Click
 		wait 1
-		txt_carirekening.Set "10000"
+		txt_carirekening.Set "100000"
 		wait 1
 		lbl_simpan.Tap
 		wait 1
@@ -484,9 +556,10 @@ Function UnSetLimitHarian(param)
 		wait 2
 		inobj_aturlimit.Click
 		Call LoopUntil()
-		do
-		inobj_pencilpembelian.Swipe "up",205,430
-		Loop until lbl_pembayaran.Exist
+'		do
+		list_downloadresi.Swipe "up",205,430
+		wait 2
+'		Loop until lbl_pembayaran.Exist
 		inobj_pencilpembayaran.Click
 		wait 1
 		txt_carirekening.Set "200000000"
@@ -510,12 +583,13 @@ Function UnSetLimitHarian(param)
 		wait 2
 		inobj_aturlimit.Click
 		Call LoopUntil()
-		do
-		inobj_pencilpembelian.Swipe "up",205,430
-		Loop until lbl_pembayaran.Exist
+'		do
+		list_downloadresi.Swipe "up",205,430
+		wait 2
+'		Loop until lbl_pembayaran.Exist
 		inobj_penciltariktunai.Click
 		wait 1
-		txt_carirekening.Set "10000000"
+		txt_carirekening.Set "1000000"
 		wait 1
 		lbl_simpan.Tap
 		wait 1
@@ -534,7 +608,7 @@ Function SetLimitTransaksi(param)
 		Call LoopUntil()
 		lbl_pertransaksi.Tap
 		wait 1
-		inobj_pencilpembelian.Click
+		inobj_pencilpembeliantrx.Click
 		wait 1
 		txt_carirekening.Set "10000"
 		wait 1
@@ -551,9 +625,9 @@ Function SetLimitTransaksi(param)
 	If param = "pembayaran" Then
 		Call LoopUntil()
 		lbl_pertransaksi.Tap
-		do
-		inobj_pencilpembelian.Swipe "up",205,430
-		Loop until lbl_pembayaran.Exist
+'		do
+		list_downloadresi.Swipe "up",205,430
+'		Loop until lbl_pembayaran.Exist
 		wait 2
 		inobj_pencilpembayarantrx.Click
 		wait 1
@@ -572,12 +646,13 @@ Function SetLimitTransaksi(param)
 	If param = "tariktunaitanpakartu" Then
 		Call LoopUntil()
 		lbl_pertransaksi.Tap
-		do
-		inobj_pencilpembelian.Swipe "up",205,430
-		Loop until lbl_pembayaran.Exist
+'		do
+		list_downloadresi.Swipe "up",205,430
+		wait 2
+'		Loop until lbl_pembayaran.Exist
 		inobj_penciltariktunai.Click
 		wait 1
-		txt_carirekening.Set "10000"
+		txt_carirekening.Set "100000"
 		wait 1
 		lbl_simpan.Tap
 		wait 1
@@ -603,7 +678,7 @@ Function UnSetLimitTransaksi(param)
 		Call LoopUntil()
 		lbl_pertransaksi.Tap
 		wait 1
-		inobj_pencilpembelian.Click
+		inobj_pencilpembeliantrx.Click
 		wait 1
 		txt_carirekening.Set "5000000"
 		wait 1
@@ -626,9 +701,11 @@ Function UnSetLimitTransaksi(param)
 		wait 2
 		inobj_aturlimit.Click
 		Call LoopUntil()
-		do
-		inobj_pencilpembelian.Swipe "up",205,430
-		Loop until lbl_pembayaran.Exist
+		lbl_pertransaksi.Tap
+'		do
+		list_downloadresi.Swipe "up",205,430
+		wait 2
+'		Loop until lbl_pembayaran.Exist
 		inobj_pencilpembayarantrx.Click
 		wait 1
 		txt_carirekening.Set "200000000"
@@ -652,9 +729,10 @@ Function UnSetLimitTransaksi(param)
 		wait 2
 		inobj_aturlimit.Click
 		Call LoopUntil()
-		do
-		inobj_pencilpembelian.Swipe "up",205,430
-		Loop until lbl_pembayaran.Exist
+'		do
+		list_downloadresi.Swipe "up",205,430
+		wait 2
+'		Loop until lbl_pembayaran.Exist
 		inobj_penciltariktunai.Click
 		wait 1
 		txt_carirekening.Set "1000000"

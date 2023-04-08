@@ -3,7 +3,7 @@
 Call Path_Folder()
 Call InitiateReact_V2_1(CoverTitle, "Bayar Beli  - Aqiqah", CompanyLogo, projectName, "Automation Testing", "BSI SuperApps Aqiqah")
 
-Call react.Addtitle("BSI SuperApps - Aqiqah Wanita Toogle Off - Negative")
+Call react.Addtitle("BSI SuperApps - Aqiqah Pria Toogle Off - Negative")
 Call AqiqahNegative("dompet","pria","off")
 Call SaveReact_Merge()	
 

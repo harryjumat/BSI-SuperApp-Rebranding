@@ -345,3 +345,293 @@ Function SocialMedia()
 	Call LoopUntil(btn_facebook)
 	Call Capture(btn_facebook,"Dev","Social Media","Berhasil menampikan social media")
 End Function
+
+'MENU NYA DI MEGA MENU
+Function ManagementKartuDebit(x,kartu,alamat)
+	If x = "Request" Then
+		
+	End If
+	
+	If x = "Aktivasi" Then
+		
+	End If
+	
+	If x = "UbahPIN" Then
+		
+	End If
+	
+	If x = "Blokir" Then
+		
+	End If
+End Function
+
+Function SanggahanTransaksi(x)
+	If x = "Pelaporan Transaksi" Then
+		lbl_HA.Tap
+		Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik pelaporan transaksi")
+		btn_objlist.Swipe "up",205,430
+		wait 2
+		inobj_pelaporantransaksi.Click
+		Call LoopUntil()		
+		Call Capture(lbl_buatlaporan,"Dev","Pelaporan Transaksi","Berhasil menampilkan halaman pealporan transaksi, klik buat laporan")
+		lbl_buatlaporan.Tap
+		Call LoopUntil()
+		Call Capture(lbl_buatlaporan,"Dev","Tabungan Sumber","Berhasil menampilkan list tabungan sumber, cari dan pilih tabungan sumber")
+		txt_alamatemail.Set "759"
+		wait 1
+		lbl_easywadiah.Tap
+		Call LoopUntil()
+		Call Capture(lbl_lanjutkan,"Dev","List Transaksi","Berhasil menampilkan list transaksi, pilih transaksi yang diinginkan")
+		inobj_nominallisttrsansaksi.Click
+		Call LoopUntil()
+		Call Capture(lbl_lanjutkan,"Dev","Form Masalah Transaksi","Berhasil menampilkan halaman form masalah transaksi, pilih topik keluhan")
+		lbl_topikkeluhan.Tap
+		Call LoopUntil()
+		Call Capture(lbl_pembayarangagal,"Dev","Topik Keluhan","Berhasil menampilkan list topik keluhan, pilih topik keluhan") 'example: pembayaran gagal
+		lbl_pembayarangagal.Tap
+		wait 2
+		Call Capture(lbl_lanjutkan,"Dev","Form Masalah Transaksi","Berhasil memilih topik keluhan, klik lanjutkan")
+		lbl_lanjutkan.Tap
+		Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
+		lbl_1.Tap
+		lbl_2.Tap
+		lbl_3.Tap
+		lbl_4.Tap
+		lbl_5.Tap
+		lbl_6.Tap
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Animasi Loading Konfirmasi PIN","Berhasil menampilkan animasi konfirmasi PIN", ReportStatus.Passed)
+		Call LoopUntil()
+		Call Capture(lbl_selesai,"Dev","Gagal Pembayaran","Berhasil menampilkan halaman gagal pembyaran")
+	End If
+	
+	If x = "Pelaporan Melalui Mutasi" Then
+		Call Login()
+		lbl_easymudharabah.Tap
+		Call LoopUntil()
+		Call Capture(lbl_Rp15000,"Dev","Banner Rekening Nasabah","Berhasil menampilkan banner rekening nasabah, klik transaksi yang diinginkan pada list transaksi")
+		lbl_Rp15000.Tap
+		Call LoopUntil()
+		Call Capture(btn_arrow,"Dev","Detail Transaksi","Berhasil menampilkan halaman resi, klik panah bawah detail transaksi")
+		btn_arrow.Tap
+		wait 1
+		Call Capture(lbl_detailtransaksi,"Dev","Detail Resi","Berhasil menampilkan detail resi, klik ajukan laporan")	
+		list_detailresi.Swipe "up",205,430
+		Call LoopUntil()
+		lbl_ajukanlaporan.Tap
+		Call LoopUntil()
+		Call Capture(lbl_lanjutkan,"Dev","Form Masalah Transaksi","Berhasil menampilkan halaman form masalah transaksi, pilih topik keluhan")
+		lbl_topikkeluhan.Tap
+		Call LoopUntil()
+		Call Capture(lbl_pembayarangagal,"Dev","Topik Keluhan","Berhasil list topik keluhan, pilih topik keluhan")
+		lbl_pembayarangagal.Tap
+		wait 2
+		Call Capture(lbl_lanjutkan,"Dev","Form Masalah Transaksi","Berhasil memilih topik keluhan, klik lanjutkan")
+		lbl_lanjutkan.Tap
+		Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
+		lbl_1.Tap
+		lbl_2.Tap
+		lbl_3.Tap
+		lbl_4.Tap
+		lbl_5.Tap
+		lbl_6.Tap
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Animasi Loading Konfirmasi PIN","Berhasil menampilkan animasi konfirmasi PIN", ReportStatus.Passed)
+		Call LoopUntil()
+		Call Capture(lbl_selesai,"Dev","Gagal Pembayaran","Berhasil menampilkan halaman gagal pembyaran")
+		End If
+	
+	If x = "Pelaporan Melalui Pusat Bantuan" Then
+		lbl_HA.Tap
+		Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik pelaporan transaksi")
+		btn_objlist.Swipe "up",205,430
+		wait 2
+		inobj_pusatbantuan.Click
+		Call Capture(lbl_buatlaporan,"Dev","Pusat Bantuan","Berhasil menampilkan halaman pusat bantuan, klik lapor")
+		list_pusatbantuan.Swipe "up",205,430
+		wait 2
+		btn_lapor.Tap
+		Call LoopUntil()
+		Call Capture(lbl_buatlaporan,"Dev","Pelaporan Transaksi","Berhasil menampilkan halaman pelaporan transaksi, klik icon riwayat")
+		inobj_iconriwayat.Click
+		Call LoopUntil()
+		Call Capture(lbl_buatlaporan,"Dev","Riwayat Pelaporan Transaksi","Berhasil menampilkan halaman riwayat pelaporan transaksi, klik icon back")
+		inobj_iconback.Click
+		Call LoopUntil()		
+		Call Capture(lbl_buatlaporan,"Dev","Pelaporan Transaksi","Berhasil menampilkan halaman pealporan transaksi, klik buat laporan")
+		lbl_buatlaporan.Tap
+		Call LoopUntil()
+		Call Capture(lbl_buatlaporan,"Dev","Tabungan Sumber","Berhasil menampilkan list tabungan sumber, cari dan pilih tabungan sumber")
+		txt_alamatemail.Set "759"
+		wait 1
+		lbl_easywadiah.Tap
+		Call LoopUntil()
+		Call Capture(lbl_buatlaporan,"Dev","List Transaksi Gagal","Berhasil menampilkan list transaksi gagal, pilih icon kalender")
+		inobj_iconkalender.Click
+		wait 1
+		Call Capture(lbl_pilihtanggal,"Dev","Kalender","Berhasil menampilkan kalender, pilih durasi tanggal")
+		inobj_tanggal1.Click
+		wait 1
+		inobj_tanggalsekarang.Click
+		wait 1
+		Call Capture(lbl_pilihtanggal,"Dev","Pilih Tanggal","Berhasil memilih tanggal, klik pilih")
+		lbl_pilih.Tap
+		wait 1
+		Call Capture(lbl_buatlaporan,"Dev","Filter","Berhasil menampilkan drawer filter, pilih jenis transaksi")
+		lbl_semua.Tap
+		Call LoopUntil()
+		Call Capture(lbl_buatlaporan,"Dev","Jenis Transaksi","Berhasil menampilkan list jenis transaksi, pilih semua")
+		inobj_pilihsemua.Click
+		wait 1
+		Call Capture(lbl_buatlaporan,"Dev","Pilih Semua","Berhasil memilih semua jenis transaksi, klik simpan")
+		lbl_simpan.Tap
+		Call LoopUntil()
+		Call Capture(lbl_buatlaporan,"Dev","Filter","Berhasil memilih jenis transaksi, masukkan nominal terkecil")
+		inobj_txtdari.Click
+		wait 1
+		Device("Device").Enterkeys typeValue, "1"
+		wait 1
+		Call Capture(lbl_terapkan,"Dev","Nominal Terkecil","Berhasil input nominal terkecil, masukkan nominal terbesar")
+		txt_sampai.Set "1000000"
+		Call Capture(lbl_terapkan,"Dev","Nominal Terbesar","Berhasil input nominal terbesar, klik reset")
+		inobj_reset
+		Call Capture(lbl_terapkan,"Dev","Reset","Berhasil melakukan reset filter, pilih jenis transaksi")
+		lbl_semua.Tap
+		Call LoopUntil()
+		Call Capture(lbl_buatlaporan,"Dev","Jenis Transaksi","Berhasil menampilkan list jenis transaksi, pilih semua")
+		inobj_pilihsemua.Click
+		wait 1
+		Call Capture(lbl_buatlaporan,"Dev","Pilih Semua","Berhasil memilih semua jenis transaksi, klik simpan")
+		lbl_simpan.Tap
+		Call LoopUntil()
+		Call Capture(lbl_buatlaporan,"Dev","Filter","Berhasil memilih jenis transaksi, masukkan nominal terkecil")
+		inobj_txtdari.Click
+		wait 1
+		Device("Device").Enterkeys typeValue, "1"
+		wait 1
+		Call Capture(lbl_terapkan,"Dev","Nominal Terkecil","Berhasil input nominal terkecil, masukkan nominal terbesar")
+		txt_sampai.Set "1000000"
+		Call Capture(lbl_terapkan,"Dev","Nominal Terbesar","Berhasil input nominal terbesar, klik terapkan")
+		lbl_terapkan.Tap
+		wait 10
+		Call Capture(inobj_nominallisttrsansaksi,"Dev","List Transaksi","Berhasil menerapkan filter, klik transaksi yang diinginkan")
+		inobj_nominallisttrsansaksi.Click
+		Call LoopUntil()
+		Call Capture(lbl_lanjutkan,"Dev","Form Masalah Transaksi","Berhasil menampilkan halaman form masalah transaksi, pilih topik keluhan")
+		lbl_topikkeluhan.Tap
+		Call LoopUntil()
+		Call Capture(lbl_pembayarangagal,"Dev","Topik Keluhan","Berhasil menampilkan list topik keluhan, pilih topik keluhan")
+		lbl_pembayarangagal.Tap
+		wait 2
+		Call Capture(lbl_lanjutkan,"Dev","Form Masalah Transaksi","Berhasil memilih topik keluhan, klik lanjutkan")
+		lbl_lanjutkan.Tap
+		Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
+		lbl_1.Tap
+		lbl_2.Tap
+		lbl_3.Tap
+		lbl_4.Tap
+		lbl_5.Tap
+		lbl_6.Tap
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Animasi Loading Konfirmasi PIN","Berhasil menampilkan animasi konfirmasi PIN", ReportStatus.Passed)
+		Call LoopUntil()
+		Call Capture(lbl_selesai,"Dev","Gagal Pembayaran","Berhasil menampilkan halaman gagal pembyaran")
+	End If
+	
+	If x = "Riwayat Pelaporan" Then
+		
+	End If
+End Function
+
+Function SanggahanTransaksiNegative(x)
+	If x = "Pelaporan Transaksi" Then
+		
+	End If
+	
+	If x = "Pelaporan Melalui Mutasi" Then
+		
+	End If
+	
+	If x = "Pelaporan Melalui Pusat Bantuan" Then
+		'Input Nominal 0 Rupiah
+		Call react.Addtitle("Input Nominal 0 Rupiah")
+		lbl_HA.Tap
+		Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik pelaporan transaksi")
+		btn_objlist.Swipe "up",205,430
+		wait 2
+		inobj_pelaporantransaksi.Click
+		Call LoopUntil()		
+		Call Capture(lbl_buatlaporan,"Dev","Pelaporan Transaksi","Berhasil menampilkan halaman pealporan transaksi, klik buat laporan")
+		lbl_buatlaporan.Tap
+		Call LoopUntil()
+		Call Capture(lbl_buatlaporan,"Dev","Tabungan Sumber","Berhasil menampilkan list tabungan sumber, cari dan pilih tabungan sumber")
+		txt_alamatemail.Set "759"
+		wait 1
+		lbl_easywadiah.Tap
+		Call LoopUntil()
+		Call Capture(lbl_buatlaporan,"Dev","List Transaksi Gagal","Berhasil menampilkan list transaksi gagal, pilih icon kalender")
+		inobj_iconkalender.Click
+		wait 1
+		Call Capture(lbl_pilihtanggal,"Dev","Kalender","Berhasil menampilkan kalender, pilih durasi tanggal")
+		inobj_tanggal1.Click
+		wait 1
+		inobj_tanggalsekarang.Click
+		wait 1
+		Call Capture(lbl_pilihtanggal,"Dev","Pilih Tanggal","Berhasil memilih tanggal, klik pilih")
+		lbl_pilih.Tap
+		wait 1
+		Call Capture(lbl_buatlaporan,"Dev","Filter","Berhasil menampilkan drawer filter, pilih jenis transaksi")
+		lbl_semua.Tap
+		Call LoopUntil()
+		Call Capture(lbl_buatlaporan,"Dev","Jenis Transaksi","Berhasil menampilkan list jenis transaksi, pilih semua")
+		inobj_pilihsemua.Click
+		wait 1
+		Call Capture(lbl_buatlaporan,"Dev","Pilih Semua","Berhasil memilih semua jenis transaksi, klik simpan")
+		lbl_simpan.Tap
+		Call LoopUntil()
+		Call Capture(lbl_buatlaporan,"Dev","Filter","Berhasil memilih jenis transaksi, masukkan nominal terkecil dan terbesar")
+'		inobj_txtdari.Click
+		wait 1
+'		Device("Device").Enterkeys typeValue, "0"
+		wait 1
+		Call Capture(lbl_terapkan,"Dev","Nominal Terkecil 0 Rupiah","Gagal input nominal 0")
+		
+		'cek button lanjutkan saat tidak pilh topik keluhan
+		Call react.Addtitle("Cek Button Lanjutkan Saat Tidak Pilih Topik Keluhan")
+		lbl_HA.Tap
+		Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik pelaporan transaksi")
+		btn_objlist.Swipe "up",205,430
+		wait 2
+		inobj_pusatbantuan.Click
+		Call Capture(lbl_buatlaporan,"Dev","Pusat Bantuan","Berhasil menampilkan halaman pusat bantuan, klik lapor")
+		list_pusatbantuan.Swipe "up",205,430
+		wait 2
+		btn_lapor.Tap
+		Call LoopUntil()
+		Call Capture(lbl_buatlaporan,"Dev","Pelaporan Transaksi","Berhasil menampilkan halaman pelaporan transaksi, klik buat laporan")
+		lbl_buatlaporan.Tap
+		Call LoopUntil()
+		Call Capture(lbl_buatlaporan,"Dev","Tabungan Sumber","Berhasil menampilkan list tabungan sumber, cari dan pilih tabungan sumber")
+		txt_alamatemail.Set "759"
+		wait 1
+		lbl_easywadiah.Tap
+		Call LoopUntil()
+		Call Capture(lbl_buatlaporan,"Dev","List Transaksi Gagal","Berhasil menampilkan list transaksi, pilih transaksi yang diinginkan")
+		inobj_nominallisttrsansaksi.Click
+		Call LoopUntil()
+		Call Capture(lbl_lanjutkan,"Dev","Form Masalah Transaksi","Berhasil menampilkan halaman form masalah transaksi, pilih topik keluhan")
+		lbl_topikkeluhan.Tap
+		Call LoopUntil()
+		Call Capture(lbl_pembayarangagal,"Dev","Topik Keluhan","Berhasil menampilkan button lanjutkan yang terdisable")
+		
+		'cek button lanjutkan saat tidak pilh topik keluhan
+		Call react.Addtitle("Cek Button Lanjutkan Saat Tidak Pilih Topik Keluhan")
+		
+		'Menampilkan pop up pemberitahuan PIN salah 1x
+		Call react.Addtitle("Menampilkan Pop Up Pemberitahuan PIN Salah 1x")
+		
+		
+		
+	End If
+	
+	If x = "Riwayat Pelaporan" Then
+		
+	End If
+End Function

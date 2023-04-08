@@ -16,6 +16,8 @@ Univ Andalas - Positive=Action1\Script.mts
 Univ Andalas - Negative=Action2\Script.mts
 Univ Ahmad Dahlan - Positive=Action3\Script.mts
 Univ Ahmad Dahlan - Negative=Action4\Script.mts
+UIN STS Jambi - Positive=Action5\Script.mts
+UIN STS Jambi - Negative=Action6\Script.mts
 
 [VuserProfiles]
 Profiles=Default Profile
@@ -73,3 +75,9 @@ Action3\ObjectRepository.bdb=
 Action4\Script.mts=
 Action4\Resource.mtr=
 Action4\ObjectRepository.bdb=
+Action5\Script.mts=
+Action5\Resource.mtr=
+Action5\ObjectRepository.bdb=
+Action6\Script.mts=
+Action6\Resource.mtr=
+Action6\ObjectRepository.bdb=
