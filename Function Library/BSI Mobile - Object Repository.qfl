@@ -180,7 +180,17 @@ Set inobj_dana				= Device("Device").InsightObject("inobj dana")
 Set inobj_gopay				= Device("Device").InsightObject("inobj gopay")
 Set inobj_linkaja				= Device("Device").InsightObject("inobj linkaja")
 Set inobj_linkajasyariah		= Device("Device").InsightObject("inobj linkajasyariah")
-Set inobj_ovo				= Device("Device").InsightObject("inobj ovo")
+Set lbl_ewalletovo			= Device("Device").App("Dev").MobileLabel("9. EWallet Ovo")
+Set ai_bpjs					= AIUtil.FindTextBlock("BPJS")
+Set lbl_bpjsbpu				= Device("Device").App("Dev").MobileLabel("BPJS Ketenagakerjaan BPU")
+Set lbl_jumlahbulan			= Device("Device").App("Dev").MobileLabel("Jumlah bulan")
+Set lbl_bpjspu				= Device("Device").App("Dev").MobileLabel("BPJS Ketenagakerjaan PU")
+Set lbl_bpjsadvice			= Device("Device").App("Dev").MobileLabel("BPJS Kesehatan - Advice")
+Set lbl_bpjskesehatan			= Device("Device").App("Dev").MobileLabel("BPJS Kesehatan")
+Set lbl_uad					= Device("Device").App("Dev").MobileLabel("9003 - UAD Universitas A")
+Set lbl_bayarid				= Device("Device").App("Dev").MobileLabel("Bayar ID 5050")
+
+
 
 
 
@@ -243,7 +253,7 @@ Set lbl_topikkeluhan			= Device("Device").App("Dev").MobileLabel("Topik Keluhan"
 Set lbl_pembayarangagal		= Device("Device").App("Dev").MobileLabel("Pembayaran Gagal")
 Set lbl_selesai				= Device("Device").App("Dev").MobileLabel("Selesai")
 Set inobj_pelaporantransaksi	= Device("Device").InsightObject("inobj pelaporantransaksi")
-Set btn_objlist				= Device("Device").App("Dev").MobileObject("MobileObject")
+Set btn_objlist				= Device("Device").App("Dev").MobileView("MobileView")'.ScrollOnePage
 Set lbl_buatlaporan			= Device("Device").App("Dev").MobileLabel("Buat Laporan")
 Set inobj_pusatbantuan		= Device("Device").InsightObject("inobj pusat bantuan")
 Set list_pusatbantuan			= Device("Device").App("Dev").MobileList("MobileList")
@@ -263,6 +273,33 @@ Set inobj_tanggal1			= Device("Device").InsightObject("inobj tanggal1")
 Set inobj_tanggalsekarang		= Device("Device").InsightObject("inobj tanggalsekarang")
 Set inobj_iconriwayat			= Device("Device").InsightObject("inobj iconriwayat")
 Set inobj_iconback			= Device("Device").InsightObject("inobj iconback")
+Set btn_megamenu			= Device("Device").App("Dev").MobileButton("btn_megamenu")
+Set ai_manajemenkartu		= AIUtil.FindTextBlock("Manajemen")
+Set btn_tambahkartu			= Device("Device").App("Dev").MobileButton("btn tambahkartu")
+Set lbl_kartudebit				= Device("Device").App("Dev").MobileLabel("Kartu Debit")
+Set btn_pilihkartu				= Device("Device").App("Dev").MobileButton("btn pilihkartu")
+Set lbl_triosaputra			= Device("Device").App("Dev").MobileLabel("TRIO SAPUTRA")
+Set lbl_alamatdomisili			= Device("Device").App("Dev").MobileLabel("Kirim ke alamat domisili")
+Set lbl_alamatbaru			= Device("Device").App("Dev").MobileLabel("Kirim ke alamat baru")
+Set lbl_detailpengiriman		= Device("Device").App("Dev").MobileLabel("Detail Pengiriman")
+Set lbl_provinsi				= Device("Device").App("Dev").MobileLabel("Provinsi")
+Set ai_txt_alamatdomisili		= AIUtil("text_box", "Q Cari Provinsi")
+Set lbl_dkijakarta				= Device("Device").App("Dev").MobileLabel("Dki Jakarta")
+Set lbl_jakartapusat			= Device("Device").App("Dev").MobileLabel("Kota Jakarta Pusat")
+Set lbl_kemayoran			= Device("Device").App("Dev").MobileLabel("Kemayoran")
+Set lbl_sumurbatu			= Device("Device").App("Dev").MobileLabel("Sumur Batu")
+Set ai_txt_detailalamat		= AIUtil("text_box", "Detail Alamat (No.rumah/Blok)")
+Set btn_done					= Device("Device").App("Dev").MobileButton("done")
+Set ai_txt_RT					= AIUtil("text_box", "RT")
+Set ai_txt_RW				= AIUtil("text_box", "RW")
+Set ai_txt_kodepos			= AIUtil("text_box", "Kode Pos")
+Set btn_selesai				= Device("Device").App("Dev").MobileButton("Selesai")
+Set btn_pelaporantransaksi	= Device("Device").App("Dev").MobileButton("btn_pelaporantransaksi")
+Set inobj_listtransaksi			= Device("Device").InsightObject("inobj_listtransaksi")
+Set inobj_detailtransaksi		= Device("Device").InsightObject("inobj_detailtransaksi")
+
+
+
 
 'ACC REKENING
 Set lbl_easymudharabah		= Device("Device").App("Dev").MobileLabel("Easy Mudharabah")
@@ -347,6 +384,18 @@ Set lbl_geraiindomaret				= Device("Device").App("Dev").MobileLabel("Gerai Indom
 Set inobj_tariktunaiberhasilindomaret	= Device("Device").InsightObject("inobj tariktukaiberhasilindomaret")
 Set lbl_lewatiinfaq					= Device("Device").App("Dev").MobileLabel("Lewati Infaq")
 Set lbl_200000						= Device("Device").App("Dev").MobileLabel("Rp 200.000")
+Set inobj_notifikasiinfaq				= Device("Device").InsightObject("inobj_notifikasiinfaq")
+
+
+'HOMESCREEN
+Set lbl_lewatiinfaq					= Device("Device").App("Dev").MobileLabel("Lewati Infaq")
+Set txt_nominal						= Device("Device").App("Dev").MobileEdit("txt_nominal")
+Set lbl_favorit						= Device("Device").App("Dev").MobileLabel("Favorit")
+Set inobj_iconfavorite					= Device("Device").InsightObject("inobj_iconfavorit")
+Set inobj_iconback					= Device("Device").InsightObject("inobj_iconback")
+Set inobj_ovo						= Device("Device").InsightObject("inobj_ovo")
+Set inobj_ewalletovo					= Device("Device").InsightObject("inobj_ewalletobvo")
+
 
 
 

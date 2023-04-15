@@ -1,0 +1,165 @@
+﻿Function FlowFavouriteDashboard()
+	Call Login()
+	Call Navigate("Bayar Beli")
+	ai_ewallet.Click
+	Call LoopUntil()
+	Call Capture(lbl_dana,"Dev","Pilih E-Wallet","Berhasil menampilkan list E-Wallet, pilih merchant")
+	txt_nomorhandphone.Set "ovo"
+	lbl_ovo.Tap
+	Call LoopUntil()	
+	Call Capture(lbl_namamerchant,"Dev","Merchant","Berhasil menampilkan halaman merchant, klik icon kontak")
+	btn_selesai.Tap
+	wait 3
+	inobj_iconkontak.Click
+	Call LoopUntil()
+	Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
+	txt_cari.Set "ovo"
+	wait 1	
+	inobj_ewalletovo.Click
+	Call Loopuntil()
+	Call Capture(lbl_ponsel,"Dev","Nomor Kontak","Berhasil menampilkan nomor kontak, pilih nomor")
+	lbl_ponsel.Tap
+	wait 1
+	Call Capture(lbl_lanjutkan,"Dev","Nomor Handphone/VirtualAccount","Berhasil memasukkan nomor handphone/virtual account, klik lanjutkan")
+	lbl_lanjutkan.Tap
+	Call LoopUntil()
+	Call Capture(lbl_easymudharabah,"Dev","Nominal","Berhasil menampilkan halaman input nominal, masukkan nominal")
+	txt_nomorhandphone.Set "10000"
+	btn_selesai.Tap
+	wait 1
+	Call Capture(lbl_easymudharabah,"Dev","Berhasil Input Nominal","Berhasil memasukkan nominal, pilih sumber rekening")
+	Call TabunganSumber("transaksi")
+	Call LoopUntil()
+	Call Capture(lbl_lanjutkan,"Dev","Berhasil Pilih Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
+	lbl_lanjutkan.Tap
+	Call LoopUntil()
+	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
+	Call LoopUntil()
+	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
+	lbl_1.Tap
+	lbl_2.Tap
+	lbl_3.Tap
+	lbl_4.Tap
+	lbl_5.Tap
+	lbl_6.Tap
+	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Animasi Loading Konfirmasi PIN","Berhasil menampilkan animasi konfirmasi PIN", ReportStatus.Passed)
+	wait 5
+	Call LoopUntil()
+	Call Capture(btn_arrow,"Dev","Transaksi Berhasil","Berhasil menampilkan halaman resi, klik panah bawah detail transaksi")
+	btn_arrow.Tap
+	wait 1
+	Call Capture(lbl_detailtransaksi,"Dev","Detail Resi","Berhasil menampilkan detail resi, klik download untuk mendownload resi")	
+	do
+	list_detailresi.Swipe "up",205,430
+	wait 1
+	Loop until lbl_download.Exist
+	lbl_download.Tap
+	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Download Resi","Berhasil mendownload resi, klik bagikan resi", ReportStatus.Passed)
+	If lbl_nomortransaksi.Exist Then
+		nomorFT = Device("Device").App("Dev").MobileLabel("resi ewallet").GetROProperty("text")
+	else
+		list_detailresi.Swipe "up",205,430
+		wait 1
+		nomorFT = Device("Device").App("Dev").MobileLabel("resi ewallet").GetROProperty("text")
+	End If
+	print(nomorFT)
+	do
+	list_downloadresi.Swipe "up",205,430
+	wait 1
+	Loop until lbl_bagikanresi.Exist
+	lbl_bagikanresi.Tap
+	Call Capture(btn_tutup,"Dev","Bagikan Resi","Berhasil menampilkan drawer bagikan resi, klik tombol kembali")
+	
+	'MENU INFAQ
+	btn_tutup.Tap
+	Call LoopUntil()
+	Call Capture(lbl_panahkembali,"Dev","Download Resi","Berhasil klik kembali, kembali ke halaman detail resi")
+	lbl_panahkembali.Tap
+	Call LoopUntil()
+	Call Capture(btn_lanjutkan,"Dev","Transaksi Berhasil","Berhasil kembali ke halaman resi")
+	btn_lanjutkan.Tap
+	Call LoopUntil()
+	Call Capture(lbl_lewatiinfaq,"Dev","Menu Infaq","Berhasil menampilkan halaman infaq, klik lewati infaq")
+	lbl_lewatiinfaq.Tap
+	Call LoopUntil()
+	
+	Call Capture(lbl_tampilkanlebihbanyak,"Dev","Dashboard","Berhasil menampilkan dashboard, klik bayar & beli")
+	AIUtil.FindTextBlock("Bayar & Beli").Click
+	Call LoopUntil()
+	Call Capture(lbl_tampilkanlebihbanyak,"Dev","Bayar&Beli","Berhasil menampilkan menu bayar & beli, pada tab riwayat, klik icon bintang pada tab riwayat ovo")
+	inobj_iconfavorite.Click
+	wait 1
+	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Riwayat Transaksi","Berhasil klik favorite pada transaksi ovo, klik tab favorit", ReportStatus.Passed)
+	lbl_favorit.Tap
+	wait 1
+	Call Capture(lbl_tampilkanlebihbanyak,"Dev","Favorit","Berhasil menampilkan list favorite pada tab favorit, klik icon panah untuk kembali ke menu dashboard")
+	inobj_iconback.Click
+	Call LoopUntil()
+	
+	Call Capture(lbl_tampilkanlebihbanyak,"Dev","Dashboard","Berhasil kembali ke menu dashboard dan menampilkan list favorite ovo, klik favorite transaksi ovo")
+	inobj_ovo.Click
+	Call LoopUntil()
+	Call Capture(lbl_selesai,"Dev","Masukkan Nominal","Berhasil menampilkan menu top up e-wallet, masukkan nominal")
+	txt_nominal.Set "10000"
+	lbl_selesai.Tap
+	wait 1
+	Call Capture(lbl_selesai,"Dev","Sumber Tabungan","Berhasil memasukkan nominal, klik ubah untuk memilih sumber tabungan")
+	Call TabunganSumber("transaksi")
+	Call Capture(lbl_selesai,"Dev","Lanjutkan","Berhasil memilih sumber tabungan, klik lanjutkan")
+	lbl_lanjutkan.Tap
+	Call LoopUntil()
+	Call Capture(lbl_selesai,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
+	Call LoopUntil()
+	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
+	lbl_1.Tap
+	lbl_2.Tap
+	lbl_3.Tap
+	lbl_4.Tap
+	lbl_5.Tap
+	lbl_6.Tap
+	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Animasi Loading Konfirmasi PIN","Berhasil menampilkan animasi konfirmasi PIN", ReportStatus.Passed)
+	wait 5
+	Call LoopUntil()
+	Call Capture(btn_arrow,"Dev","Transaksi Berhasil","Berhasil menampilkan halaman resi, klik panah bawah detail transaksi")
+	btn_arrow.Tap
+	wait 1
+	Call Capture(lbl_detailtransaksi,"Dev","Detail Resi","Berhasil menampilkan detail resi, klik download untuk mendownload resi")	
+	do
+	list_detailresi.Swipe "up",205,430
+	wait 1
+	Loop until lbl_download.Exist
+	lbl_download.Tap
+	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Download Resi","Berhasil mendownload resi, klik bagikan resi", ReportStatus.Passed)
+	If lbl_nomortransaksi.Exist Then
+		nomorFTInfaq = Device("Device").App("Dev").MobileLabel("resi ewallet").GetROProperty("text")
+	else
+		list_detailresi.Swipe "up",205,430
+		wait 1
+		nomorFTInfaq = Device("Device").App("Dev").MobileLabel("resi ewallet").GetROProperty("text")
+	End If
+	print(nomorFT2)
+	do
+	list_downloadresi.Swipe "up",205,430
+	wait 1
+	Loop until lbl_bagikanresi.Exist
+	lbl_bagikanresi.Tap
+	Call Capture(btn_tutup,"Dev","Bagikan Resi","Berhasil menampilkan drawer bagikan resi, klik tombol kembali")
+	
+	'MENU INFAQ
+	btn_tutup.Tap
+	Call LoopUntil()
+	Call Capture(lbl_panahkembali,"Dev","Download Resi","Berhasil klik kembali, kembali ke halaman detail resi")
+	lbl_panahkembali.Tap
+	Call LoopUntil()
+	Call Capture(btn_lanjutkan,"Dev","Transaksi Berhasil","Berhasil kembali ke halaman resi")
+	btn_lanjutkan.Tap
+	Call LoopUntil()
+	Call Capture(lbl_lewatiinfaq,"Dev","Menu Infaq","Berhasil menampilkan halaman infaq")
+	
+	Call cekMutasi("Flow Favorite Dashboard Transaksi 1", nomorFT)
+	Call cekJurnal("Flow Favorite Dashboard Transaksi 1", nomorFT)
+	Call cekMutasi("Flow Favorite Dashboard Transaksi 2", nomorFTInfaq)
+	Call cekJurnal("Flow Favorite Dashboard Transaksi 2", nomorFTInfaq)
+End Function

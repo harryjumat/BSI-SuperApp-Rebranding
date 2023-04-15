@@ -4,14 +4,10 @@
 	AIUtil.FindTextBlock("Pulsa &").Click
 	Call LoopUntil()
 	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik icon kontak")
-'	If inobj_iconkontak.Exist Then
-		inobj_iconkontak.Click
-'	End If
+	inobj_iconkontak.Click
 	Call LoopUntil()
 	Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
-'	If txt_cari.Exist Then
-		txt_cari.Set param
-'	End If
+	Device("Device").App("Dev").MobileEdit("Cari").Set param
 	wait 1
 	Select Case param
 		Case "Telkomsel"			inobj_telkomsel.Click
@@ -60,70 +56,7 @@
 End Function
 
 Function PulsaNegative(param)
-'	'PERIZINAN KONTAK
-'	Call react.Addtitle("Perizinan Kontak")
-'	Call PengaturanPerizinan("kontak")
-'	Call Login()
-'	Call Navigate("Bayar Beli")
-'	AIUtil.FindTextBlock("Pulsa &").Click
-'	Call LoopUntil()
-'	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik icon kontak")
-'	If inobj_iconkontak.Exist Then
-'		inobj_iconkontak.Click	
-'	End If
-'	Call LoopUntil()
-'	Call Capture(lbl_izinkan,"Dev","Izin Akses Kontak","Berhasil menampilkan drawer perizinan kontak, klik izinkan")
-'	If lbl_izinkan.Exist Then
-'		lbl_izinkan.Tap
-'	End If
-'	Call Capture(btn_pengaturan,"Settings","Pengaturan Perizinan Kontak","Berhasil menampilkan menu pengaturan perizinan, klik toogle kontak untuk pengaktifkan izin")
-'	If inobj_kontaknonaktif.Exist Then
-'		inobj_kontaknonaktif.Click	
-'	End If
-'	Call Capture(inobj_kontak,"Dev","Izin Kontak Aktif","Berhasil mengaktifkan izin kontak")
-	
-'	'Validasi Nomor Telpon
-'	Call react.Addtitle("Validasi Nomor Telpon")
-'	Call Login()
-'	Call Navigate("Bayar Beli")
-'	AIUtil.FindTextBlock("Pulsa &").Click
-'	Call LoopUntil()
-'	If inobj_xsilangkecil.Exist Then
-'		inobj_xsilangkecil.Click
-'	End If
-'	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, masukkan nomor telpon")
-'	Select Case param
-'		Case "Telkomsel"			txt_cari.Set "1111"
-'		Case "XL"				txt_cari.Set "1111"
-'		Case "Tri"				txt_cari.Set "1111"
-'		Case "Indosat"			txt_cari.Set "1111"
-'		Case "Smartfren"			txt_cari.Set "1111"
-'	End Select
-'	wait 1
-'	
-'	'Nomor Telpon Kurang dari 10 Karakter
-'	Call react.Addtitle("Nomor Telpon Kurang dari 10 Karakter")
-'	Call Capture(lbl_pulsapaketdata,"Dev","Nomor Telpon Kurang dari 10 Karakter","Berhasil menampilkan helper text")
-	
-'	'Nomor Telpon Lebih dari 14 Karakter
-'	Call react.Addtitle("Nomor Telpon Lebih dari 14 Karakter")
-'	Call Login()
-'	Call Navigate("Bayar Beli")
-'	AIUtil.FindTextBlock("Pulsa &").Click
-'	Call LoopUntil()
-'	If inobj_xsilangkecil.Exist Then
-'		inobj_xsilangkecil.Click
-'	End If
-'	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, masukkan nomor telpon")
-'	Select Case param
-'		Case "Telkomsel"			txt_cari.Set "123456789123456"
-'		Case "XL"				txt_cari.Set "123456789123456"
-'		Case "Tri"				txt_cari.Set "123456789123456"
-'		Case "Indosat"			txt_cari.Set "123456789123456"
-'		Case "Smartfren"			txt_cari.Set "123456789123456"
-'	End Select
-'	Call Capture(lbl_pulsapaketdata,"Dev","Nomor Telpon Lebih dari 14 Karakter","Berhasil menampilkan helper text")
-'	
+
 	'Menghilangkan Tab Pulsa dan Paket Data
 	Call react.Addtitle("Menghilangkan Tab Pulsa & Paket Data")
 	Call Login()
@@ -135,79 +68,7 @@ Function PulsaNegative(param)
 	End If
 	wait 1
 	Call Capture(lbl_pulsapaketdata,"Dev","Menghilangkan Tab Pulsa dan Paket Data","Berhasil berhasil menghilangkan tab pulsa dan paket data")
-'	
-'	'Prefix Sesuai Dengan Provider dan Kurang dari 10 Karakter
-'	Call react.Addtitle("Prefix Sesuai Dengan Provider dan Kurang dari 10 Karakter")
-'	Call Login()
-'	Call Navigate("Bayar Beli")
-'	AIUtil.FindTextBlock("Pulsa &").Click
-'	Call LoopUntil()
-'	Select Case param
-'		Case "Telkomsel"			txt_cari.Set "0822123"
-'		Case "XL"				txt_cari.Set "0877123"
-'		Case "Tri"				txt_cari.Set "0895123"
-'		Case "Indosat"			txt_cari.Set "0856123"
-'		Case "Smartfren"			txt_cari.Set "0889123"
-'	End Select
-'	wait 1
-'	Call Capture(lbl_pulsapaketdata,"Dev","Prefix Sesuai Dengan Provider dan Kurang dari 10 Karakter","Berhasil menampilkan helper text")
-	
-'	'Nomor Tanpa Prefix
-'	Call react.Addtitle("Nomor Tanpa Prefix")
-'	Call Login()
-'	Call Navigate("Bayar Beli")
-'	AIUtil.FindTextBlock("Pulsa &").Click
-'	Call LoopUntil()
-'	If inobj_xsilangkecil.Exist Then
-'		inobj_xsilangkecil.Click
-'	End If
-'	wait 1
-'	If txt_cari.Exist Then
-'		txt_cari.Set "12345678910"
-'	End If
-'	wait 1
-'	Call Capture(lbl_pulsapaketdata,"Dev","Nomor Tanpa Prefix","Berhasil menampilkan helper text")
-	
-'	'Dengan Prefix dan Lebih dari 14 Karakter
-'	Call react.Addtitle("Dengan Prefix dan Lebih dari 14 Karakter")
-'	Call Login()
-'	Call Navigate("Bayar Beli")
-'	AIUtil.FindTextBlock("Pulsa &").Click
-'	Call LoopUntil()
-'	If inobj_xsilangkecil.Exist Then
-'		inobj_xsilangkecil.Click
-'	End If
-'	wait 1
-'	Select Case param
-'		Case "Telkomsel"			txt_cari.Set "082212345678901234567"
-'		Case "XL"				txt_cari.Set "087712345678901234567"
-'		Case "Tri"				txt_cari.Set "089512345678901234567"
-'		Case "Indosat"			txt_cari.Set "085612345678901234567"
-'		Case "Smartfren"			txt_cari.Set "088912345678901234567"
-'	End Select
-'	wait 1
-'	Call Capture(lbl_pulsapaketdata,"Dev","Dengan Prefix dan Lebih dari 14 Karakter","Berhasil menampilkan helper text")
-'	
-'	'Tanpa Prefix dan Lebih dari 14 Karakter
-'	Call react.Addtitle("Tanpa Prefix dan Lebih dari 14 Karakter")
-'	Call Login()
-'	Call Navigate("Bayar Beli")
-'	AIUtil.FindTextBlock("Pulsa &").Click
-'	Call LoopUntil()
-'	If inobj_xsilangkecil.Exist Then
-'		inobj_xsilangkecil.Click
-'	End If
-'	wait 1
-'	Select Case param
-'		Case "Telkomsel"			txt_cari.Set "123412345678901234567"
-'		Case "XL"				txt_cari.Set "123412345678901234567"
-'		Case "Tri"				txt_cari.Set "123412345678901234567"
-'		Case "Indosat"			txt_cari.Set "123412345678901234567"
-'		Case "Smartfren"			txt_cari.Set "123412345678901234567"
-'	End Select
-'	wait 1
-'	Call Capture(lbl_pulsapaketdata,"Dev","Tanpa Prefix dan Lebih dari 14 Karakter","Berhasil menampilkan helper text")
-	
+
 	'Notifikasi Nomor Telepon Salah
 	Call react.Addtitle("Notifikasi Nomor Telepon Salah")
 	Call Login()
@@ -222,9 +83,7 @@ Function PulsaNegative(param)
 	End If
 	Call LoopUntil()
 	Call Capture(lbl_kembali,"Dev","Notifikasi Nomor Telepon Salah", "Berhasil menampilkan notifikasi nomor telpon salah, klik kembali")
-	If lbl_kembali.Exist Then
-		lbl_kembali.Tap
-	End If
+	lbl_kembali.Tap
 	
 	'Saldo Kurang
 	Call react.Addtitle("Saldo Kurang")
@@ -233,14 +92,10 @@ Function PulsaNegative(param)
 	AIUtil.FindTextBlock("Pulsa &").Click
 	Call LoopUntil()
 	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik icon kontak")
-	If inobj_iconkontak.Exist Then
-		inobj_iconkontak.Click
-	End If
+	inobj_iconkontak.Click
 	Call LoopUntil()
 	Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
-	If txt_cari.Exist Then
-		txt_cari.Set param
-	End If
+	Device("Device").App("Dev").MobileEdit("Cari").Set param
 	wait 1
 	Select Case param
 		Case "Telkomsel"			inobj_telkomsel.Click
@@ -251,29 +106,22 @@ Function PulsaNegative(param)
 	End Select
 	Call Loopuntil()
 	Call Capture(lbl_ponsel,"Dev","Nomor Kontak","Berhasil menampilkan nomor kontak, pilih nomor")
-	If lbl_ponsel.Exist Then
-		lbl_ponsel.Tap
-	wait 1		
-	End If
+	lbl_ponsel.Tap
+	wait 1	
 	If btn_selesai.Exist Then
 		btn_selesai.Tap
-		wait 1
 	End If
+	wait 1
 	Call Capture(lbl_pilihnominal,"Dev","Sumber Rekening","Berhasil memilih nomor telepon, pilih sumber rekening")
-	do
-		list_denompulsa.Swipe "up",205,430
-		wait 1
-	Loop until lbl_lanjutkan.Exist
+	list_denompulsa.Swipe "up",205,430
 	If btn_selesai.Exist Then
 		btn_selesai.Tap
-		wait 1
 	End If
+	wait 1
 	Call TabunganSumber("kosong")
 	Call Capture(lbl_100000,"Dev","Denom","Berhasil memilih sumber rekening, pilih denom")	
 	wait 1
-	If inobj_100000.Exist Then
-		lbl_50000.Tap
-	End If
+	lbl_50000.Tap
 	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Snackbar Saldo Tidak Mencukupi", "Berhasil memilih sumber tabungan dan menampilkan snackbar saldo kurang dan button lanjutkan terdisable", ReportStatus.Passed)
 	
 	'Saldo Kurang Karena Biaya Admin
@@ -284,14 +132,10 @@ Function PulsaNegative(param)
 		AIUtil.FindTextBlock("Pulsa &").Click
 		Call LoopUntil()
 		Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik icon kontak")
-		If inobj_iconkontak.Exist Then
-			inobj_iconkontak.Click
-		End If
+		inobj_iconkontak.Click
 		Call LoopUntil()
 		Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
-		If txt_cari.Exist Then
-			txt_cari.Set param
-		End If
+		Device("Device").App("Dev").MobileEdit("Cari").Set param
 		wait 1
 		Select Case param
 			Case "Telkomsel"			inobj_telkomsel.Click
@@ -300,221 +144,22 @@ Function PulsaNegative(param)
 		End Select
 		Call Loopuntil()
 		Call Capture(lbl_ponsel,"Dev","Nomor Kontak","Berhasil nomor kontak, pilih nomor")
-		If lbl_ponsel.Exist Then
-			lbl_ponsel.Tap
-		End If
+		lbl_ponsel.Tap
 		Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil memilih nomor telepon, pilih denom yang diinginkan")
-		If inobj_100000.Exist Then
 		lbl_50000.Tap
-		End If
-		do
 		list_denompulsa.Swipe "up",205,430
-		Loop until lbl_lanjutkan.Exist
+		wait 3
 		Call Capture(lbl_lanjutkan,"Dev","Lanjutkan","Berhasil memilih denom, klik ubah untuk mengubah sumber tabungan")
-		Call TabunganSumber("100000")
+		Call TabunganSumber("50000")
 		Call LoopUntil()
 		Call Capture(lbl_lanjutkan,"Dev","Sumber Tabungan","Berhasil memilih sumber tabungan, klik lanjutkan")
-		If lbl_lanjutkan.Exist Then
-			lbl_lanjutkan.Tap		
-		End If
+		lbl_lanjutkan.Tap	
 		Call LoopUntil()
 		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-		If lbl_konfirmasi.Exist Then
-			lbl_konfirmasi.Tap
-		End If
+		lbl_konfirmasi.Tap
 		Call LoopUntil()
 		Call Capture(lbl_kembali,"Dev","Saldo Kurang Karena Biaya Admin","Berhasil menampilkan drawer saldo kamu tidak mencukupi")
 	End If
-	
-'	'Saldo Kurang
-'	Call react.Addtitle("Saldo Kurang")
-'	Call Login()
-'	Call Navigate("Bayar Beli")
-'	AIUtil.FindTextBlock("Pulsa &").Click
-'	Call LoopUntil()
-'	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik icon kontak")
-'	If inobj_iconkontak.Exist Then
-'		inobj_iconkontak.Click
-'	End If
-'	Call LoopUntil()
-'	Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
-'	If txt_cari.Exist Then
-'		txt_cari.Set param
-'	End If
-'	wait 1
-'	Select Case param
-'		Case "Telkomsel"			inobj_telkomsel.Click
-'		Case "XL"				inobj_xl.Click
-'		Case "Tri"				inobj_tri.Click
-'		Case "Indosat"			inobj_indosat.Click
-'		Case "Smartfren"			inobj_smartfren.Click
-'	End Select
-'	Call Loopuntil()
-'	Call Capture(lbl_ponsel,"Dev","Nomor Kontak","Berhasil nomor kontak, pilih nomor")
-'	If lbl_ponsel.Exist Then
-'		lbl_ponsel.Tap
-'	End If
-'	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil memilih nomor telepon, pilih denom yang diinginkan")
-'	do
-'		list_denompulsa.Swipe "up",205,430
-'	Loop until lbl_lanjutkan.Exist
-'	Call Capture(lbl_lanjutkan,"Dev","Lanjutkan","Berhasil memilih denom, klik ubah untuk mengubah sumber tabungan")
-'	Call TabunganSumber("kosong")
-'	Call LoopUntil()
-'	Call Capture(lbl_lanjutkan,"Dev","Sumber Tabungan","Berhasil memilih sumber tabungan, klik denom")
-'	If inobj_100000.Exist Then
-'		lbl_50000.Tap
-'	End If
-'	wait 1
-'	Call Capture(lbl_lanjutkan,"Dev","Saldo Kurang","Berhasil disable tombol lanjutkan")
-	
-	'Rekening Dormant
-	Call react.Addtitle("Rekening Dormant")
-	Call Login()
-	Call Navigate("Bayar Beli")
-	AIUtil.FindTextBlock("Pulsa &").Click
-	Call LoopUntil()
-	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik icon kontak")
-	If inobj_iconkontak.Exist Then
-		inobj_iconkontak.Click
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
-	If txt_cari.Exist Then
-		txt_cari.Set param
-	End If
-	wait 1
-	Select Case param
-		Case "Telkomsel"			inobj_telkomsel.Click
-		Case "XL"				inobj_xl.Click
-		Case "Tri"				inobj_tri.Click
-		Case "Indosat"			inobj_indosat.Click
-		Case "Smartfren"			inobj_smartfren.Click
-	End Select
-	Call Loopuntil()
-	Call Capture(lbl_ponsel,"Dev","Nomor Kontak","Berhasil nomor kontak, pilih nomor")
-	If lbl_ponsel.Exist Then
-		lbl_ponsel.Tap
-	End If
-	If lbl_kontak.Exist Then
-		Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil memilih nomor telepon, pilih denom yang diinginkan")
-	End If
-	If inobj_100000.Exist Then
-		lbl_50000.Tap
-	End If
-	do
-	list_denompulsa.Swipe "up",205,430
-	Loop until lbl_lanjutkan.Exist
-	Call Capture(lbl_lanjutkan,"Dev","Lanjutkan","Berhasil memilih denom, klik ubah untuk mengubah sumber tabungan")
-	Call TabunganSumber("dormant")
-	Call LoopUntil()
-	Call Capture(lbl_lanjutkan,"Dev","Sumber Tabungan","Berhasil memilih sumber tabungan, klik lanjutkan")
-	If lbl_lanjutkan.Exist Then
-		lbl_lanjutkan.Tap
-	End If
-	Call LoopUntil()
-	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	End If
-	If lbl_konfirmasi.Exist Then
-		lbl_konfirmasi.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-	If lbl_1.Exist Then
-		lbl_1.Tap
-	End If
-	If lbl_2.Exist Then
-		lbl_2.Tap
-	End If
-	If lbl_3.Exist Then
-		lbl_3.Tap
-	End If
-	If lbl_4.Exist Then
-		lbl_4.Tap
-	End If
-	If lbl_5.Exist Then
-		lbl_5.Tap
-	End If
-	If lbl_6.Exist Then
-		lbl_6.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening dormant")
-	
-	'Rekening Terblokir
-	Call react.Addtitle("Rekening Terblokir")
-	Call Login()
-	Call Navigate("Bayar Beli")
-	AIUtil.FindTextBlock("Pulsa &").Click
-	Call LoopUntil()
-	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik icon kontak")
-	If inobj_iconkontak.Exist Then
-		inobj_iconkontak.Click
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
-	If txt_cari.Exist Then
-		txt_cari.Set param
-	End If
-	wait 1
-	Select Case param
-		Case "Telkomsel"			inobj_telkomsel.Click
-		Case "XL"				inobj_xl.Click
-		Case "Tri"				inobj_tri.Click
-		Case "Indosat"			inobj_indosat.Click
-		Case "Smartfren"			inobj_smartfren.Click
-	End Select
-	Call Loopuntil()
-	Call Capture(lbl_ponsel,"Dev","Nomor Kontak","Berhasil nomor kontak, pilih nomor")
-	If lbl_ponsel.Exist Then
-		lbl_ponsel.Tap
-	End If
-	If lbl_kontak.Exist Then
-		Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil memilih nomor telepon, pilih denom yang diinginkan")
-	End If
-	If inobj_100000.Exist Then
-		lbl_50000.Tap
-	End If
-	do
-	list_denompulsa.Swipe "up",205,430
-	Loop until lbl_lanjutkan.Exist
-	Call Capture(lbl_lanjutkan,"Dev","Lanjutkan","Berhasil memilih denom, klik ubah untuk mengubah sumber tabungan")
-	Call TabunganSumber("blokir")
-	Call LoopUntil()
-	Call Capture(lbl_lanjutkan,"Dev","Sumber Tabungan","Berhasil memilih sumber tabungan, klik lanjutkan")
-	If lbl_lanjutkan.Exist Then
-		lbl_lanjutkan.Tap
-	End If
-	Call LoopUntil()
-	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	End If
-	If lbl_konfirmasi.Exist Then
-		lbl_konfirmasi.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-	If lbl_1.Exist Then
-		lbl_1.Tap
-	End If
-	If lbl_2.Exist Then
-		lbl_2.Tap
-	End If
-	If lbl_3.Exist Then
-		lbl_3.Tap
-	End If
-	If lbl_4.Exist Then
-		lbl_4.Tap
-	End If
-	If lbl_5.Exist Then
-		lbl_5.Tap
-	End If
-	If lbl_6.Exist Then
-		lbl_6.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening terblokir")
 	
 	'Salah PIN 1x
 	Call react.Addtitle("Salah PIN 1x")
@@ -523,14 +168,10 @@ Function PulsaNegative(param)
 	AIUtil.FindTextBlock("Pulsa &").Click
 	Call LoopUntil()
 	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik icon kontak")
-	If inobj_iconkontak.Exist Then
-		inobj_iconkontak.Click
-	End If
+	inobj_iconkontak.Click
 	Call LoopUntil()
 	Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
-	If txt_cari.Exist Then
-		txt_cari.Set param
-	End If
+	Device("Device").App("Dev").MobileEdit("Cari").Set param
 	wait 1
 	Select Case param
 		Case "Telkomsel"			inobj_telkomsel.Click
@@ -541,15 +182,9 @@ Function PulsaNegative(param)
 	End Select
 	Call Loopuntil()
 	Call Capture(lbl_ponsel,"Dev","Nomor Kontak","Berhasil menampilkan nomor kontak, pilih nomor")
-	If lbl_ponsel.Exist Then
-		lbl_ponsel.Tap
-	End If
-	If lbl_kontak.Exist Then
-		Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil memilih nomor telepon, pilih denom yang diinginkan")
-	End If
-	If inobj_100000.Exist Then
-		lbl_50000.Tap
-	End If
+	lbl_ponsel.Tap
+	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil memilih nomor telepon, pilih denom yang diinginkan")
+	lbl_50000.Tap
 	do
 	list_denompulsa.Swipe "up",205,430
 	Loop until lbl_lanjutkan.Exist
@@ -557,16 +192,10 @@ Function PulsaNegative(param)
 	Call TabunganSumber("transaksi")
 	Call LoopUntil()
 	Call Capture(lbl_lanjutkan,"Dev","Sumber Tabungan","Berhasil memilih sumber tabungan, klik lanjutkan")
-	If lbl_lanjutkan.Exist Then
-		lbl_lanjutkan.Tap
-	End If
+	lbl_lanjutkan.Tap
 	Call LoopUntil()
-	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	End If
-	If lbl_konfirmasi.Exist Then
-		lbl_konfirmasi.Tap
-	End If
+	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
 	Call SalahPIN()
 	
 	'Limit Harian
@@ -577,14 +206,10 @@ Function PulsaNegative(param)
 	AIUtil.FindTextBlock("Pulsa &").Click
 	Call LoopUntil()
 	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik icon kontak")
-	If inobj_iconkontak.Exist Then
-		inobj_iconkontak.Click
-	End If
+	inobj_iconkontak.Click
 	Call LoopUntil()
 	Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
-	If txt_cari.Exist Then
-		txt_cari.Set param
-	End If
+	Device("Device").App("Dev").MobileEdit("Cari").Set param
 	wait 1
 	Select Case param
 		Case "Telkomsel"			inobj_telkomsel.Click
@@ -595,15 +220,9 @@ Function PulsaNegative(param)
 	End Select
 	Call Loopuntil()
 	Call Capture(lbl_ponsel,"Dev","Nomor Kontak","Berhasil nomor kontak, pilih nomor")
-	If lbl_ponsel.Exist Then
-		lbl_ponsel.Tap
-	End If
-	If lbl_kontak.Exist Then
-		Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil memilih nomor telepon, pilih denom yang diinginkan")
-	End If
-	If inobj_100000.Exist Then
-		lbl_50000.Tap
-	End If
+	lbl_ponsel.Tap
+	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil memilih nomor telepon, pilih denom yang diinginkan")
+	lbl_50000.Tap
 	do
 	list_denompulsa.Swipe "up",205,430
 	Loop until lbl_lanjutkan.Exist
@@ -611,16 +230,10 @@ Function PulsaNegative(param)
 	Call TabunganSumber("transaksi")
 	Call LoopUntil()
 	Call Capture(lbl_lanjutkan,"Dev","Sumber Tabungan","Berhasil memilih sumber tabungan, klik lanjutkan")
-	If lbl_lanjutkan.Exist Then
-		lbl_lanjutkan.Tap
-	End If
+	lbl_lanjutkan.Tap
 	Call LoopUntil()
-	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	End If
-	If lbl_konfirmasi.Exist Then
-		lbl_konfirmasi.Tap
-	End If
+	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
 	Call LoopUntil()
 	Call Capture(lbl_kembali,"Dev","Limit Harian","Berhasil menampilkan drawer limit harian")
 	Call UnSetLimitHarian("pembelian")
@@ -633,14 +246,10 @@ Function PulsaNegative(param)
 	AIUtil.FindTextBlock("Pulsa &").Click
 	Call LoopUntil()
 	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik icon kontak")
-	If inobj_iconkontak.Exist Then
-		inobj_iconkontak.Click
-	End If
+	inobj_iconkontak.Click
 	Call LoopUntil()
 	Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
-	If txt_cari.Exist Then
-		txt_cari.Set param
-	End If
+	Device("Device").App("Dev").MobileEdit("Cari").Set param
 	wait 1
 	Select Case param
 		Case "Telkomsel"			inobj_telkomsel.Click
@@ -651,15 +260,9 @@ Function PulsaNegative(param)
 	End Select
 	Call Loopuntil()
 	Call Capture(lbl_ponsel,"Dev","Nomor Kontak","Berhasil nomor kontak, pilih nomor")
-	If lbl_ponsel.Exist Then
-		lbl_ponsel.Tap
-	End If
-	If lbl_kontak.Exist Then
-		Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil memilih nomor telepon, pilih denom yang diinginkan")
-	End If
-	If inobj_100000.Exist Then
-		lbl_50000.Tap
-	End If
+	lbl_ponsel.Tap
+	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil memilih nomor telepon, pilih denom yang diinginkan")
+	lbl_50000.Tap
 	do
 	list_denompulsa.Swipe "up",205,430
 	Loop until lbl_lanjutkan.Exist
@@ -667,16 +270,10 @@ Function PulsaNegative(param)
 	Call TabunganSumber("transaksi")
 	Call LoopUntil()
 	Call Capture(lbl_lanjutkan,"Dev","Sumber Tabungan","Berhasil memilih sumber tabungan, klik lanjutkan")
-	If lbl_lanjutkan.Exist Then
-		lbl_lanjutkan.Tap
-	End If
+	lbl_lanjutkan.Tap
 	Call LoopUntil()
-	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	End If
-	If lbl_konfirmasi.Exist Then
-		lbl_konfirmasi.Tap
-	End If
+	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
 	Call LoopUntil()
 	Call Capture(lbl_kembali,"Dev","Limit Transaksi","Berhasil menampilkan drawer limit per transaksi")
 	Call UnSetLimitTransaksi("pembelian")
@@ -698,9 +295,7 @@ Function PaketData(param)
 '	End If
 	Call LoopUntil()
 	Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
-'	If txt_cari.Exist Then
-		txt_cari.Set param
-'	End If
+	Device("Device").App("Dev").MobileEdit("Cari").Set param
 	wait 1
 	Select Case param
 		Case "Telkomsel"			inobj_telkomsel.Click
@@ -763,85 +358,6 @@ Function PaketData(param)
 End Function
 
 Function PaketDataNegative(param)
-'	'PERIZINAN KONTAK
-'	Call react.Addtitle("Perizinan Kontak")
-'	Call PengaturanPerizinan("kontak")
-'	Call Login()
-'	Call Navigate("Bayar Beli")
-'	AIUtil.FindTextBlock("Pulsa &").Click
-'	Call LoopUntil(lbl_pilihnominal)
-'	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik tab paket data")
-'	If lbl_paketdata.Exist Then
-'		lbl_paketdata.Tap
-'		wait 1
-'	End If
-'	Call Capture(inobj_arrowpaketdata,"Dev","Paket Data","Berhasil menampilkan halaman paket data, klik icon kontak")
-'	If inobj_iconkontak.Exist Then
-'		inobj_iconkontak.Click	
-'	End If
-'	Call LoopUntil(lbl_izinkan)
-'	Call Capture(lbl_izinkan,"Dev","Izin Akses Kontak","Berhasil menampilkan drawer perizinan kontak, klik izinkan")
-'	If lbl_izinkan.Exist Then
-'		lbl_izinkan.Tap
-'	End If
-'	Call Capture(btn_pengaturan,"Settings","Pengaturan Perizinan Kontak","Berhasil menampilkan menu pengaturan perizinan, klik toogle kontak untuk pengaktifkan izin")
-'	If inobj_kontaknonaktif.Exist Then
-'		inobj_kontaknonaktif.Click	
-'	End If
-'	Call Capture(inobj_kontak,"Dev","Izin Kontak Aktif","Berhasil mengaktifkan izin kontak")
-	
-'	'Validasi Nomor Telpon
-'	Call react.Addtitle("Validasi Nomor Telpon")
-'	Call Login()
-'	Call Navigate("Bayar Beli")
-'	AIUtil.FindTextBlock("Pulsa &").Click
-'	Call LoopUntil(lbl_pilihnominal)
-'	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik tab paket data")
-'	If lbl_paketdata.Exist Then
-'		lbl_paketdata.Tap
-'		wait 1
-'	End If
-'	If inobj_xsilangkecil.Exist Then
-'		inobj_xsilangkecil.Tap
-'	End If
-'	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, masukkan nomor telpon")
-'	Select Case param
-'		Case "Telkomsel"			txt_cari.Set "1111"
-'		Case "XL"				txt_cari.Set "1111"
-'		Case "Tri"				txt_cari.Set "1111"
-'		Case "Indosat"			txt_cari.Set "1111"
-'		Case "Smartfren"			txt_cari.Set "1111"
-'	End Select
-'	wait 1
-'	
-'	'Nomor Telpon Kurang dari 10 Karakter
-'	Call react.Addtitle("Nomor Telpon Kurang dari 10 Karakter")
-'	Call Capture(lbl_pulsapaketdata,"Dev","Nomor Telpon Kurang dari 10 Karakter","Berhasil menampilkan helper text")
-'	
-'	'Nomor Telpon Lebih dari 14 Karakter
-'	Call react.Addtitle("Nomor Telpon Lebih dari 14 Karakter")
-'	Call Login()
-'	Call Navigate("Bayar Beli")
-'	AIUtil.FindTextBlock("Pulsa &").Click
-'	Call LoopUntil(lbl_pilihnominal)
-'	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik tab paket data")
-'	If lbl_paketdata.Exist Then
-'		lbl_paketdata.Tap
-'		wait 1
-'	End If
-'	If inobj_xsilangkecil Then
-'		inobj_xsilangkecil.Tap
-'	End If
-'	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, masukkan nomor telpon")
-'	Select Case param
-'		Case "Telkomsel"			txt_cari.Set "123456789123456"
-'		Case "XL"				txt_cari.Set "123456789123456"
-'		Case "Tri"				txt_cari.Set "123456789123456"
-'		Case "Indosat"			txt_cari.Set "123456789123456"
-'		Case "Smartfren"			txt_cari.Set "123456789123456"
-'	End Select
-'	Call Capture(lbl_pulsapaketdata,"Dev","Nomor Telpon Lebih dari 14 Karakter","Berhasil menampilkan helper text")
-	
 	'Menghilangkan Tab Pulsa dan Paket Data
 	Call react.Addtitle("Menghilangkan Tab Pulsa & Paket Data")
 	Call Login()
@@ -858,102 +374,6 @@ Function PaketDataNegative(param)
 '	End If
 	wait 1
 	Call Capture(lbl_pulsapaketdata,"Dev","Menghilangkan Tab Pulsa dan Paket Data","Berhasil menghilangkan tab pulsa dan paket data")
-	
-'	'Prefix Sesuai Dengan Provider dan Kurang dari 10 Karakter
-'	Call react.Addtitle("Prefix Sesuai Dengan Provider dan Kurang dari 10 Karakter")
-'	Call Login()
-'	Call Navigate("Bayar Beli")
-'	AIUtil.FindTextBlock("Pulsa &").Click
-'	Call LoopUntil(lbl_pilihnominal)
-'	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik tab paket data")
-'	If lbl_paketdata.Exist Then
-'		lbl_paketdata.Tap
-'		wait 1
-'	End If
-'	If inobj_xsilangkecil.Exist Then
-'		inobj_xsilangkecil.Tap
-'	End If
-'	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, masukkan nomor telpon")
-'	Select Case param
-'		Case "Telkomsel"			txt_cari.Set "0822123"
-'		Case "XL"				txt_cari.Set "0877123"
-'		Case "Tri"				txt_cari.Set "0895123"
-'		Case "Indosat"			txt_cari.Set "0856123"
-'		Case "Smartfren"			txt_cari.Set "0889123"
-'	End Select
-'	wait 1
-'	Call Capture(lbl_pulsapaketdata,"Dev","Prefix Sesuai Dengan Provider dan Kurang dari 10 Karakter","Berhasil menampilkan helper text")
-	
-'	'Nomor Tanpa Prefix
-'	Call react.Addtitle("Nomor Tanpa Prefix")
-'	Call Login()
-'	Call Navigate("Bayar Beli")
-'	AIUtil.FindTextBlock("Pulsa &").Click
-'	Call LoopUntil()
-'	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik tab paket data")
-'	If lbl_paketdata.Exist Then
-'		lbl_paketdata.Tap
-'		wait 1
-'	End If
-'	If inobj_xsilangkecil.Exist Then
-'		inobj_xsilangkecil.Click
-'	End If
-'	wait 1
-'	If txt_cari.Exist Then
-'		txt_cari.Set "12345678910"
-'	End If
-'	wait 1
-'	Call Capture(lbl_pulsapaketdata,"Dev","Nomor Tanpa Prefix","Berhasil menampilkan helper text")
-	
-'	'Dengan Prefix dan Lebih dari 14 Karakter
-'	Call react.Addtitle("Dengan Prefix dan Lebih dari 14 Karakter")
-'	Call Login()
-'	Call Navigate("Bayar Beli")
-'	AIUtil.FindTextBlock("Pulsa &").Click
-'	Call LoopUntil(lbl_pilihnominal)
-'	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik tab paket data")
-'	If lbl_paketdata.Exist Then
-'		lbl_paketdata.Tap
-'		wait 1
-'	End If
-'	If inobj_xsilangkecil.Exist Then
-'		inobj_xsilangkecil.Tap
-'	End If
-'	wait 1
-'	Select Case param
-'		Case "Telkomsel"			txt_cari.Set "082212345678901234567"
-'		Case "XL"				txt_cari.Set "087712345678901234567"
-'		Case "Tri"				txt_cari.Set "089512345678901234567"
-'		Case "Indosat"			txt_cari.Set "085612345678901234567"
-'		Case "Smartfren"			txt_cari.Set "088912345678901234567"
-'	End Select
-'	wait 1
-'	Call Capture(lbl_pulsapaketdata,"Dev","Dengan Prefix dan Lebih dari 14 Karakter","Berhasil menampilkan helper text")
-'	
-'	'Tanpa Prefix dan Lebih dari 14 Karakter
-'	Call react.Addtitle("Tanpa Prefix dan Lebih dari 14 Karakter")
-'	Call Login()
-'	Call Navigate("Bayar Beli")
-'	AIUtil.FindTextBlock("Pulsa &").Click
-'	Call LoopUntil(lbl_pilihnominal)
-'	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik tab paket data")
-'	If lbl_paketdata.Exist Then
-'		lbl_paketdata.Tap
-'		wait 1
-'	End If
-'	If inobj_xsilangkecil.Exist Then
-'		inobj_xsilangkecil.Tap
-'	End If
-'	wait 1
-'	Select Case param
-'		Case "Telkomsel"			txt_cari.Set "123412345678901234567"
-'		Case "XL"				txt_cari.Set "123412345678901234567"
-'		Case "Tri"				txt_cari.Set "123412345678901234567"
-'		Case "Indosat"			txt_cari.Set "123412345678901234567"
-'		Case "Smartfren"			txt_cari.Set "123412345678901234567"
-'	End Select
-'	wait 1
-'	Call Capture(lbl_pulsapaketdata,"Dev","Tanpa Prefix dan Lebih dari 14 Karakter","Berhasil menampilkan helper text")
 	
 	'Notifikasi Nomor Telepon Salah
 	Call react.Addtitle("Notifikasi Nomor Telepon Salah")
@@ -999,7 +419,7 @@ Function PaketDataNegative(param)
 	Call LoopUntil()
 	Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
 '	If txt_cari.Exist Then
-		txt_cari.Set param
+		Device("Device").App("Dev").MobileEdit("Cari").Set param
 '	End If
 	wait 1
 	Select Case param
@@ -1020,26 +440,26 @@ Function PaketDataNegative(param)
 		inobj_arrowpaketdata.Click
 '	End If
 	Call LoopUntil()
-	Call Capture(lbl_pilihanpaketdata,"Dev","List Paket Data","Berhasil menampilkan list paket data, pilih paket")
+	Call CaptureImageUFTV2(Device("Device").App("Dev"), "List Paket Data","Berhasil menampilkan list paket data, pilih paket", ReportStatus.Passed)
 	Select Case param
 		Case "Telkomsel"			'If inobj_pakettelkomsel.Exist Then
-									inobj_pakettelkomsel.Click
+'									inobj_pakettelkomsel.Click
 								'End If
 		Case "XL"				'If inobj_paketxl.Exist Then
-									inobj_paketxl.Click
+'									inobj_paketxl.Click
 '								End If
 		Case "Tri"				'If inobj_pakettri.Exist Then
 									inobj_pakettri.Click
 								'End If
 		Case "Indosat"			'If inobj_paketindosat.Exist Then
-									inobj_paketindosat.Click
+'									inobj_paketindosat.Click
 								'End If
 	End Select
-	Call Capture(lbl_pilihanpaketdata,"Dev","Pilih Paket Data","Berhasil memilih paket data, klik pilih paket")
+	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Pilih Paket Data","Berhasil memilih paket data, klik paket data", ReportStatus.Passed)
 '	If lbl_pilihpaket.Exist Then
 		lbl_pilihpaket.Tap
 '	End If
-	Call Capture(lbl_pilihanpaketdata,"Dev","Pulsa & Paket Data","Berhasil memilih paket data, pilih sumber rekening")
+	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Pulsa & Paket Data","Berhasil memilih paket data, pilih sumber rekening", ReportStatus.Passed)
 	Call TabunganSumber("kosong")
 	wait 0.8
 	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Snackbar Saldo Kurang", "Berhasil Menampilkan Snackbar Saldo Kurang dan button lanjutkan terdisable", ReportStatus.Passed)
@@ -1063,7 +483,7 @@ Function PaketDataNegative(param)
 		Call LoopUntil()
 		Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
 '		If txt_cari.Exist Then
-			txt_cari.Set param
+			Device("Device").App("Dev").MobileEdit("Cari").Set param
 '		End If
 		wait 1
 		Select Case param
@@ -1089,7 +509,7 @@ Function PaketDataNegative(param)
 			lbl_pilihpaket.Tap
 '		End If
 		Call LoopUntil()
-		Call Capture(lbl_kontak,"Dev","Pulsa & Paket Data","Berhasil memilih paket data, pilih sumber rekening")
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Pulsa & Paket Data","Berhasil memilih paket data, pilih sumber rekening", ReportStatus.Passed)
 		Call TabunganSumber("50000")
 		Call Capture(lbl_kontak,"Dev","Pulsa & Paket Data","Berhasil memilih sumber rekening, klik lanjutkan")
 '		If inobj_arrowpaketdata.Exist Then
@@ -1110,268 +530,6 @@ Function PaketDataNegative(param)
 		Call Capture(lbl_kembali,"Dev","Saldo Kurang","Berhasil menampilkan drawer saldo kurang karena biaya admin")
 	End If
 	
-'	'Saldo Kurang
-'	Call react.Addtitle("Saldo Kurang")
-'	Call Login()
-'	Call Navigate("Bayar Beli")
-'	AIUtil.FindTextBlock("Pulsa &").Click
-'	Call LoopUntil(lbl_pilihnominal)
-'	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik tab paket data")
-'	If lbl_paketdata.Exist Then
-'		lbl_paketdata.Tap
-'		wait 1
-'	End If
-'	Call Capture(inobj_arrowpaketdata,"Dev","Paket Data","Berhasil menampilkan halaman paket data, klik icon kontak")
-'	If inobj_iconkontak.Exist Then
-'		inobj_iconkontak.Click
-'	End If
-'	Call LoopUntil(lbl_kontak)
-'	Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
-'	txt_cari.Set param
-'	wait 1
-'	Select Case param
-'		Case "Telkomsel"			inobj_telkomsel.Click
-'		Case "XL"				inobj_xl.Click
-'		Case "Tri"				inobj_tri.Click
-'		Case "Indosat"			inobj_indosat.Click
-'	End Select
-'	Call Loopuntil(lbl_ponsel)
-'	Call Capture(lbl_ponsel,"Dev","Nomor Kontak","Berhasil menampilkan nomor kontak, pilih nomor")
-'	If lbl_ponsel Then
-'		lbl_ponsel.Tap
-'		wait 1
-'	End If
-'	Call Capture(lbl_kontak,"Dev","Pulsa & Paket Data","Berhasil memilih nomor telepon, klik panah paket data")
-'	If inobj_arrowpaketdata.Exist Then
-'		inobj_arrowpaketdata.Click
-'	End If
-'	Call LoopUntil(lbl_pilihanpaketdata)
-'	Call Capture(lbl_pilihanpaketdata,"Dev","List Paket Data","Berhasil menampilkan list paket data, pilih paket")
-'	Select Case param
-'		Case "Telkomsel"			If inobj_pakettelkomsel.Exist Then
-'									inobj_pakettelkomsel.Click
-'								End If
-'		Case "XL"				If list_paketdata.Exist Then
-'									list_paketdata.Swipe "up",205,430
-'									wait 1
-'									list_paketdata.Swipe "up",205,430
-'									wait 1
-'									list_paketdata.Swipe "up",205,430
-'									wait 1
-'								End If
-'								If inobj_paketxl.Exist Then
-'									inobj_paketxl.Click
-'								End If
-'		Case "Tri"				If inobj_pakettri.Exist Then
-'									inobj_pakettri.Click
-'								End If
-'		Case "Indosat"			If inobj_paketindosat.Exist Then
-'									inobj_paketindosat.Click
-'								End If
-'	End Select
-'	If lbl_pilihpaket.Exist Then
-'		lbl_pilihpaket.Tap
-'	End If
-'	Call LoopUntil(lbl_kontak)
-'	Call Capture(lbl_kontak,"Dev","Pulsa & Paket Data","Berhasil memilih paket data, pilih sumber rekening")
-'	Call TabunganSumber("kosong")
-'	Call Capture(lbl_kontak,"Dev","Pulsa & Paket Data","Berhasil memilih sumber rekening, klik lanjutkan")
-'	If inobj_arrowpaketdata.Exist Then
-'		inobj_arrowpaketdata.Swipe "up",205,430
-'		wait 1
-'	End If
-'	Call Capture(inobj_lanjutkan,"Dev","Saldo Kurang","Berhasil menampilkan button disable")
-'	
-	'Rekening Dormant
-	Call react.Addtitle("Rekening Dormant")
-	Call Login()
-	Call Navigate("Bayar Beli")
-	AIUtil.FindTextBlock("Pulsa &").Click
-	Call LoopUntil()
-	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik tab paket data")
-'	If lbl_paketdata.Exist Then
-		lbl_paketdata.Tap
-		wait 1
-'	End If
-	Call Capture(inobj_arrowpaketdata,"Dev","Paket Data","Berhasil menampilkan halaman paket data, klik icon kontak")
-'	If inobj_iconkontak.Exist Then
-		inobj_iconkontak.Click
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
-	txt_cari.Set param
-	wait 1
-	Select Case param
-		Case "Telkomsel"			inobj_telkomsel.Click
-		Case "XL"				inobj_xl.Click
-		Case "Tri"				inobj_tri.Click
-		Case "Indosat"			inobj_indosat.Click
-	End Select
-	Call Loopuntil()
-	Call Capture(lbl_ponsel,"Dev","Nomor Kontak","Berhasil menampilkan nomor kontak, pilih nomor")
-'	If lbl_ponsel Then
-		lbl_ponsel.Tap
-		wait 1
-'	End If
-	Call Capture(lbl_kontak,"Dev","Pulsa & Paket Data","Berhasil memilih nomor telepon, klik panah paket data")
-'	If inobj_arrowpaketdata.Exist Then
-		inobj_arrowpaketdata.Click
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_pilihanpaketdata,"Dev","List Paket Data","Berhasil menampilkan list paket data, pilih paket")
-	Select Case param
-		Case "Telkomsel"			'If inobj_pakettelkomsel.Exist Then
-									inobj_pakettelkomsel.Click
-								'End If
-		Case "XL"				''If inobj_paketxl.Exist Then
-									inobj_paketxl.Click
-'								End If
-		Case "Tri"				'If inobj_pakettri.Exist Then
-									inobj_pakettri.Click
-								'End If
-		Case "Indosat"			'If inobj_paketindosat.Exist Then
-									inobj_paketindosat.Click
-								'End If
-	End Select
-'	If lbl_pilihpaket.Exist Then
-		lbl_pilihpaket.Tap
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_kontak,"Dev","Pulsa & Paket Data","Berhasil memilih paket data, pilih sumber rekening")
-	Call TabunganSumber("dormant")
-	Call Capture(lbl_kontak,"Dev","Pulsa & Paket Data","Berhasil memilih sumber rekening, klik lanjutkan")
-'	If inobj_arrowpaketdata.Exist Then
-		btn_listobjectpaketdata.Swipe "up",205,430
-		wait 1
-'	End If
-'	If inobj_lanjutkan.Exist Then
-		lbl_lanjutkan.Tap
-'	End If
-	Call LoopUntil()
-	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	End If
-	If lbl_konfirmasi Then
-		lbl_konfirmasi.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-'	If lbl_1.Exist Then
-		lbl_1.Tap
-'	End If
-'	If lbl_2.Exist Then
-		lbl_2.Tap
-'	End If
-'	If lbl_3.Exist Then
-		lbl_3.Tap
-'	End If
-'	If lbl_4.Exist Then
-		lbl_4.Tap
-'	End If
-'	If lbl_5.Exist Then
-		lbl_5.Tap
-'	End If
-'	If lbl_6.Exist Then
-		lbl_6.Tap
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening dormant")
-	
-	'Rekening Terblokir
-	Call react.Addtitle("Rekening Terblokir")
-	Call Login()
-	Call Navigate("Bayar Beli")
-	AIUtil.FindTextBlock("Pulsa &").Click
-	Call LoopUntil()
-	Call Capture(lbl_pilihnominal,"Dev","Pulsa & Paket Data","Berhasil menampilkan halaman pulsa & paket data, klik tab paket data")
-'	If lbl_paketdata.Exist Then
-		lbl_paketdata.Tap
-		wait 1
-'	End If
-	Call Capture(inobj_arrowpaketdata,"Dev","Paket Data","Berhasil menampilkan halaman paket data, klik icon kontak")
-'	If inobj_iconkontak.Exist Then
-		inobj_iconkontak.Click
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
-	txt_cari.Set param
-	wait 1
-	Select Case param
-		Case "Telkomsel"			inobj_telkomsel.Click
-		Case "XL"				inobj_xl.Click
-		Case "Tri"				inobj_tri.Click
-		Case "Indosat"			inobj_indosat.Click
-	End Select
-	Call Loopuntil()
-	Call Capture(lbl_ponsel,"Dev","Nomor Kontak","Berhasil menampilkan nomor kontak, pilih nomor")
-'	If lbl_ponsel Then
-		lbl_ponsel.Tap
-		wait 1
-'	End If
-	Call Capture(lbl_kontak,"Dev","Pulsa & Paket Data","Berhasil memilih nomor telepon, klik panah paket data")
-'	If inobj_arrowpaketdata.Exist Then
-		inobj_arrowpaketdata.Click
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_pilihanpaketdata,"Dev","List Paket Data","Berhasil menampilkan list paket data, pilih paket")
-	Select Case param
-		Case "Telkomsel"			'If inobj_pakettelkomsel.Exist Then
-									inobj_pakettelkomsel.Click
-								'End If
-		Case "XL"				'If inobj_paketxl.Exist Then
-									inobj_paketxl.Click
-'								End If
-		Case "Tri"				'If inobj_pakettri.Exist Then
-									inobj_pakettri.Click
-								'End If
-		Case "Indosat"			'If inobj_paketindosat.Exist Then
-									inobj_paketindosat.Click
-								'End If
-	End Select
-'	If lbl_pilihpaket.Exist Then
-		lbl_pilihpaket.Tap
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_kontak,"Dev","Pulsa & Paket Data","Berhasil memilih paket data, pilih sumber rekening")
-	Call TabunganSumber("blokir")
-	Call Capture(lbl_kontak,"Dev","Pulsa & Paket Data","Berhasil memilih sumber rekening, klik lanjutkan")
-'	If inobj_arrowpaketdata.Exist Then
-		btn_listobjectpaketdata.Swipe "up",205,430
-		wait 1
-'	End If
-'	If inobj_lanjutkan.Exist Then
-		lbl_lanjutkan.Tap
-'	End If
-	Call LoopUntil()
-'	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-'	End If
-'	If lbl_konfirmasi.Exist Then
-		lbl_konfirmasi.Tap
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-'	If lbl_1.Exist Then
-		lbl_1.Tap
-'	End If
-'	If lbl_2.Exist Then
-		lbl_2.Tap
-'	End If
-'	If lbl_3.Exist Then
-		lbl_3.Tap
-'	End If
-'	If lbl_4.Exist Then
-		lbl_4.Tap
-'	End If
-'	If lbl_5.Exist Then
-		lbl_5.Tap
-'	End If
-'	If lbl_6.Exist Then
-		lbl_6.Tap
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening terblokir")
-	
 	'Salah PIN 1x
 	Call react.Addtitle("Salah PIN 1x")
 	Call Login()
@@ -1389,9 +547,7 @@ Function PaketDataNegative(param)
 '	End If
 	Call LoopUntil()
 	Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
-'	If txt_cari.Exist Then
-		txt_cari.Set param
-'	End If
+	Device("Device").App("Dev").MobileEdit("Cari").Set param
 	wait 1
 	Select Case param
 		Case "Telkomsel"			inobj_telkomsel.Click
@@ -1414,23 +570,23 @@ Function PaketDataNegative(param)
 	Call Capture(lbl_pilihanpaketdata,"Dev","List Paket Data","Berhasil menampilkan list paket data, pilih paket")
 	Select Case param
 		Case "Telkomsel"			'If inobj_pakettelkomsel.Exist Then
-									inobj_pakettelkomsel.Click
+'									inobj_pakettelkomsel.Click
 '								End If
 		Case "XL"				''If inobj_paketxl.Exist Then
-									inobj_paketxl.Click
+'									inobj_paketxl.Click
 '								End If
 		Case "Tri"				'If inobj_pakettri.Exist Then
 									inobj_pakettri.Click
 								'End If
 		Case "Indosat"			'If inobj_paketindosat.Exist Then
-									inobj_paketindosat.Click
+'									inobj_paketindosat.Click
 								'End If
 	End Select
 '	If lbl_pilihpaket.Exist Then
 		lbl_pilihpaket.Tap
 '	End If
 	Call LoopUntil()
-	Call Capture(lbl_kontak,"Dev","Pulsa & Paket Data","Berhasil memilih paket data, pilih sumber rekening")
+	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Pulsa & Paket Data","Berhasil memilih paket data, pilih sumber rekening", ReportStatus.Passed)
 	Call TabunganSumber("transaksi")
 	Call Capture(lbl_kontak,"Dev","Pulsa & Paket Data","Berhasil memilih sumber rekening, klik lanjutkan")
 '	If inobj_arrowpaketdata.Exist Then
@@ -1467,9 +623,7 @@ Function PaketDataNegative(param)
 '	End If
 	Call LoopUntil()
 	Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
-'	If txt_cari.Exist Then
-		txt_cari.Set param
-'	End If
+	Device("Device").App("Dev").MobileEdit("Cari").Set param
 	wait 1
 	Select Case param
 		Case "Telkomsel"			inobj_telkomsel.Click
@@ -1489,30 +643,30 @@ Function PaketDataNegative(param)
 		inobj_arrowpaketdata.Click
 '	End If
 	Call LoopUntil()
-	Call Capture(lbl_pilihanpaketdata,"Dev","List Paket Data","Berhasil menampilkan list paket data, pilih paket")
+	Call CaptureImageUFTV2(Device("Device").App("Dev"), "List Paket Data","Berhasil menampilkan list paket data, pilih paket", ReportStatus.Passed)
 	Select Case param
 		Case "Telkomsel"			'If inobj_pakettelkomsel.Exist Then
-									inobj_pakettelkomsel.Click
+'									inobj_pakettelkomsel.Click
 								'End If
 		Case "XL"				'If inobj_paketxl.Exist Then
-									inobj_paketxl.Click
+'									inobj_paketxl.Click
 '								End If
 		Case "Tri"				'If inobj_pakettri.Exist Then
 									inobj_pakettri.Click
 								'End If
 		Case "Indosat"			'If inobj_paketindosat.Exist Then
-									inobj_paketindosat.Click
+'									inobj_paketindosat.Click
 								'End If
 	End Select
 '	If lbl_pilihpaket.Exist Then
 		lbl_pilihpaket.Tap
 '	End If
 	Call LoopUntil()
-	Call Capture(lbl_kontak,"Dev","Pulsa & Paket Data","Berhasil memilih paket data, pilih sumber rekening")
+	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Pulsa & Paket Data","Berhasil memilih paket data, pilih sumber rekening", ReportStatus.Passed)
 	Call TabunganSumber("transaksi")
 	Call Capture(lbl_kontak,"Dev","Pulsa & Paket Data","Berhasil memilih sumber rekening, klik lanjutkan")
 '	If inobj_arrowpaketdata.Exist Then
-		inobj_arrowpaketdata.Swipe "up",205,430
+		btn_listobjectpaketdata.Swipe "up",205,430
 		wait 1
 '	End If
 '	If inobj_lanjutkan.Exist Then
@@ -1547,9 +701,7 @@ Function PaketDataNegative(param)
 '	End If
 	Call LoopUntil()
 	Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
-'	If txt_cari.Exist Then
-		txt_cari.Set param
-'	End If
+	Device("Device").App("Dev").MobileEdit("Cari").Set param
 	wait 1
 	Select Case param
 		Case "Telkomsel"			inobj_telkomsel.Click
@@ -1569,26 +721,26 @@ Function PaketDataNegative(param)
 		inobj_arrowpaketdata.Click
 '	End If
 	Call LoopUntil()
-	Call Capture(lbl_pilihanpaketdata,"Dev","List Paket Data","Berhasil menampilkan list paket data, pilih paket")
+	Call CaptureImageUFTV2(Device("Device").App("Dev"), "List Paket Data","Berhasil menampilkan list paket data, pilih paket", ReportStatus.Passed)
 	Select Case param
 		Case "Telkomsel"			'If inobj_pakettelkomsel.Exist Then
-									inobj_pakettelkomsel.Click
+'									inobj_pakettelkomsel.Click
 								'End If
 		Case "XL"				'If inobj_paketxl.Exist Then
-									inobj_paketxl.Click
+'									inobj_paketxl.Click
 '								End If
 		Case "Tri"				'If inobj_pakettri.Exist Then
 									inobj_pakettri.Click
 								'End If
 		Case "Indosat"			'If inobj_paketindosat.Exist Then
-									inobj_paketindosat.Click
+'									inobj_paketindosat.Click
 								'End If
 	End Select
 '	If lbl_pilihpaket.Exist Then
 		lbl_pilihpaket.Tap
 '	End If
 	Call LoopUntil()
-	Call Capture(lbl_kontak,"Dev","Pulsa & Paket Data","Berhasil memilih paket data, pilih sumber rekening")
+	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Pulsa & Paket Data","Berhasil memilih paket data, pilih sumber rekening", ReportStatus.Passed)
 	Call TabunganSumber("transaksi")
 	Call Capture(lbl_kontak,"Dev","Pulsa & Paket Data","Berhasil memilih sumber rekening, klik lanjutkan")
 '	If inobj_arrowpaketdata.Exist Then
@@ -1632,24 +784,12 @@ Function Ewallet(param)
 		wait 1
 	End If
 	Select Case param
-		Case "dana"			If lbl_dana.Exist Then
-								lbl_dana.Tap
-							End If
-		Case "ovo"			If lbl_ovo.Exist Then
-								lbl_ovo.Tap
-							End If
-		Case "linkaja"		If lbl_linkaja.Exist Then
-								lbl_linkaja.Tap
-							End If
-		Case "linkajasyariah"	If lbl_linkajasyariah.Exist Then
-								lbl_linkajasyariah.Tap
-							End If
-		Case "go-pay"			'If lbl_gopay.Exist Then
-								lbl_gopay.Tap
-'							End If
-		Case "shopeepay"	If lbl_shopeepay.Exist Then
-								lbl_shopeepay.Tap
-							End If
+'		Case "dana"			lbl_dana.Tap
+'		Case "ovo"			lbl_ovo.Tap
+'		Case "linkaja"		lbl_linkaja.Tap
+'		Case "linkajasyariah"	lbl_linkajasyariah.Tap
+'		Case "go-pay"		lbl_gopay.Tap
+		Case "shopeepay"		lbl_shopeepay.Tap
 	End Select
 	Call LoopUntil()	
 	If not param = "shopeepay" Then
@@ -1662,11 +802,17 @@ Function Ewallet(param)
 		inobj_iconkontak.Click
 		Call LoopUntil()
 		Call Capture(lbl_kontak,"Dev","Kontak","Berhasil menampilkan halaman kontak, cari dan pilih nomor telepon")
-		txt_cari.Set param
+		Select Case param
+			Case "dana"			Device("Device").App("Dev").MobileEdit("Cari").Set "dana"
+			Case "ovo"			Device("Device").App("Dev").MobileEdit("Cari").Set "ovo"
+			Case "linkaja"		Device("Device").App("Dev").MobileEdit("Cari").Set "linkaja"
+			Case "linkajasyariah"	Device("Device").App("Dev").MobileEdit("Cari").Set "syariah"
+			Case "go-pay"		Device("Device").App("Dev").MobileEdit("Cari").Set "gopay"
+		End Select
 		wait 1	
 		Select Case param
 			Case "dana"			inobj_dana.Click		
-			Case "ovo"			inobj_ovo.Click
+			Case "ovo"			lbl_ewalletovo.Tap
 			Case "linkaja"		inobj_linkaja.Click
 			Case "linkajasyariah"	inobj_linkajasyariah.Click
 			Case "go-pay"		inobj_gopay.Click
@@ -1684,8 +830,8 @@ Function Ewallet(param)
 		End Select
 	End If
 	Call Loopuntil()
-	Call Capture(lbl_ponsel,"Dev","Nomor Kontak","Berhasil menampilkan nomor kontak, pilih nomor")
-	lbl_ponsel.Tap
+'	Call Capture(lbl_ponsel,"Dev","Nomor Kontak","Berhasil menampilkan nomor kontak, pilih nomor")
+'	lbl_ponsel.Tap
 	If btn_selesai.Exist Then
 	btn_selesai.Tap
 	wait 1
@@ -1723,11 +869,20 @@ Function Ewallet(param)
 		Case "linkaja"			Call TransaksiBerhasil("LinkAja",nomorFT, "resi ewallet","Infaq",nomorFTInfaq,"resi pulsa") 
 		Case "linkajasyariah"		Call TransaksiBerhasil("LinkAja Syariah",nomorFT, "resi ewallet","Infaq",nomorFTInfaq,"resi pulsa") 
 		Case "go-pay"				Call TransaksiBerhasil("GoPay",nomorFT, "resi ewallet","Infaq",nomorFTInfaq,"resi pulsa") 
-		Case "shopeepay"		Call TransaksiBerhasil("ShopeePay",nomorFT, "resi shopeepay","Infaq",nomorFTInfaq,"resi pulsa") 
+		Case "shopeepay"		Call TransaksiBerhasil("ShopeePay",nomorFT, "resi ewallet","Infaq",nomorFTInfaq,"resi pulsa") 
 	End Select
 End Function
 
 Function EwalletNegative(param)	
+	'ada admin:
+	'dana
+	'gopay
+	
+	'nominal tidak sesuai yang diinput:
+	'linkaja			| admin
+	'linkaja syariah	| admin
+	'shopeepay		| admin
+
 	'Saldo Kurang
 	Call react.Addtitle("Saldo Kurang")
 	Call Login()
@@ -1776,7 +931,7 @@ Function EwalletNegative(param)
 	Call Capture(lbl_lanjutkan,"Dev","Saldo Kurang","Berhasil menampilkan button lanjutkan yang terdisable")
 	
 	'Saldo Kurang Karena Biaya Admin | dana
-	If param = "dana" or param  = "shopeepay"  Then
+	If param = "dana" or param  = "shopeepay" or param = "go-pay" Then
 		Call react.Addtitle("Saldo Kurang Karena Biaya Admin")
 		Call Login()
 		Call Navigate("Bayar Beli")
@@ -1798,7 +953,7 @@ Function EwalletNegative(param)
 			Case "dana"			txt_nomorhandphone.Set "08123652639"
 			Case "linkaja"		txt_nomorhandphone.Set "081234567890"
 			Case "linkajasyariah"	txt_nomorhandphone.Set "081234567890"
-			Case "go-pay"			txt_nomorhandphone.Set "085455522196"
+			Case "go-pay"		txt_nomorhandphone.Set "085455522196"
 			Case "shopeepay"	txt_nomorhandphone.Set "608081219455412"
 			Case "ovo"			txt_nomorhandphone.Set "089668980862"
 			End Select
@@ -1813,10 +968,15 @@ Function EwalletNegative(param)
 			btn_selesai.Tap
 			wait 1
 		Call Capture(lbl_easymudharabah,"Dev","Berhasil Input Nominal","Berhasil memasukkan nominal, pilih sumber rekening")
-		Call TabunganSumber("100000")
+'		Call TabunganSumber("100000")
+		Call TabunganSumber("50000")
 		Call LoopUntil()
-			lbl_lanjutkan.Tap
-		Call Capture(lbl_lanjutkan,"Dev","Saldo Kurang","Berhasil menampilkan button lanjutkan yang terdisable")
+		lbl_lanjutkan.Tap
+		wait 1
+		Call Capture(lbl_lanjutkan,"Dev","Konfirmasi Transaksi","Berhasil menampilkan drawer konfirmasi transaksi, klik konfirmasi")
+		lbl_konfirmasi.Tap
+		wait 2
+		Call Capture(lbl_lanjutkan,"Dev","Saldo Kurang","Berhasil menampilkan saldo kurang")
 	End If
 	
 	'Virtual Account Kurang dari 10 Karakter | khusus untuk shopeepay dan paytren
@@ -1941,8 +1101,6 @@ Function EwalletNegative(param)
 	wait 1
 	Call Capture(lbl_helper_minimal10000,"Dev","Minimal Top Up 10.000","Berhasil menampilkan helper text")
 	
-	'Limit E-Wallet |MASIH DEFECT
-	
 	'Search E-Wallet yang Tidak Ada di List
 	Call react.Addtitle("Search E-Wallet yang Tidak Ada di List")
 	Call Login()
@@ -1953,124 +1111,6 @@ Function EwalletNegative(param)
 	txt_nomorhandphone.Set "test"
 	wait 1
 	Call Capture(txt_nomorhandphone,"Dev","Search E-Wallet yang Tidak Ada di List","Berhasil menampilkan wording list E-Wallet tidak ditemukan")
-	
-	'Rekening Blokir
-	Call react.Addtitle("Rekening Blokir")
-	Call Login()
-	Call Navigate("Bayar Beli")
-	ai_ewallet.Click
-	Call LoopUntil()
-	Call Capture(txt_nomorhandphone,"Dev","Pilih E-Waller","Berhasil menampilkan list E-Wallet, pilih merchant")
-	If txt_nomorhandphone.Exist Then
-			txt_nomorhandphone.Set "linkaja"
-	else
-			txt_nomorhandphone.Set param
-	End If
-	wait 1
-	Select Case param
-		Case "dana"			lbl_dana.Tap
-		Case "ovo"			lbl_ovo.Tap
-		Case "linkaja"		lbl_linkaja.Tap
-		Case "linkajasyariah"	lbl_linkajasyariah.Tap
-		Case "go-pay"		lbl_gopay.Tap
-		Case "shopeepay"	lbl_shopeepay.Tap
-	End Select
-	Call LoopUntil()
-	Call Capture(lbl_namamerchant,"Dev","Merchant","Berhasil menampilkan halaman merchant, masukkan nomor handphone/virtual account")
-	Select Case param
-		Case "dana"			txt_nomorhandphone.Set "08123652639"
-		Case "linkaja"		txt_nomorhandphone.Set "081234567890"
-		Case "linkajasyariah"	txt_nomorhandphone.Set "081234567890"
-		Case "go-pay"		txt_nomorhandphone.Set "085455522196"
-		Case "shopeepay"	txt_nomorhandphone.Set "608081219455412"
-		Case "ovo"			txt_nomorhandphone.Set "089668980862"
-	End Select
-	btn_selesai.Tap
-		wait 1
-	Call Capture(lbl_lanjutkan,"Dev","Nomor Handphone/VirtualAccount","Berhasil memasukkan nomor handphone/virtual account, klik lanjutkan")
-	lbl_lanjutkan.Tap
-	Call LoopUntil()
-	Call Capture(lbl_easymudharabah,"Dev","Nominal","Berhasil menampilkan halaman input nominal, masukkan nominal")
-	txt_nomorhandphone.Set "100000"
-	btn_selesai.Tap
-	wait 1
-	Call Capture(lbl_easymudharabah,"Dev","Berhasil Input Nominal","Berhasil memasukkan nominal, pilih sumber rekening")
-	Call TabunganSumber("blokir")
-	Call LoopUntil()
-	Call Capture(lbl_lanjutkan,"Dev","Berhasil Pilih Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
-	lbl_lanjutkan.Tap
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	lbl_konfirmasi.Tap
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-	lbl_1.Tap
-	lbl_2.Tap
-	lbl_3.Tap
-	lbl_4.Tap
-	lbl_5.Tap
-	lbl_6.Tap
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening terblokir")
-	
-	'Rekening Dormant
-	Call react.Addtitle("Rekening Dormant")
-	Call Login()
-	Call Navigate("Bayar Beli")
-	ai_ewallet.Click
-	Call LoopUntil()
-	Call Capture(txt_nomorhandphone,"Dev","Pilih E-Waller","Berhasil menampilkan list E-Wallet, pilih merchant")
-		If param = "linkajasyariah" Then
-			txt_nomorhandphone.Set "linkaja"
-		else
-			txt_nomorhandphone.Set param
-		End If
-		wait 1
-	Select Case param
-		Case "dana"			lbl_dana.Tap
-		Case "ovo"			lbl_ovo.Tap
-		Case "linkaja"		lbl_linkaja.Tap
-		Case "linkajasyariah"	lbl_linkajasyariah.Tap
-		Case "go-pay"		lbl_gopay.Tap
-		Case "shopeepay"	lbl_shopeepay.Tap
-	End Select
-	Call LoopUntil()
-	Call Capture(lbl_namamerchant,"Dev","Merchant","Berhasil menampilkan halaman merchant, masukkan nomor handphone/virtual account")
-	Select Case param
-		Case "dana"			txt_nomorhandphone.Set "08123652639"
-		Case "linkaja"		txt_nomorhandphone.Set "081234567890"
-		Case "linkajasyariah"	txt_nomorhandphone.Set "081234567890"
-		Case "go-pay"			txt_nomorhandphone.Set "085455522196"
-		Case "shopeepay"	txt_nomorhandphone.Set "608081219455412"
-		Case "ovo"			txt_nomorhandphone.Set "089668980862"
-	End Select
-	btn_selesai.Tap
-	wait 1
-	Call Capture(lbl_lanjutkan,"Dev","Nomor Handphone/VirtualAccount","Berhasil memasukkan nomor handphone/virtual account, klik lanjutkan")
-	lbl_lanjutkan.Tap
-	Call LoopUntil()
-	Call Capture(lbl_easymudharabah,"Dev","Nominal","Berhasil menampilkan halaman input nominal, masukkan nominal")
-	txt_nomorhandphone.Set "100000"
-	btn_selesai.Tap
-	wait 1
-	Call Capture(lbl_easymudharabah,"Dev","Berhasil Input Nominal","Berhasil memasukkan nominal, pilih sumber rekening")
-	Call TabunganSumber("dormant")
-	Call LoopUntil()
-	Call Capture(lbl_lanjutkan,"Dev","Berhasil Pilih Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
-	lbl_lanjutkan.Tap
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	lbl_konfirmasi.Tap
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-	lbl_1.Tap
-	lbl_2.Tap
-	lbl_3.Tap
-	lbl_4.Tap
-	lbl_5.Tap
-	lbl_6.Tap
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening dormant")
 	
 '	Salah PIN 1x
 	Call react.Addtitle("Salah PIN 1x")
@@ -2099,7 +1139,7 @@ Function EwalletNegative(param)
 		Case "dana"			txt_nomorhandphone.Set "08123652639"
 		Case "linkaja"		txt_nomorhandphone.Set "081234567890"
 		Case "linkajasyariah"	txt_nomorhandphone.Set "081234567890"
-		Case "go-pay"			txt_nomorhandphone.Set "085455522196"
+		Case "go-pay"		txt_nomorhandphone.Set "085455522196"
 		Case "shopeepay"	txt_nomorhandphone.Set "608081219455412"
 		Case "ovo"			txt_nomorhandphone.Set "089668980862"
 	End Select
@@ -2719,25 +1759,21 @@ Function MPNNegative(param,biller)
 	End If
 End Function
 
-Function AkademikOpenPayment(param,biller) 'ANDALAS
+Function AkademikOpenPayment(param,biller) 'ANDALAS | ahmad dahlan
 	Call Login()
 	Call Navigate("Bayar Beli")
-'	If ai_akademik.Exist Then
-		ai_akademik.Click
-'	End If
-	Call LoopUntil()
+	ai_akademik.Click
+	Call LoopUntil(s)
 	Call Capture(lbl_listakademik,"Dev","List Nama Akademik", "Berhasil menampilkan list nama akademik, pilih akademik")
-'	If inobj_txtakademik.Exist Then
-		inobj_txtakademik.Click
-		wait 1
-'	End If
+	Call LoopUntil(s)
+'	inobj_txtakademik.Click
+	wait 1
 	Device("Device").Enterkeys typeValue, param
 	wait 1
 	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
 	Select Case param
-		Case "andalas"	'if lbl_andalas.Exist then
-							lbl_andalas.Tap
-						'End If
+		Case "andalas"	lbl_andalas.Tap
+		Case "uad"		lbl_uad.Tap
 	End Select
 	Call LoopUntil()
 '	If btn_selesai.Exist Then
@@ -2749,9 +1785,7 @@ Function AkademikOpenPayment(param,biller) 'ANDALAS
 		inobj_txt_kodebayar.Click
 		wait 1
 '	End If
-	Select Case param
-		Case "andalas"	Device("Device").Enterkeys typeValue, biller '999999001
-	End Select
+	Device("Device").Enterkeys typeValue, biller
 '	If btn_selesai.Exist Then
 		btn_selesai.Tap
 		wait 1
@@ -2781,6 +1815,7 @@ Function AkademikOpenPayment(param,biller) 'ANDALAS
 '	End If
 	Select Case param
 		Case "andalas"		Call TransaksiBerhasil("Universitas Andalas",nomorFT, "resi akademik","Infaq",nomorFTInfaq,"resi pulsa")
+		Case "uad"			Call TransaksiBerhasil("Universitas Ahmad Dahlan",nomorFT, "resi akademik","Infaq",nomorFTInfaq,"resi pulsa")
 	End Select
 End Function
 
@@ -2792,19 +1827,19 @@ Function AkademikOpenPaymentNegative(param,biller)
 '	If ai_akademik.Exist Then
 		ai_akademik.Click
 '	End If
-	Call LoopUntil()
+	Call LoopUntil(s)
 	Call Capture(lbl_listakademik,"Dev","List Nama Akademik", "Berhasil menampilkan list nama akademik, pilih akademik")
 '	If inobj_txtakademik.Exist Then
-		inobj_txtakademik.Click
+	Call LoopUntil(s)
+'		inobj_txtakademik.Click
 		wait 1
 '	End If
 	Device("Device").Enterkeys typeValue, param
 	wait 1
 	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
 	Select Case param
-		Case "andalas"	'if lbl_andalas.Exist then
-							lbl_andalas.Tap
-'						End If
+		Case "andalas"	lbl_andalas.Tap
+		Case "uad"		lbl_uad.Tap
 	End Select
 	Call LoopUntil()
 '	If btn_selesai.Exist Then
@@ -2816,9 +1851,7 @@ Function AkademikOpenPaymentNegative(param,biller)
 		inobj_txt_kodebayar.Click
 		wait 1
 '	End If
-	Select Case param
-		Case "andalas"	Device("Device").Enterkeys typeValue, biller '999999001
-	End Select
+	Device("Device").Enterkeys typeValue, biller
 '	If btn_selesai.Exist Then
 		btn_selesai.Tap
 		wait 1
@@ -2837,150 +1870,6 @@ Function AkademikOpenPaymentNegative(param,biller)
 '	End If
 	Call Capture(lbl_easymudharabah,"Dev","Nominal", "Berhasil menampilkan helper text dan merubah button lanjutkan menjadi disable")
 	
-	'Rekening Blokir
-	Call react.Addtitle("Rekening Blokir")
-	Call Login()
-	Call Navigate("Bayar Beli")
-'	If ai_akademik.Exist Then
-		ai_akademik.Click
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_listakademik,"Dev","List Nama Akademik", "Berhasil menampilkan list nama akademik, pilih akademik")
-'	If inobj_txtakademik.Exist Then
-		inobj_txtakademik.Click
-		wait 1
-'	End If
-	Device("Device").Enterkeys typeValue, param
-	wait 1
-	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
-	Select Case param
-		Case "andalas"	'if lbl_andalas.Exist then
-							lbl_andalas.Tap
-						'End If
-	End Select
-	Call LoopUntil()
-'	If btn_selesai.Exist Then
-		btn_selesai.Tap
-		wait 1
-'	End If
-	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
-'	If inobj_txt_kodebayar.Exist Then
-		inobj_txt_kodebayar.Click
-		wait 1
-'	End If
-	Select Case param
-		Case "andalas"	Device("Device").Enterkeys typeValue, biller '999999001
-	End Select
-'	If btn_selesai.Exist Then
-		btn_selesai.Tap
-		wait 1
-'	End If
-	Call Capture(lbl_easymudharabah,"Dev","Kode Bayar", "Berhasil memasukkan kode bayar, masukkan nominal")
-'	If inob_txt_nominal.Exist Then
-		inob_txt_nominal.Click
-		wait 1
-'	End If
-	Device("Device").Enterkeys typeValue, "500000"
-'	If btn_selesai.Exist Then
-		btn_selesai.Tap
-		wait 1
-'	End If
-	Call Capture(lbl_easymudharabah,"Dev","Nominal", "Berhasil memasukkan nominal, pilih sumber rekening")
-	Call TabunganSumber("blokir")
-	Call Capture(inobj_lanjutkan,"Dev","Sumber Rekening", "Berhasil memilih sumber rekening, klik lanjutkan")
-'	If inobj_lanjutkan.Exist Then
-		lbl_lanjutkan.Tap
-'	End If
-	Call LoopUntil()
-'	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-'	End If
-'	If lbl_konfirmasi Then
-		lbl_konfirmasi.Tap
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-	lbl_1.Tap
-	lbl_2.Tap
-	lbl_3.Tap
-	lbl_4.Tap
-	lbl_5.Tap
-	lbl_6.Tap
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening terblokir")
-	
-	'Rekening Dormant
-	Call react.Addtitle("Rekening Dormant")
-	Call Login()
-	Call Navigate("Bayar Beli")
-'	If ai_akademik.Exist Then
-		ai_akademik.Click
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_listakademik,"Dev","List Nama Akademik", "Berhasil menampilkan list nama akademik, pilih akademik")
-'	If inobj_txtakademik.Exist Then
-		inobj_txtakademik.Click
-		wait 1
-'	End If
-	Device("Device").Enterkeys typeValue, param
-	wait 1
-	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
-	Select Case param
-		Case "andalas"	'if lbl_andalas.Exist then
-							lbl_andalas.Tap
-						'End If
-	End Select
-	Call LoopUntil()
-'	If btn_selesai.Exist Then
-		btn_selesai.Tap
-		wait 1
-'	End If
-	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
-'	If inobj_txt_kodebayar.Exist Then
-		inobj_txt_kodebayar.Click
-		wait 1
-'	End If
-	Select Case param
-		Case "andalas"	Device("Device").Enterkeys typeValue, biller '999999001
-	End Select
-'	If btn_selesai.Exist Then
-		btn_selesai.Tap
-		wait 1
-'	End If
-	Call Capture(lbl_easymudharabah,"Dev","Kode Bayar", "Berhasil memasukkan kode bayar, masukkan nominal")
-'	If inob_txt_nominal.Exist Then
-		inob_txt_nominal.Click
-		wait 1
-'	End If
-	Device("Device").Enterkeys typeValue, "500000"
-'	If btn_selesai.Exist Then
-		btn_selesai.Tap
-		wait 1
-'	End If
-	Call Capture(lbl_easymudharabah,"Dev","Nominal", "Berhasil memasukkan nominal, pilih sumber rekening")
-	Call TabunganSumber("dormant")
-	Call Capture(inobj_lanjutkan,"Dev","Sumber Rekening", "Berhasil memilih sumber rekening, klik lanjutkan")
-'	If inobj_lanjutkan.Exist Then
-		lbl_lanjutkan.Tap
-'	End If
-	Call LoopUntil()
-'	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-'	End If
-'	If lbl_konfirmasi Then
-		lbl_konfirmasi.Tap
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-	lbl_1.Tap
-	lbl_2.Tap
-	lbl_3.Tap
-	lbl_4.Tap
-	lbl_5.Tap
-	lbl_6.Tap
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening dormant")
-	
 	'Salah PIN 1x
 	Call react.Addtitle("Salah PIN 1x")
 	Call Login()
@@ -2988,10 +1877,11 @@ Function AkademikOpenPaymentNegative(param,biller)
 '	If ai_akademik.Exist Then
 		ai_akademik.Click
 '	End If
-	Call LoopUntil()
+	Call LoopUntil(s)
 	Call Capture(lbl_listakademik,"Dev","List Nama Akademik", "Berhasil menampilkan list nama akademik, pilih akademik")
 '	If inobj_txtakademik.Exist Then
-		inobj_txtakademik.Click
+'		inobj_txtakademik.Click
+	Call LoopUntil(s)
 		wait 1
 '	End If
 	Device("Device").Enterkeys typeValue, param
@@ -3001,6 +1891,7 @@ Function AkademikOpenPaymentNegative(param,biller)
 		Case "andalas"	'if lbl_andalas.Exist then
 							lbl_andalas.Tap
 						'End If
+		Case "uad"		lbl_uad.Tap
 	End Select
 	Call LoopUntil()
 '	If btn_selesai.Exist Then
@@ -3012,9 +1903,7 @@ Function AkademikOpenPaymentNegative(param,biller)
 		inobj_txt_kodebayar.Click
 		wait 1
 '	End If
-	Select Case param
-		Case "andalas"	Device("Device").Enterkeys typeValue, biller '999999001
-	End Select
+	Device("Device").Enterkeys typeValue, biller
 '	If btn_selesai.Exist Then
 		btn_selesai.Tap
 		wait 1
@@ -3052,10 +1941,11 @@ Function AkademikOpenPaymentNegative(param,biller)
 '	If ai_akademik.Exist Then
 		ai_akademik.Click
 '	End If
-	Call LoopUntil()
+	Call LoopUntil(s)
 	Call Capture(lbl_listakademik,"Dev","List Nama Akademik", "Berhasil menampilkan list nama akademik, pilih akademik")
 '	If inobj_txtakademik.Exist Then
-		inobj_txtakademik.Click
+'		inobj_txtakademik.Click
+Call LoopUntil(s)
 		wait 1
 '	End If
 	Device("Device").Enterkeys typeValue, param
@@ -3065,6 +1955,7 @@ Function AkademikOpenPaymentNegative(param,biller)
 		Case "andalas"	'if lbl_andalas.Exist then
 							lbl_andalas.Tap
 						'End If
+		Case "uad"		lbl_uad.Tap
 	End Select
 	Call LoopUntil()
 '	If btn_selesai.Exist Then
@@ -3076,9 +1967,7 @@ Function AkademikOpenPaymentNegative(param,biller)
 		inobj_txt_kodebayar.Click
 		wait 1
 '	End If
-	Select Case param
-		Case "andalas"	Device("Device").Enterkeys typeValue, biller '999999001
-	End Select
+	Device("Device").Enterkeys typeValue, biller 
 '	If btn_selesai.Exist Then
 		btn_selesai.Tap
 		wait 1
@@ -3118,10 +2007,11 @@ Function AkademikOpenPaymentNegative(param,biller)
 '	If ai_akademik.Exist Then
 		ai_akademik.Click
 '	End If
-	Call LoopUntil()
+	Call LoopUntil(s)
 	Call Capture(lbl_listakademik,"Dev","List Nama Akademik", "Berhasil menampilkan list nama akademik, pilih akademik")
 '	If inobj_txtakademik.Exist Then
-		inobj_txtakademik.Click
+'		inobj_txtakademik.Click
+Call LoopUntil(s)
 		wait 1
 '	End If
 	Device("Device").Enterkeys typeValue, param
@@ -3131,6 +2021,7 @@ Function AkademikOpenPaymentNegative(param,biller)
 		Case "andalas"	'if lbl_andalas.Exist then
 							lbl_andalas.Tap
 						'End If
+		Case "uad"		lbl_uad.Tap
 	End Select
 	Call LoopUntil()
 '	If btn_selesai.Exist Then
@@ -3142,9 +2033,7 @@ Function AkademikOpenPaymentNegative(param,biller)
 		inobj_txt_kodebayar.Click
 		wait 1
 '	End If
-	Select Case param
-		Case "andalas"	Device("Device").Enterkeys typeValue, biller '999999001
-	End Select
+	Device("Device").Enterkeys typeValue, biller
 '	If btn_selesai.Exist Then
 		btn_selesai.Tap
 		wait 1
@@ -3177,26 +2066,21 @@ Function AkademikOpenPaymentNegative(param,biller)
 	Call UnSetLimitTransaksi("pembayaran")
 End Function
 
-Function AkademikClosePayment(param,biller) 'AHMAD DAHLAN | UIN STS JAMBI
+Function AkademikClosePayment(param,biller) 'AHMAD DAHLAN | UIN STS JAMBI | BAYAR ID
 	Call Login()
 	Call Navigate("Bayar Beli")
 	ai_akademik.Click
-'	Call LoopUntil()
-'	wait 1
 	Call LoopUntil(s)
 	Call Capture(lbl_listakademik,"Dev","List Nama Akademik", "Berhasil menampilkan list nama akademik, pilih akademik")
-'	inobj_txtakademik.Click 
 	Call LoopUntil(s)
 	wait 1
-	Select Case param
-		Case "ahmad"		Device("Device").Enterkeys typeValue, "uad "
-		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, param
-	End Select
+	Device("Device").Enterkeys typeValue, param
 	wait 1
 	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
 	Select Case param
 		Case "ahmad"		lbl_ahmad.Tap
 		Case "uin sts jambi"	lbl_uinstsjambi.Tap
+		Case "bayar id"		lbl_bayarid.Tap
 	End Select
 	Call LoopUntil()
 	btn_selesai.Tap
@@ -3204,10 +2088,7 @@ Function AkademikClosePayment(param,biller) 'AHMAD DAHLAN | UIN STS JAMBI
 	Call Capture(lbl_easymudharabah,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, masukkan kode bayar")
 	inobj_txt_kodebayar.Click
 	wait 1
-	Select Case param
-		Case "ahmad"		Device("Device").Enterkeys typeValue, biller 
-		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, biller 
-	End Select
+	Device("Device").Enterkeys typeValue, biller
 	btn_selesai.Tap
 	wait 1
 	Call Capture(lbl_easymudharabah,"Dev","Kode Bayar", "Berhasil memasukkan kode bayar, pilih sumber rekening")
@@ -3220,6 +2101,7 @@ Function AkademikClosePayment(param,biller) 'AHMAD DAHLAN | UIN STS JAMBI
 	Select Case param
 		Case "ahmad"			Call TransaksiBerhasil("Universitas Ahmad Dahlan",nomorFT, "resi akademik","Infaq",nomorFTInfaq,"resi pulsa")
 		Case "uin sts jambi"		Call TransaksiBerhasil("UIN STS Jambi",nomorFT, "resi akademik","Infaq",nomorFTInfaq,"resi pulsa")
+		Case "bayar id"			Call TransaksiBerhasil("Bayar ID",nomorFT, "resi akademik","Infaq",nomorFTInfaq,"resi pulsa")
 	End Select
 End Function
 
@@ -3236,15 +2118,13 @@ Function AkademikClosePaymentNegative(param,biller)
 '	inobj_txtakademik.Click 
 	Call LoopUntil(s)
 	wait 1
-	Select Case param
-		Case "ahmad"		Device("Device").Enterkeys typeValue, "uad "
-		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, "uin sts jambi"
-	End Select
+	Device("Device").Enterkeys typeValue, param
 	wait 1
 	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
 	Select Case param
 		Case "ahmad"		lbl_ahmad.Tap
 		Case "uin sts jambi"	lbl_uinstsjambi.Tap
+		Case "bayar id"		lbl_bayarid.Tap
 	End Select
 	Call LoopUntil()
 	btn_selesai.Tap
@@ -3252,10 +2132,7 @@ Function AkademikClosePaymentNegative(param,biller)
 	Call Capture(lbl_easymudharabah,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, masukkan kode bayar")
 	inobj_txt_kodebayar.Click
 	wait 1
-	Select Case param
-		Case "ahmad"	Device("Device").Enterkeys typeValue, 999999999
-		Case "ahmad"	Device("Device").Enterkeys typeValue, 999999996
-	End Select
+	Device("Device").Enterkeys typeValue, 999999999
 	btn_selesai.Tap
 	wait 1
 	Call Capture(lbl_easymudharabah,"Dev","Kode Bayar", "Berhasil memasukkan kode bayar, pilih sumber rekening")
@@ -3265,68 +2142,63 @@ Function AkademikClosePaymentNegative(param,biller)
 	Call LoopUntil()
 	Call Capture(lbl_konfirmasi,"Dev","Kode Bayar Salah","Berhasil menampilkan drawer kode bayar salah")
 	
-	'Tagihan Lunas
-	Call react.Addtitle("Tagihan Lunas")
-	Call Login()
-	Call Navigate("Bayar Beli")
-	ai_akademik.Click
-'	Call LoopUntil()
+'	'Tagihan Lunas
+'	Call react.Addtitle("Tagihan Lunas")
+'	Call Login()
+'	Call Navigate("Bayar Beli")
+'	ai_akademik.Click
+''	Call LoopUntil()
+''	wait 1
+'	Call LoopUntil(s)
+'	Call Capture(lbl_listakademik,"Dev","List Nama Akademik", "Berhasil menampilkan list nama akademik, pilih akademik")
+''	inobj_txtakademik.Click 
+'	Call LoopUntil(s)
 '	wait 1
-	Call LoopUntil(s)
-	Call Capture(lbl_listakademik,"Dev","List Nama Akademik", "Berhasil menampilkan list nama akademik, pilih akademik")
-'	inobj_txtakademik.Click 
-	Call LoopUntil(s)
-	wait 1
-	Select Case param
-		Case "ahmad"		Device("Device").Enterkeys typeValue, "uad "
-		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, "uin sts jambi"
-	End Select
-	wait 1
-	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
-	Select Case param
-		Case "ahmad"		lbl_ahmad.Tap
-		Case "uin sts jambi"	lbl_uinstsjambi.Tap
-	End Select
-	Call LoopUntil()
-	btn_selesai.Tap
-	wait 1
-	Call Capture(lbl_easymudharabah,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, masukkan kode bayar")
-	inobj_txt_kodebayar.Click
-	wait 1
-	Select Case param
-		Case "ahmad"		Device("Device").Enterkeys typeValue, "12345"
-		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, "999999121314"
-	End Select
-	btn_selesai.Tap
-	wait 1
-	Call Capture(lbl_easymudharabah,"Dev","Kode Bayar", "Berhasil memasukkan kode bayar, pilih sumber rekening")
-	Call TabunganSumber("transaksi")
-	Call Capture(inobj_lanjutkan,"Dev","Sumber Rekening", "Berhasil memilih sumber rekening, klik lanjutkan")
-	lbl_cektagihan.Tap
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasi,"Dev","Tagihan Lunas","Berhasil menampilkan drawer tagihan lunas")
+'	Select Case param
+'		Case "ahmad"		Device("Device").Enterkeys typeValue, "uad "
+'		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, "uin sts jambi"
+'	End Select
+'	wait 1
+'	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
+'	Select Case param
+'		Case "ahmad"		lbl_ahmad.Tap
+'		Case "uin sts jambi"	lbl_uinstsjambi.Tap
+'	End Select
+'	Call LoopUntil()
+'	btn_selesai.Tap
+'	wait 1
+'	Call Capture(lbl_easymudharabah,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, masukkan kode bayar")
+'	inobj_txt_kodebayar.Click
+'	wait 1
+'	Select Case param
+'		Case "ahmad"		Device("Device").Enterkeys typeValue, "12345"
+'		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, "999999121314"
+'	End Select
+'	btn_selesai.Tap
+'	wait 1
+'	Call Capture(lbl_easymudharabah,"Dev","Kode Bayar", "Berhasil memasukkan kode bayar, pilih sumber rekening")
+'	Call TabunganSumber("transaksi")
+'	Call Capture(inobj_lanjutkan,"Dev","Sumber Rekening", "Berhasil memilih sumber rekening, klik lanjutkan")
+'	lbl_cektagihan.Tap
+'	Call LoopUntil()
+'	Call Capture(lbl_konfirmasi,"Dev","Tagihan Lunas","Berhasil menampilkan drawer tagihan lunas")
 
 	'Saldo Kurang
 	Call react.Addtitle("Saldo Kurang")
 	Call Login()
 	Call Navigate("Bayar Beli")
 	ai_akademik.Click
-'	Call LoopUntil()
-'	wait 1
 	Call LoopUntil(s)
 	Call Capture(lbl_listakademik,"Dev","List Nama Akademik", "Berhasil menampilkan list nama akademik, pilih akademik")
-'	inobj_txtakademik.Click 
 	Call LoopUntil(s)
 	wait 1
-	Select Case param
-		Case "ahmad"		Device("Device").Enterkeys typeValue, "uad "
-		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, "uin sts jambi"
-	End Select
+	Device("Device").Enterkeys typeValue, param
 	wait 1
 	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
 	Select Case param
 		Case "ahmad"		lbl_ahmad.Tap
 		Case "uin sts jambi"	lbl_uinstsjambi.Tap
+		Case "bayar id"		lbl_bayarid.Tap
 	End Select
 	Call LoopUntil()
 	btn_selesai.Tap
@@ -3334,10 +2206,7 @@ Function AkademikClosePaymentNegative(param,biller)
 	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
 	inobj_txt_kodebayar.Click
 	wait 1
-	Select Case param
-		Case "ahmad"		Device("Device").Enterkeys typeValue, biller '99999910092011
-		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, biller 
-	End Select
+	Device("Device").Enterkeys typeValue, biller
 	btn_selesai.Tap
 	wait 1
 	Call Capture(lbl_easymudharabah,"Dev","Kode Bayar", "Berhasil memasukkan kode bayar, pilih sumber rekening")
@@ -3350,109 +2219,109 @@ Function AkademikClosePaymentNegative(param,biller)
 	Call LoopUntil()
 	Call Capture(lbl_kembali,"Dev","Saldo Kurang", "Berhasil menampilkan drawer saldo kurang")
 	
-	'Rekening Blokir
-	Call react.Addtitle("Rekening Blokir")
-	Call Login()
-	Call Navigate("Bayar Beli")
-	ai_akademik.Click
-'	Call LoopUntil()
+'	'Rekening Blokir
+'	Call react.Addtitle("Rekening Blokir")
+'	Call Login()
+'	Call Navigate("Bayar Beli")
+'	ai_akademik.Click
+''	Call LoopUntil()
+''	wait 1
+'	Call LoopUntil(s)
+'	Call Capture(lbl_listakademik,"Dev","List Nama Akademik", "Berhasil menampilkan list nama akademik, pilih akademik")
+''	inobj_txtakademik.Click 
+'	Call LoopUntil(s)
 '	wait 1
-	Call LoopUntil(s)
-	Call Capture(lbl_listakademik,"Dev","List Nama Akademik", "Berhasil menampilkan list nama akademik, pilih akademik")
-'	inobj_txtakademik.Click 
-	Call LoopUntil(s)
-	wait 1
-	Select Case param
-		Case "ahmad"		Device("Device").Enterkeys typeValue, "uad "
-		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, "uin sts jambi"
-	End Select
-	wait 1
-	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
-	Select Case param
-		Case "ahmad"		lbl_ahmad.Tap
-		Case "uin sts jambi"	lbl_uinstsjambi
-	End Select
-	Call LoopUntil()
-	btn_selesai.Tap
-	wait 1
-	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
-	inobj_txt_kodebayar.Click
-	wait 1
-	Select Case param
-		Case "ahmad"		Device("Device").Enterkeys typeValue, biller 
-		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, biller 
-	End Select
-	btn_selesai.Tap
-	wait 1
-	Call Capture(lbl_easymudharabah,"Dev","Kode Bayar", "Berhasil memasukkan kode bayar,  pilih sumber rekening")
-	Call TabunganSumber("blokir")
-	Call Capture(inobj_lanjutkan,"Dev","Sumber Rekening", "Berhasil memilih sumber rekening, klik cek tagihan")
-	lbl_cektagihan.Tap
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	lbl_konfirmasi.Tap
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-	lbl_1.Tap
-	lbl_2.Tap
-	lbl_3.Tap
-	lbl_4.Tap
-	lbl_5.Tap
-	lbl_6.Tap
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening terblokir")
-	
-	'Rekening Dormant
-	Call react.Addtitle("Rekening Dormant")
-	Call Login()
-	Call Navigate("Bayar Beli")
-	ai_akademik.Click
-'	Call LoopUntil()
+'	Select Case param
+'		Case "ahmad"		Device("Device").Enterkeys typeValue, "uad "
+'		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, "uin sts jambi"
+'	End Select
 '	wait 1
-	Call LoopUntil(s)
-	Call Capture(lbl_listakademik,"Dev","List Nama Akademik", "Berhasil menampilkan list nama akademik, pilih akademik")
-'	inobj_txtakademik.Click 
-	Call LoopUntil(s)
-	wait 1
-	Select Case param
-		Case "ahmad"		Device("Device").Enterkeys typeValue, "uad "
-		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, "uin sts jambi"
-	End Select
-	wait 1
-	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
-	Select Case param
-		Case "ahmad"		lbl_ahmad.Tap
-		Case "uin sts jambi"	lbl_uinstsjambi.Tap
-	End Select
-	Call LoopUntil()
-		btn_selesai.Tap
-		wait 1
-	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
-		inobj_txt_kodebayar.Click
-		wait 1
-	Select Case param
-		Case "ahmad"		Device("Device").Enterkeys typeValue, biller 
-		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, biller 
-	End Select
-		btn_selesai.Tap
-		wait 1
-	Call Capture(lbl_easymudharabah,"Dev","Kode Bayar", "Berhasil memasukkan kode bayar, pilih sumber rekening")
-	Call TabunganSumber("dormant")
-	Call Capture(inobj_lanjutkan,"Dev","Sumber Rekening", "Berhasil memilih sumber rekening, klik cek tagihan")
-		lbl_cektagihan.Tap
-	Call LoopUntil()
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-		lbl_konfirmasi.Tap
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-	lbl_1.Tap
-	lbl_2.Tap
-	lbl_3.Tap
-	lbl_4.Tap
-	lbl_5.Tap
-	lbl_6.Tap
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening dormant")
+'	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
+'	Select Case param
+'		Case "ahmad"		lbl_ahmad.Tap
+'		Case "uin sts jambi"	lbl_uinstsjambi
+'	End Select
+'	Call LoopUntil()
+'	btn_selesai.Tap
+'	wait 1
+'	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
+'	inobj_txt_kodebayar.Click
+'	wait 1
+'	Select Case param
+'		Case "ahmad"		Device("Device").Enterkeys typeValue, biller 
+'		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, biller 
+'	End Select
+'	btn_selesai.Tap
+'	wait 1
+'	Call Capture(lbl_easymudharabah,"Dev","Kode Bayar", "Berhasil memasukkan kode bayar,  pilih sumber rekening")
+'	Call TabunganSumber("blokir")
+'	Call Capture(inobj_lanjutkan,"Dev","Sumber Rekening", "Berhasil memilih sumber rekening, klik cek tagihan")
+'	lbl_cektagihan.Tap
+'	Call LoopUntil()
+'	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+'	lbl_konfirmasi.Tap
+'	Call LoopUntil()
+'	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
+'	lbl_1.Tap
+'	lbl_2.Tap
+'	lbl_3.Tap
+'	lbl_4.Tap
+'	lbl_5.Tap
+'	lbl_6.Tap
+'	Call LoopUntil()
+'	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening terblokir")
+'	
+'	'Rekening Dormant
+'	Call react.Addtitle("Rekening Dormant")
+'	Call Login()
+'	Call Navigate("Bayar Beli")
+'	ai_akademik.Click
+''	Call LoopUntil()
+''	wait 1
+'	Call LoopUntil(s)
+'	Call Capture(lbl_listakademik,"Dev","List Nama Akademik", "Berhasil menampilkan list nama akademik, pilih akademik")
+''	inobj_txtakademik.Click 
+'	Call LoopUntil(s)
+'	wait 1
+'	Select Case param
+'		Case "ahmad"		Device("Device").Enterkeys typeValue, "uad "
+'		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, "uin sts jambi"
+'	End Select
+'	wait 1
+'	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
+'	Select Case param
+'		Case "ahmad"		lbl_ahmad.Tap
+'		Case "uin sts jambi"	lbl_uinstsjambi.Tap
+'	End Select
+'	Call LoopUntil()
+'		btn_selesai.Tap
+'		wait 1
+'	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
+'		inobj_txt_kodebayar.Click
+'		wait 1
+'	Select Case param
+'		Case "ahmad"		Device("Device").Enterkeys typeValue, biller 
+'		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, biller 
+'	End Select
+'		btn_selesai.Tap
+'		wait 1
+'	Call Capture(lbl_easymudharabah,"Dev","Kode Bayar", "Berhasil memasukkan kode bayar, pilih sumber rekening")
+'	Call TabunganSumber("dormant")
+'	Call Capture(inobj_lanjutkan,"Dev","Sumber Rekening", "Berhasil memilih sumber rekening, klik cek tagihan")
+'		lbl_cektagihan.Tap
+'	Call LoopUntil()
+'		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+'		lbl_konfirmasi.Tap
+'	Call LoopUntil()
+'	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
+'	lbl_1.Tap
+'	lbl_2.Tap
+'	lbl_3.Tap
+'	lbl_4.Tap
+'	lbl_5.Tap
+'	lbl_6.Tap
+'	Call LoopUntil()
+'	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening dormant")
 	
 	'Salah PIN 1x
 	Call react.Addtitle("Salah PIN 1x")
@@ -3466,35 +2335,30 @@ Function AkademikClosePaymentNegative(param,biller)
 '	inobj_txtakademik.Click 
 	Call LoopUntil(s)
 	wait 1
-	Select Case param
-		Case "ahmad"		Device("Device").Enterkeys typeValue, "uad "
-		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, "uin sts jambi "
-	End Select
+	Device("Device").Enterkeys typeValue, param
 	wait 1
 	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
 	Select Case param
 		Case "ahmad"		lbl_ahmad.Tap
 		Case "uin sts jambi"	lbl_uinstsjambi.Tap
+		Case "bayar id"		lbl_bayarid.Tap
 	End Select
 	Call LoopUntil()
-		btn_selesai.Tap
-		wait 1
+	btn_selesai.Tap
+	wait 1
 	Call Capture(lbl_easymudharabah,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, masukkan kode bayar")
-		inobj_txt_kodebayar.Click
-		wait 1
-	Select Case param
-		Case "ahmad"		Device("Device").Enterkeys typeValue, biller 
-		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, biller 
-	End Select
-		btn_selesai.Tap
-		wait 1
+	inobj_txt_kodebayar.Click
+	wait 1
+	Device("Device").Enterkeys typeValue, biller 
+	btn_selesai.Tap
+	wait 1
 	Call Capture(lbl_easymudharabah,"Dev","Kode Bayar", "Berhasil memasukkan kode bayar, pilih sumber rekening")
 	Call TabunganSumber("transaksi")
 	Call Capture(inobj_lanjutkan,"Dev","Sumber Rekening", "Berhasil memilih sumber rekening, klik lanjutkan")
-		lbl_cektagihan.Tap
+	lbl_cektagihan.Tap
 	Call LoopUntil()
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-		lbl_konfirmasi.Tap
+	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
 	Call SalahPIN()
 	
 	'Limit Harian
@@ -3510,35 +2374,30 @@ Function AkademikClosePaymentNegative(param,biller)
 '	inobj_txtakademik.Click 
 	Call LoopUntil(s)
 	wait 1
-	Select Case param
-		Case "ahmad"		Device("Device").Enterkeys typeValue, "uad "
-		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, "uin sts jambi "
-	End Select
+	Device("Device").Enterkeys typeValue, param
 	wait 1
 	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
 	Select Case param
 		Case "ahmad"		lbl_ahmad.Tap
 		Case "uin sts jambi"	lbl_uinstsjambi.Tap
+		Case "bayar id"		lbl_bayarid.Tap
 	End Select
 	Call LoopUntil()
-		btn_selesai.Tap
-		wait 1
+	btn_selesai.Tap
+	wait 1
 	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
-		inobj_txt_kodebayar.Click
-		wait 1
-	Select Case param
-		Case "ahmad"		Device("Device").Enterkeys typeValue, biller '999999001
-		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, biller 
-	End Select
-		btn_selesai.Tap
-		wait 1
+	inobj_txt_kodebayar.Click
+	wait 1
+	Device("Device").Enterkeys typeValue, biller
+	btn_selesai.Tap
+	wait 1
 	Call Capture(lbl_easymudharabah,"Dev","Kode Bayar", "Berhasil memasukkan kode bayar, pilih sumber rekening")
 	Call TabunganSumber("transaksi")
 	Call Capture(inobj_lanjutkan,"Dev","Sumber Rekening", "Berhasil memilih sumber rekening, klik cek tagihan")
-		lbl_cektagihan.Tap
+	lbl_cektagihan.Tap
 	Call LoopUntil()
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-		lbl_konfirmasi.Tap
+	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
 	Call LoopUntil()
 	Call Capture(lbl_kembali,"Dev","Limit Harian","Berhasil menampilkan drawer limit harian")
 	Call UnSetLimitHarian("pembayaran")
@@ -3549,42 +2408,34 @@ Function AkademikClosePaymentNegative(param,biller)
 	Call Login()
 	Call Navigate("Bayar Beli")
 	ai_akademik.Click
-'	Call LoopUntil()
-'	wait 1
 	Call LoopUntil(s)
 	Call Capture(lbl_listakademik,"Dev","List Nama Akademik", "Berhasil menampilkan list nama akademik, pilih akademik")
-'	inobj_txtakademik.Click 
 	Call LoopUntil(s)
 	wait 1
-	Select Case param
-		Case "ahmad"		Device("Device").Enterkeys typeValue, "uad "
-		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, "uin sts jambi "
-	End Select
+	Device("Device").Enterkeys typeValue, param
 	wait 1
 	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
 	Select Case param
 		Case "ahmad"		lbl_ahmad.Tap
 		Case "uin sts jambi"	lbl_uinstsjambi.Tap
+		Case "bayar id"		lbl_bayarid.Tap
 	End Select
 	Call LoopUntil()
-		btn_selesai.Tap
-		wait 1
+	btn_selesai.Tap
+	wait 1
 	Call Capture(inobj_txtakademik,"Dev","Nama Akademik", "Berhasil menampilkan nama akademik, pilih akademik")
-		inobj_txt_kodebayar.Click
-		wait 1
-	Select Case param
-		Case "ahmad"		Device("Device").Enterkeys typeValue, biller '999999001
-		Case "uin sts jambi"	Device("Device").Enterkeys typeValue, biller 
-	End Select
-		btn_selesai.Tap
-		wait 1
+	inobj_txt_kodebayar.Click
+	wait 1
+	Device("Device").Enterkeys typeValue, biller 
+	btn_selesai.Tap
+	wait 1
 	Call Capture(lbl_easymudharabah,"Dev","Kode Bayar", "Berhasil memasukkan kode bayar, pilih sumber rekening")
 	Call TabunganSumber("transaksi")
 	Call Capture(inobj_lanjutkan,"Dev","Sumber Rekening", "Berhasil memilih sumber rekening, klik cek tagihan")
-		lbl_cektagihan.Tap
+	lbl_cektagihan.Tap
 	Call LoopUntil()
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-		lbl_konfirmasi.Tap
+	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
 	Call LoopUntil()
 	Call Capture(lbl_kembali,"Dev","Limit Harian","Berhasil menampilkan drawer limit harian")
 	Call UnSetLimitTransaksi("pembayaran")
@@ -6443,3 +5294,318 @@ Function AqiqahNegative(param,jenkel,toogle)
 	Call SalahPIN()
 End Function
 
+Function BPJSKesehatan(biller)
+	Call Login()
+	Call Navigate("Bayar Beli")
+	ai_bpjs.Click
+	Call Capture(lbl_bpjsbpu,"Dev","List Program BPJS","Berhasil menampilkan list program bpjs, pilih program bpjs")
+	lbl_bpjsadvice.Tap
+	wait 3
+	txt_nomorhandphone.Set biller
+	wait 1
+	btn_selesai.Tap
+	wait 1
+	Call Capture(txt_nomorhandphone,"Dev","Nomor Tagihan","Berhasil memasukkan nomor virtual account, klik lanjutkan")
+	lbl_lanjutkan.Tap
+	wait 3
+	Call Capture(lbl_jumlahbulan,"Dev","Jumlah Bulan","Berhasil menampilkan halaman jumlah bulan, klik jumlah bulan")
+	lbl_jumlahbulan.Tap
+	wait 1
+	Call Capture(lbl_pilih,"Dev","Jumlah Bulan","Berhasil menampilkan list bulan, klik pilih")
+	lbl_pilih.Tap
+	Call Capture(lbl_cektagihan,"Dev","Sumber Rekening","Berhasil memilih bulan, pilih sumber rekening")
+	Call TabunganSumber("transaksi")
+	Call Capture(lbl_cektagihan,"Dev","Cek Tagihan","Berhasil memilih sumber rekening, klik cek tagihan")
+	lbl_cektagihan.Tap
+	wait 3
+	Call Capture(lbl_cektagihan,"Dev","Konfirmasi Transaksi","Berhasil menampilkan drawer konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
+	Call TransaksiBerhasil("BPJS Kesehatan",nomorFT, "...","Infaq",nomorFTInfaq,"resi pulsa") 
+End Function
+
+Function BPJSKesehatanNegative()
+	'Saldo Kurang
+	Call react.Addtitle("Saldo Kurang")
+	
+	'Nomor Virtual Account Salah
+	Call react.Addtitle("Nomor Virtual Account Salah")
+	
+	'Tagihan Lunas
+	Call react.Addtitle("Tagihan Lunas")
+	
+	'Salah PIN 1x
+	Call react.Addtitle("Salah PIN 1x")
+	
+	'Limit Harian
+	Call react.Addtitle("Limit Harian")
+	
+	'Limit Transaksi
+	Call react.Addtitle("Limit Transaksi")
+End Function
+
+Function BPJSKesehatanAdvice(biller)
+	Call Login()
+	Call Navigate("Bayar Beli")
+	ai_bpjs.Click
+	Call Capture(lbl_bpjsbpu,"Dev","List Program BPJS","Berhasil menampilkan list program bpjs, pilih program bpjs")
+	lbl_bpjsadvice.Tap
+	wait 3
+	txt_nomorhandphone.Set biller
+	wait 1
+	btn_selesai.Tap
+	wait 1
+	Call Capture(txt_nomorhandphone,"Dev","Nomor Tagihan","Berhasil memasukkan nomor tagihan, pilih sumber rekening")
+	Call TabunganSumber("transaksi")
+	Call Capture(lbl_cektagihan,"Dev","Cek Tagihan","Berhasil memilih sumber rekening, klik cek tagihan")
+	lbl_cektagihan.Tap
+	wait 3
+	Call Capture(lbl_cektagihan,"Dev","Konfirmasi Transaksi","Berhasil menampilkan drawer konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
+	Call TransaksiBerhasil("BPJS Kesehatan Advice",nomorFT, "...","Infaq",nomorFTInfaq,"resi pulsa")
+End Function
+
+Function BPJSKesehatanAdviceNegative()
+	'Saldo Kurang
+	Call react.Addtitle("Saldo Kurang")
+	
+	'Nomor Virtual Account Salah
+	Call react.Addtitle("Nomor Virtual Account Salah")
+	
+	'Tagihan Lunas
+	Call react.Addtitle("Tagihan Lunas")
+	
+	'Tagihan Kadaluwarsa
+	Call react.Addtitle("Tagihan Kadaluwarsa")
+	
+	'Salah PIN 1x
+	Call react.Addtitle("Salah PIN 1x")
+End Function
+
+Function BPJSKetenagakerjaanPU(biller)
+	Call Login()
+	Call Navigate("Bayar Beli")
+	ai_bpjs.Click
+	Call Capture(lbl_bpjsbpu,"Dev","List Program BPJS","Berhasil menampilkan list program bpjs, pilih program bpjs")
+	lbl_bpjspu.Tap
+	wait 3
+	txt_nomorhandphone.Set biller
+	wait 1
+	btn_selesai.Tap
+	wait 1
+	Call Capture(txt_nomorhandphone,"Dev","Nomor Tagihan","Berhasil memasukkan nomor tagihan, pilih sumber rekening")
+	Call TabunganSumber("transaksi")
+	Call Capture(lbl_cektagihan,"Dev","Cek Tagihan","Berhasil memilih sumber rekening, klik cek tagihan")
+	lbl_cektagihan.Tap
+	wait 3
+	Call Capture(lbl_cektagihan,"Dev","Konfirmasi Transaksi","Berhasil menampilkan drawer konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
+	Call TransaksiBerhasil("BPJS Ketenagakerjaan PU",nomorFT, "...","Infaq",nomorFTInfaq,"resi pulsa")
+End Function
+
+Function BPJSKetenagakerjaanPUNegative()
+	'Saldo Kurang
+	Call react.Addtitle("Saldo Kurang")
+	
+	'Nomor Virtual Account Salah
+	Call react.Addtitle("Nomor Virtual Account Salah")
+	
+	'Tagihan Lunas
+	Call react.Addtitle("Tagihan Lunas")
+	
+	'Salah PIN 1x
+	Call react.Addtitle("Salah PIN 1x")
+	
+	'Limit Harian
+	Call react.Addtitle("Limit Harian")
+	
+	'Limit Transaksi
+	Call react.Addtitle("Limit Transaksi")
+End Function
+
+'3671081211770004
+Function BPJSKetenagakerjaanBPU(biller)
+	Call Login()
+	Call Navigate("Bayar Beli")
+	ai_bpjs.Click
+	Call Capture(lbl_bpjsbpu,"Dev","List Program BPJS","Berhasil menampilkan list program bpjs, pilih program bpjs")
+	lbl_bpjsbpu.Tap
+	wait 3
+	txt_nomorhandphone.Set biller
+	wait 1
+	btn_selesai.Tap
+	wait 1
+	Call Capture(txt_nomorhandphone,"Dev","Nomor Tagihan","Berhasil memasukkan nomor tagihan, pilih jumlah bulan")
+	lbl_jumlahbulan.Tap
+	wait 1
+	Call Capture(lbl_pilih,"Dev","Jumlah Bulan","Berhasil menampilkan list bulan, klik pilih")
+	lbl_pilih.Tap
+	Call Capture(lbl_cektagihan,"Dev","Sumber Rekening","Berhasil memilih bulan, pilih sumber rekening")
+	Call TabunganSumber("transaksi")
+	Call Capture(lbl_cektagihan,"Dev","Cek Tagihan","Berhasil memilih sumber rekening, klik cek tagihan")
+	lbl_cektagihan.Tap
+	wait 3
+	Call Capture(lbl_cektagihan,"Dev","Konfirmasi Transaksi","Berhasil menampilkan drawer konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
+	Call TransaksiBerhasil("BPJS Ketenagakerjaan BPU",nomorFT, "resi bpjsbpu","Infaq",nomorFTInfaq,"resi pulsa") 
+End Function
+
+Function BPJSKetenagakerjaanBPUNegative(biller)
+	'Saldo Kurang
+	Call react.Addtitle("Saldo Kurang")
+	Call Login()
+	Call Navigate("Bayar Beli")
+	ai_bpjs.Click
+	Call Capture(lbl_bpjsbpu,"Dev","List Program BPJS","Berhasil menampilkan list program bpjs, pilih program bpjs")
+	lbl_bpjsbpu.Tap
+	wait 3
+	txt_nomorhandphone.Set biller
+	wait 1
+	btn_selesai.Tap
+	wait 1
+	Call Capture(txt_nomorhandphone,"Dev","Nomor Tagihan","Berhasil memasukkan nomor tagihan, pilih jumlah bulan")
+	lbl_jumlahbulan.Tap
+	wait 1
+	Call Capture(lbl_pilih,"Dev","Jumlah Bulan","Berhasil menampilkan list bulan, klik pilih")
+	lbl_pilih.Tap
+	Call Capture(lbl_cektagihan,"Dev","Sumber Rekening","Berhasil memilih bulan, pilih sumber rekening")
+	Call TabunganSumber("kosong")
+	Call Capture(lbl_cektagihan,"Dev","Cek Tagihan","Berhasil memilih sumber rekening, klik cek tagihan")
+	lbl_cektagihan.Tap
+	wait 3
+	Call Capture(lbl_cektagihan,"Dev","Konfirmasi Transaksi","Berhasil menampilkan drawer konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
+	Call LoopUntil()
+	Call Capture(lbl_cektagihan,"Dev","Saldo Kurang","Berhasil menampilkan drawer saldo kamu tidak mencukupi")
+	
+	'Nomor Tagihan Salah
+	Call react.Addtitle("Nomor Tagihan Salah")
+	Call Login()
+	Call Navigate("Bayar Beli")
+	ai_bpjs.Click
+	Call Capture(lbl_bpjsbpu,"Dev","List Program BPJS","Berhasil menampilkan list program bpjs, pilih program bpjs")
+	lbl_bpjsbpu.Tap
+	wait 3
+	txt_nomorhandphone.Set "1234"
+	wait 1
+	btn_selesai.Tap
+	wait 1
+	Call Capture(txt_nomorhandphone,"Dev","Nomor Tagihan","Berhasil memasukkan nomor tagihan, pilih jumlah bulan")
+	lbl_jumlahbulan.Tap
+	wait 1
+	Call Capture(lbl_pilih,"Dev","Jumlah Bulan","Berhasil menampilkan list bulan, klik pilih")
+	lbl_pilih.Tap
+	Call Capture(lbl_cektagihan,"Dev","Sumber Rekening","Berhasil memilih bulan, pilih sumber rekening")
+	Call TabunganSumber("transaksi")
+	Call Capture(lbl_cektagihan,"Dev","Cek Tagihan","Berhasil memilih sumber rekening, klik cek tagihan")
+	lbl_cektagihan.Tap
+	Call LoopUntil()
+	Call Capture(lbl_cektagihan,"Dev","Nomor Tagihan Salah","Berhasil menampilkan drawer nomor tagihan salah")
+	
+'	'Tagihan Lunas
+'	Call react.Addtitle("Tagihan Lunas")
+'	Call Login()
+'	Call Navigate("Bayar Beli")
+'	ai_bpjs.Click
+'	Call Capture(lbl_bpjsbpu,"Dev","List Program BPJS","Berhasil menampilkan list program bpjs, pilih program bpjs")
+'	lbl_bpjsbpu.Tap
+'	wait 3
+'	txt_nomorhandphone.Set "1234"
+'	wait 1
+'	btn_selesai.Tap
+'	wait 1
+'	Call Capture(txt_nomorhandphone,"Dev","Nomor Tagihan","Berhasil memasukkan nomor tagihan, pilih jumlah bulan")
+'	lbl_jumlahbulan.Tap
+'	wait 1
+'	Call Capture(lbl_pilih,"Dev","Jumlah Bulan","Berhasil menampilkan list bulan, klik pilih")
+'	lbl_pilih.Tap
+'	Call Capture(lbl_cektagihan,"Dev","Sumber Rekening","Berhasil memilih bulan, pilih sumber rekening")
+'	Call TabunganSumber("transaksi")
+'	Call Capture(lbl_cektagihan,"Dev","Cek Tagihan","Berhasil memilih sumber rekening, klik cek tagihan")
+'	lbl_cektagihan.Tap
+'	Call LoopUntil()
+'	Call Capture(lbl_cektagihan,"Dev","Tagihan Sudah Lunas","Berhasil menampilkan drawer nomor tagihan sudah lunas")
+	
+	'Salah PIN 1x
+	Call react.Addtitle("Salah PIN 1x")
+	Call Login()
+	Call Navigate("Bayar Beli")
+	ai_bpjs.Click
+	Call Capture(lbl_bpjsbpu,"Dev","List Program BPJS","Berhasil menampilkan list program bpjs, pilih program bpjs")
+	lbl_bpjsbpu.Tap
+	wait 3
+	txt_nomorhandphone.Set biller
+	wait 1
+	btn_selesai.Tap
+	wait 1
+	Call Capture(txt_nomorhandphone,"Dev","Nomor Tagihan","Berhasil memasukkan nomor tagihan, pilih jumlah bulan")
+	lbl_jumlahbulan.Tap
+	wait 1
+	Call Capture(lbl_pilih,"Dev","Jumlah Bulan","Berhasil menampilkan list bulan, klik pilih")
+	lbl_pilih.Tap
+	Call Capture(lbl_cektagihan,"Dev","Sumber Rekening","Berhasil memilih bulan, pilih sumber rekening")
+	Call TabunganSumber("transaksi")
+	Call Capture(lbl_cektagihan,"Dev","Cek Tagihan","Berhasil memilih sumber rekening, klik cek tagihan")
+	lbl_cektagihan.Tap
+	wait 3
+	Call Capture(lbl_cektagihan,"Dev","Konfirmasi Transaksi","Berhasil menampilkan drawer konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
+	Call SalahPIN()
+	
+	'Limit Harian
+	Call react.Addtitle("Limit Harian")
+	Call SetLimitHarian("pembayaran")
+	Call Login()
+	Call Navigate("Bayar Beli")
+	ai_bpjs.Click
+	Call Capture(lbl_bpjsbpu,"Dev","List Program BPJS","Berhasil menampilkan list program bpjs, pilih program bpjs")
+	lbl_bpjsbpu.Tap
+	wait 3
+	txt_nomorhandphone.Set biller
+	wait 1
+	btn_selesai.Tap
+	wait 1
+	Call Capture(txt_nomorhandphone,"Dev","Nomor Tagihan","Berhasil memasukkan nomor tagihan, pilih jumlah bulan")
+	lbl_jumlahbulan.Tap
+	wait 1
+	Call Capture(lbl_pilih,"Dev","Jumlah Bulan","Berhasil menampilkan list bulan, klik pilih")
+	lbl_pilih.Tap
+	Call Capture(lbl_cektagihan,"Dev","Sumber Rekening","Berhasil memilih bulan, pilih sumber rekening")
+	Call TabunganSumber("transaksi")
+	Call Capture(lbl_cektagihan,"Dev","Cek Tagihan","Berhasil memilih sumber rekening, klik cek tagihan")
+	lbl_cektagihan.Tap
+	wait 3
+	Call Capture(lbl_cektagihan,"Dev","Konfirmasi Transaksi","Berhasil menampilkan drawer konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
+	Call LoopUntil()
+	Call Capture(lbl_cektagihan,"Dev","Limit Harian","Berhasil menampilkan drawer limit harian")	
+	Call UnSetLimitHarian("pembayaran")
+	
+	'Limit Transaksi
+	Call react.Addtitle("Limit Transaksi")
+	Call SetLimitTransaksi("pembayaran")
+	Call Login()
+	Call Navigate("Bayar Beli")
+	ai_bpjs.Click
+	Call Capture(lbl_bpjsbpu,"Dev","List Program BPJS","Berhasil menampilkan list program bpjs, pilih program bpjs")
+	lbl_bpjsbpu.Tap
+	wait 3
+	txt_nomorhandphone.Set biller
+	wait 1
+	btn_selesai.Tap
+	wait 1
+	Call Capture(txt_nomorhandphone,"Dev","Nomor Tagihan","Berhasil memasukkan nomor tagihan, pilih jumlah bulan")
+	lbl_jumlahbulan.Tap
+	wait 1
+	Call Capture(lbl_pilih,"Dev","Jumlah Bulan","Berhasil menampilkan list bulan, klik pilih")
+	lbl_pilih.Tap
+	Call Capture(lbl_cektagihan,"Dev","Sumber Rekening","Berhasil memilih bulan, pilih sumber rekening")
+	Call TabunganSumber("transaksi")
+	Call Capture(lbl_cektagihan,"Dev","Cek Tagihan","Berhasil memilih sumber rekening, klik cek tagihan")
+	lbl_cektagihan.Tap
+	wait 3
+	Call Capture(lbl_cektagihan,"Dev","Konfirmasi Transaksi","Berhasil menampilkan drawer konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
+	Call LoopUntil()
+	Call Capture(lbl_cektagihan,"Dev","Limit Transaksi","Berhasil menampilkan drawer limit transaksi")	
+	Call UnSetLimitTransaksi("pembayaran")
+End Function

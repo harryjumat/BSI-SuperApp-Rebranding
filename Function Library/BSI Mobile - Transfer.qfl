@@ -26,8 +26,10 @@
 			txt_cari.Set "Harry"
 			wait 1
 		End If
-		Call Capture(txt_cari,"Dev","Pencarian Kontak","Berhasil menampilkan kontak yang dicari")
-		'tambahin done
+		Call Capture(txt_cari,"Dev","Pencarian Kontak","Berhasil menampilkan kontak yang dicari, klik icon 'x'")
+		inobj_x.Click
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Hapus Pencarian", "Berhasil menghapus pencarian", ReportStatus.Failed) 'FAILED
 		
 		'Melakukan Pencarian Nama Kontak Melalui Tab Favorit
 		Call react.Addtitle("Melakukan Pencarian Nama Kontak Melalui Tab Favorit")
@@ -63,7 +65,10 @@
 			txt_cari.Set "Harry"
 			wait 1
 		End If
-		Call Capture(txt_cari,"Dev","Pencarian Kontak","Berhasil menampilkan kontak yang dicari")
+		Call Capture(txt_cari,"Dev","Pencarian Kontak","Berhasil menampilkan kontak yang dicari, klik icon 'x'")
+		inobj_x.Click
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Hapus Pencarian", "Berhasil menghapus pencarian", ReportStatus.Failed) 'FAILED
 	End If
 	If x = "Negative" Then
 		'Melakukan Pencarian Nama Kontak Yang Tidak Ditemukan

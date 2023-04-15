@@ -1,4 +1,6 @@
 ﻿Function LembagaLainnya(param)
+	'dompet dhuafa	: 60521234567
+	'rzi				: 12304050167
 	Call Login()
 	Call Navigate("Berbagi")
 	If lbl_bayar.Exist Then
@@ -12,15 +14,15 @@
 	Call LoopUntil()
 	Call Capture(lbl_pilihlembaga,"Dev","Pilih Lembaga","Berhasil menampilkan list lembaga")
 	Select Case param
-		Case "Jadiberkah"			txt_carilembaga.Set "jadiberkah"
-								wait 1
-								lbl_jadiberkah.Tap
-		Case "kitabisa"			txt_carilembaga.Set "kitabisa"
-								wait 1
-								lbl_kitabisa.Tap
-		Case "dompetdhuafa"		txt_carilembaga.Set "dompet"
-								wait 1
-								lbl_dompetdhuafa.Tap
+'		Case "jadiberkah"			txt_carilembaga.Set "jadiberkah"
+'								wait 1
+'								lbl_jadiberkah.Tap
+'		Case "kitabisa"			txt_carilembaga.Set "kitabisa"
+'								wait 1
+'								lbl_kitabisa.Tap
+'		Case "dompetdhuafa"		txt_carilembaga.Set "dompet"
+'								wait 1
+'								lbl_dompetdhuafa.Tap
 		Case "rumahzakat"		txt_carilembaga.Set "rumah"
 								wait 1
 								lbl_rumahzakat.Tap
@@ -29,9 +31,9 @@
 	Call Capture(lbl_easymudharabah,"Dev","Lembaga","Berhasil memilih lembaga, masukkan nomor virtual account")
 	If txt_nomorva.Exist Then
 		Select Case param
-		Case "jadiberkah"			txt_nomorva.Set "002402219592543"
-		Case "kitabisa"			txt_nomorva.Set "123456"
-		Case "dompetdhuafa"		txt_nomorva.Set "123456"
+'		Case "jadiberkah"			txt_nomorva.Set "002402219592543"
+'		Case "kitabisa"			txt_nomorva.Set "123456"
+'		Case "dompetdhuafa"		txt_nomorva.Set "123456"
 		Case "rumahzakat"		txt_nomorva.Set "123456"
 		End Select
 	End If
@@ -55,10 +57,10 @@
 		lbl_konfirmasi.Tap
 	End If
 	Select Case param
-		Case "jadiberkah"			Call TransaksiBerhasil("Jadiberkah",nomorFT, "resi lembagalainnya",nomorFTInfaq,"resi pulsa")
-		Case "kitabisa"			Call TransaksiBerhasil("Kitabisa",nomorFT, "resi lembagalainnya",nomorFTInfaq,"resi pulsa")
-		Case "dompetdhuafa"		Call TransaksiBerhasil("Dompet Dhuafa",nomorFT, "resi lembagalainnya",nomorFTInfaq,"resi pulsa")
-		Case "rumahzakat"		Call TransaksiBerhasil("Rumah Zakat Indonesia",nomorFT, "resi lembagalainnya",nomorFTInfaq,"resi pulsa")
+'		Case "jadiberkah"			Call TransaksiBerhasil("Jadiberkah",nomorFT, "resi lembagalainnya", "Infaq", nomorFTInfaq,"resi pulsa")
+'		Case "kitabisa"			Call TransaksiBerhasil("Kitabisa",nomorFT, "resi lembagalainnya", "Infaq", nomorFTInfaq,"resi pulsa")
+'		Case "dompetdhuafa"		Call TransaksiBerhasil("Dompet Dhuafa",nomorFT, "resi lembagalainnya", "Infaq", nomorFTInfaq,"resi pulsa")
+		Case "rumahzakat"		Call TransaksiBerhasil("Rumah Zakat Indonesia",nomorFT, "resi lembagalainnya", "Infaq", nomorFTInfaq,"resi pulsa")
 	End Select
 End Function
 
@@ -78,15 +80,15 @@ Function LembagaLainnyaNegative(param)
 	Call LoopUntil()
 	Call Capture(lbl_pilihlembaga,"Dev","Pilih Lembaga","Berhasil menampilkan list lembaga")
 	Select Case param
-		Case "Jadiberkah"			txt_carilembaga.Set "jadiberkah"
-								wait 1
-								lbl_jadiberkah.Tap
-		Case "kitabisa"			txt_carilembaga.Set "kitabisa"
-								wait 1
-								lbl_kitabisa.Tap
-		Case "dompetdhuafa"		txt_carilembaga.Set "dompet"
-								wait 1
-								lbl_dompetdhuafa.Tap
+'		Case "jadiberkah"			txt_carilembaga.Set "jadiberkah"
+'								wait 1
+'								lbl_jadiberkah.Tap
+'		Case "kitabisa"			txt_carilembaga.Set "kitabisa"
+'								wait 1
+'								lbl_kitabisa.Tap
+'		Case "dompetdhuafa"		txt_carilembaga.Set "dompet"
+'								wait 1
+'								lbl_dompetdhuafa.Tap
 		Case "rumahzakat"		txt_carilembaga.Set "rumah"
 								wait 1
 								lbl_rumahzakat.Tap
@@ -95,9 +97,9 @@ Function LembagaLainnyaNegative(param)
 	Call Capture(lbl_pilihlembaga,"Dev","Lembaga","Berhasil memilih lembaga, masukkan nomor virtual account")
 	If txt_nomorva.Exist Then
 		Select Case param
-		Case "jadiberkah"			txt_nomorva.Set "002402219592543"
-		Case "kitabisa"			txt_nomorva.Set "123456"
-		Case "dompetdhuafa"		txt_nomorva.Set "123456"
+'		Case "jadiberkah"			txt_nomorva.Set "002402219592543"
+'		Case "kitabisa"			txt_nomorva.Set "123456"
+'		Case "dompetdhuafa"		txt_nomorva.Set "123456"
 		Case "rumahzakat"		txt_nomorva.Set "123456"
 		End Select
 	End If
@@ -233,7 +235,7 @@ Function LembagaLainnyaNegative(param)
 '		lbl_konfirmasi.Tap
 '	End If
 '	Call LoopUntil()
-'	Call Capture(lbl_kembali,"Dev","Tagihan Sudah Dibayarkan","Berhasil menampilkan drawer tagihan sudah dibayarkan")
+'	Call Capture(lbl_kembali,"Dev","Tagihan Sudah Dibayarkan","Berhasil menampilkan drawer virtual account telah dibayarkan")
 
 '	'Nomor Invalid
 '	Call react.Addtitle("Nomor Invalid")
@@ -355,164 +357,164 @@ Function LembagaLainnyaNegative(param)
 '	Call LoopUntil()
 '	Call Capture(lbl_kembali,"Dev","Tagihan Sudah Dibayarkan","Berhasil menampilkan drawer nomor virtual account expired")
 	
-	'Rekening Dormant
-	Call react.Addtitle("Rekening Dormant")
-	Call Login()
-	Call Navigate("Berbagi")
-	If lbl_bayar.Exist Then
-		lbl_bayar.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_lembagalainnya,"Dev","Lembaga Lainnya","Berhasil menampilkan halaman lembaga lainnya, pilih lembaga")
-	If btn_ubahlembaga.Exist Then
-		btn_ubahlembaga.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_pilihlembaga,"Dev","Pilih Lembaga","Berhasil menampilkan list lembaga")
-	Select Case param
-		Case "Jadiberkah"			txt_carilembaga.Set "jadiberkah"
-								wait 1
-								lbl_jadiberkah.Tap
-		Case "kitabisa"			txt_carilembaga.Set "kitabisa"
-								wait 1
-								lbl_kitabisa.Tap
-		Case "dompetdhuafa"		txt_carilembaga.Set "dompet"
-								wait 1
-								lbl_dompetdhuafa.Tap
-		Case "rumahzakat"		txt_carilembaga.Set "rumah"
-								wait 1
-								lbl_rumahzakat.Tap
-	End Select
-	wait 1
-	Call Capture(lbl_pilihlembaga,"Dev","Lembaga","Berhasil memilih lembaga, masukkan nomor virtual account")
-	If txt_nomorva.Exist Then
-		Select Case param
-		Case "jadiberkah"			txt_nomorva.Set "002402219592543"
-		Case "kitabisa"			txt_nomorva.Set "123456"
-		Case "dompetdhuafa"		txt_nomorva.Set "123456"
-		Case "rumahzakat"		txt_nomorva.Set "123456"
-		End Select
-	End If
-	If btn_selesai.Exist Then
-		btn_selesai.Tap
-		wait 1
-	End If
-	Call Capture(lbl_cekpembayaran,"Dev","Nomor Virtual Account","Berhasil memasukkan nomor virtual account, pilih sumber rekening")
-	Call TabunganSumber("dormant")
-	Call LoopUntil()
-	Call Capture(lbl_cekpembayaran,"Dev","Sumber Tabungan","Berhasil memilih sumber tabungan, klik cek pembayaran")
-	If lbl_cekpembayaran.Exist Then
-		lbl_cekpembayaran.Tap
-	End If
-	Call LoopUntil()
-	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	End If
-	If lbl_konfirmasi.Exist Then
-		lbl_konfirmasi.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-	If lbl_1.Exist Then
-		lbl_1.Tap
-	End If
-	If lbl_2.Exist Then
-		lbl_2.Tap
-	End If
-	If lbl_3.Exist Then
-		lbl_3.Tap
-	End If
-	If lbl_4.Exist Then
-		lbl_4.Tap
-	End If
-	If lbl_5.Exist Then
-		lbl_5.Tap
-	End If
-	If lbl_6.Exist Then
-		lbl_6.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening dormant")
-	
-	'Rekening Terblokir
-	Call react.Addtitle("Rekening Terblokir")
-	Call Login()
-	Call Navigate("Berbagi")
-	If lbl_bayar.Exist Then
-		lbl_bayar.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_lembagalainnya,"Dev","Lembaga Lainnya","Berhasil menampilkan halaman lembaga lainnya, pilih lembaga")
-	If btn_ubahlembaga.Exist Then
-		btn_ubahlembaga.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_pilihlembaga,"Dev","Pilih Lembaga","Berhasil menampilkan list lembaga")
-	Select Case param
-		Case "Jadiberkah"			txt_carilembaga.Set "jadiberkah"
-								wait 1
-								lbl_jadiberkah.Tap
-		Case "kitabisa"			txt_carilembaga.Set "kitabisa"
-								wait 1
-								lbl_kitabisa.Tap
-		Case "dompetdhuafa"		txt_carilembaga.Set "dompet"
-								wait 1
-								lbl_dompetdhuafa.Tap
-		Case "rumahzakat"		txt_carilembaga.Set "rumah"
-								wait 1
-								lbl_rumahzakat.Tap
-	End Select
-	wait 1
-	Call Capture(lbl_pilihlembaga,"Dev","Lembaga","Berhasil memilih lembaga, masukkan nomor virtual account")
-	If txt_nomorva.Exist Then
-		Select Case param
-		Case "jadiberkah"			txt_nomorva.Set "002402219592543"
-		Case "kitabisa"			txt_nomorva.Set "123456"
-		Case "dompetdhuafa"		txt_nomorva.Set "123456"
-		Case "rumahzakat"		txt_nomorva.Set "123456"
-		End Select
-	End If
-	If btn_selesai.Exist Then
-		btn_selesai.Tap
-		wait 1
-	End If
-	Call Capture(lbl_cekpembayaran,"Dev","Nomor Virtual Account","Berhasil memasukkan nomor virtual account, pilih sumber rekening")
-	Call TabunganSumber("blokir")
-	Call LoopUntil()
-	Call Capture(lbl_cekpembayaran,"Dev","Sumber Tabungan","Berhasil memilih sumber tabungan, klik cek pembayaran")
-	If lbl_cekpembayaran.Exist Then
-		lbl_cekpembayaran.Tap
-	End If
-	Call LoopUntil()
-	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	End If
-	If lbl_konfirmasi.Exist Then
-		lbl_konfirmasi.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-	If lbl_1.Exist Then
-		lbl_1.Tap
-	End If
-	If lbl_2.Exist Then
-		lbl_2.Tap
-	End If
-	If lbl_3.Exist Then
-		lbl_3.Tap
-	End If
-	If lbl_4.Exist Then
-		lbl_4.Tap
-	End If
-	If lbl_5.Exist Then
-		lbl_5.Tap
-	End If
-	If lbl_6.Exist Then
-		lbl_6.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening terblokir")
-	
+'	'Rekening Dormant
+'	Call react.Addtitle("Rekening Dormant")
+'	Call Login()
+'	Call Navigate("Berbagi")
+'	If lbl_bayar.Exist Then
+'		lbl_bayar.Tap
+'	End If
+'	Call LoopUntil()
+'	Call Capture(lbl_lembagalainnya,"Dev","Lembaga Lainnya","Berhasil menampilkan halaman lembaga lainnya, pilih lembaga")
+'	If btn_ubahlembaga.Exist Then
+'		btn_ubahlembaga.Tap
+'	End If
+'	Call LoopUntil()
+'	Call Capture(lbl_pilihlembaga,"Dev","Pilih Lembaga","Berhasil menampilkan list lembaga")
+'	Select Case param
+'		Case "Jadiberkah"			txt_carilembaga.Set "jadiberkah"
+'								wait 1
+'								lbl_jadiberkah.Tap
+'		Case "kitabisa"			txt_carilembaga.Set "kitabisa"
+'								wait 1
+'								lbl_kitabisa.Tap
+'		Case "dompetdhuafa"		txt_carilembaga.Set "dompet"
+'								wait 1
+'								lbl_dompetdhuafa.Tap
+'		Case "rumahzakat"		txt_carilembaga.Set "rumah"
+'								wait 1
+'								lbl_rumahzakat.Tap
+'	End Select
+'	wait 1
+'	Call Capture(lbl_pilihlembaga,"Dev","Lembaga","Berhasil memilih lembaga, masukkan nomor virtual account")
+'	If txt_nomorva.Exist Then
+'		Select Case param
+'		Case "jadiberkah"			txt_nomorva.Set "002402219592543"
+'		Case "kitabisa"			txt_nomorva.Set "123456"
+'		Case "dompetdhuafa"		txt_nomorva.Set "123456"
+'		Case "rumahzakat"		txt_nomorva.Set "123456"
+'		End Select
+'	End If
+'	If btn_selesai.Exist Then
+'		btn_selesai.Tap
+'		wait 1
+'	End If
+'	Call Capture(lbl_cekpembayaran,"Dev","Nomor Virtual Account","Berhasil memasukkan nomor virtual account, pilih sumber rekening")
+'	Call TabunganSumber("dormant")
+'	Call LoopUntil()
+'	Call Capture(lbl_cekpembayaran,"Dev","Sumber Tabungan","Berhasil memilih sumber tabungan, klik cek pembayaran")
+'	If lbl_cekpembayaran.Exist Then
+'		lbl_cekpembayaran.Tap
+'	End If
+'	Call LoopUntil()
+'	If lbl_konfirmasi.Exist Then
+'		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+'	End If
+'	If lbl_konfirmasi.Exist Then
+'		lbl_konfirmasi.Tap
+'	End If
+'	Call LoopUntil()
+'	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
+'	If lbl_1.Exist Then
+'		lbl_1.Tap
+'	End If
+'	If lbl_2.Exist Then
+'		lbl_2.Tap
+'	End If
+'	If lbl_3.Exist Then
+'		lbl_3.Tap
+'	End If
+'	If lbl_4.Exist Then
+'		lbl_4.Tap
+'	End If
+'	If lbl_5.Exist Then
+'		lbl_5.Tap
+'	End If
+'	If lbl_6.Exist Then
+'		lbl_6.Tap
+'	End If
+'	Call LoopUntil()
+'	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening dormant")
+'	
+'	'Rekening Terblokir
+'	Call react.Addtitle("Rekening Terblokir")
+'	Call Login()
+'	Call Navigate("Berbagi")
+'	If lbl_bayar.Exist Then
+'		lbl_bayar.Tap
+'	End If
+'	Call LoopUntil()
+'	Call Capture(lbl_lembagalainnya,"Dev","Lembaga Lainnya","Berhasil menampilkan halaman lembaga lainnya, pilih lembaga")
+'	If btn_ubahlembaga.Exist Then
+'		btn_ubahlembaga.Tap
+'	End If
+'	Call LoopUntil()
+'	Call Capture(lbl_pilihlembaga,"Dev","Pilih Lembaga","Berhasil menampilkan list lembaga")
+'	Select Case param
+'		Case "Jadiberkah"			txt_carilembaga.Set "jadiberkah"
+'								wait 1
+'								lbl_jadiberkah.Tap
+'		Case "kitabisa"			txt_carilembaga.Set "kitabisa"
+'								wait 1
+'								lbl_kitabisa.Tap
+'		Case "dompetdhuafa"		txt_carilembaga.Set "dompet"
+'								wait 1
+'								lbl_dompetdhuafa.Tap
+'		Case "rumahzakat"		txt_carilembaga.Set "rumah"
+'								wait 1
+'								lbl_rumahzakat.Tap
+'	End Select
+'	wait 1
+'	Call Capture(lbl_pilihlembaga,"Dev","Lembaga","Berhasil memilih lembaga, masukkan nomor virtual account")
+'	If txt_nomorva.Exist Then
+'		Select Case param
+'		Case "jadiberkah"			txt_nomorva.Set "002402219592543"
+'		Case "kitabisa"			txt_nomorva.Set "123456"
+'		Case "dompetdhuafa"		txt_nomorva.Set "123456"
+'		Case "rumahzakat"		txt_nomorva.Set "123456"
+'		End Select
+'	End If
+'	If btn_selesai.Exist Then
+'		btn_selesai.Tap
+'		wait 1
+'	End If
+'	Call Capture(lbl_cekpembayaran,"Dev","Nomor Virtual Account","Berhasil memasukkan nomor virtual account, pilih sumber rekening")
+'	Call TabunganSumber("blokir")
+'	Call LoopUntil()
+'	Call Capture(lbl_cekpembayaran,"Dev","Sumber Tabungan","Berhasil memilih sumber tabungan, klik cek pembayaran")
+'	If lbl_cekpembayaran.Exist Then
+'		lbl_cekpembayaran.Tap
+'	End If
+'	Call LoopUntil()
+'	If lbl_konfirmasi.Exist Then
+'		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+'	End If
+'	If lbl_konfirmasi.Exist Then
+'		lbl_konfirmasi.Tap
+'	End If
+'	Call LoopUntil()
+'	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
+'	If lbl_1.Exist Then
+'		lbl_1.Tap
+'	End If
+'	If lbl_2.Exist Then
+'		lbl_2.Tap
+'	End If
+'	If lbl_3.Exist Then
+'		lbl_3.Tap
+'	End If
+'	If lbl_4.Exist Then
+'		lbl_4.Tap
+'	End If
+'	If lbl_5.Exist Then
+'		lbl_5.Tap
+'	End If
+'	If lbl_6.Exist Then
+'		lbl_6.Tap
+'	End If
+'	Call LoopUntil()
+'	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening terblokir")
+'	
 	'Salah PIN 1x
 	Call react.Addtitle("Salah PIN 1x")
 	Call Login()
@@ -529,15 +531,15 @@ Function LembagaLainnyaNegative(param)
 	Call LoopUntil()
 	Call Capture(lbl_pilihlembaga,"Dev","Pilih Lembaga","Berhasil menampilkan list lembaga")
 	Select Case param
-		Case "Jadiberkah"			txt_carilembaga.Set "jadiberkah"
-								wait 1
-								lbl_jadiberkah.Tap
-		Case "kitabisa"			txt_carilembaga.Set "kitabisa"
-								wait 1
-								lbl_kitabisa.Tap
-		Case "dompetdhuafa"		txt_carilembaga.Set "dompet"
-								wait 1
-								lbl_dompetdhuafa.Tap
+'		Case "jadiberkah"			txt_carilembaga.Set "jadiberkah"
+'								wait 1
+'								lbl_jadiberkah.Tap
+'		Case "kitabisa"			txt_carilembaga.Set "kitabisa"
+'								wait 1
+'								lbl_kitabisa.Tap
+'		Case "dompetdhuafa"		txt_carilembaga.Set "dompet"
+'								wait 1
+'								lbl_dompetdhuafa.Tap
 		Case "rumahzakat"		txt_carilembaga.Set "rumah"
 								wait 1
 								lbl_rumahzakat.Tap
@@ -546,9 +548,9 @@ Function LembagaLainnyaNegative(param)
 	Call Capture(lbl_pilihlembaga,"Dev","Lembaga","Berhasil memilih lembaga, masukkan nomor virtual account")
 	If txt_nomorva.Exist Then
 		Select Case param
-		Case "jadiberkah"			txt_nomorva.Set "002402219592543"
-		Case "kitabisa"			txt_nomorva.Set "123456"
-		Case "dompetdhuafa"		txt_nomorva.Set "123456"
+'		Case "jadiberkah"			txt_nomorva.Set "002402219592543"
+'		Case "kitabisa"			txt_nomorva.Set "123456"
+'		Case "dompetdhuafa"		txt_nomorva.Set "123456"
 		Case "rumahzakat"		txt_nomorva.Set "123456"
 		End Select
 	End If
@@ -588,15 +590,15 @@ Function LembagaLainnyaNegative(param)
 	Call LoopUntil()
 	Call Capture(lbl_pilihlembaga,"Dev","Pilih Lembaga","Berhasil menampilkan list lembaga")
 	Select Case param
-		Case "Jadiberkah"			txt_carilembaga.Set "jadiberkah"
-								wait 1
-								lbl_jadiberkah.Tap
-		Case "kitabisa"			txt_carilembaga.Set "kitabisa"
-								wait 1
-								lbl_kitabisa.Tap
-		Case "dompetdhuafa"		txt_carilembaga.Set "dompet"
-								wait 1
-								lbl_dompetdhuafa.Tap
+'		Case "jadiberkah"			txt_carilembaga.Set "jadiberkah"
+'								wait 1
+'								lbl_jadiberkah.Tap
+'		Case "kitabisa"			txt_carilembaga.Set "kitabisa"
+'								wait 1
+'								lbl_kitabisa.Tap
+'		Case "dompetdhuafa"		txt_carilembaga.Set "dompet"
+'								wait 1
+'								lbl_dompetdhuafa.Tap
 		Case "rumahzakat"		txt_carilembaga.Set "rumah"
 								wait 1
 								lbl_rumahzakat.Tap
@@ -605,9 +607,9 @@ Function LembagaLainnyaNegative(param)
 	Call Capture(lbl_pilihlembaga,"Dev","Lembaga","Berhasil memilih lembaga, masukkan nomor virtual account")
 	If txt_nomorva.Exist Then
 		Select Case param
-		Case "jadiberkah"			txt_nomorva.Set "002402219592543"
-		Case "kitabisa"			txt_nomorva.Set "123456"
-		Case "dompetdhuafa"		txt_nomorva.Set "123456"
+'		Case "jadiberkah"			txt_nomorva.Set "002402219592543"
+'		Case "kitabisa"			txt_nomorva.Set "123456"
+'		Case "dompetdhuafa"		txt_nomorva.Set "123456"
 		Case "rumahzakat"		txt_nomorva.Set "123456"
 		End Select
 	End If
@@ -649,15 +651,15 @@ Function LembagaLainnyaNegative(param)
 	Call LoopUntil()
 	Call Capture(lbl_pilihlembaga,"Dev","Pilih Lembaga","Berhasil menampilkan list lembaga")
 	Select Case param
-		Case "Jadiberkah"			txt_carilembaga.Set "jadiberkah"
-								wait 1
-								lbl_jadiberkah.Tap
-		Case "kitabisa"			txt_carilembaga.Set "kitabisa"
-								wait 1
-								lbl_kitabisa.Tap
-		Case "dompetdhuafa"		txt_carilembaga.Set "dompet"
-								wait 1
-								lbl_dompetdhuafa.Tap
+'		Case "jadiberkah"			txt_carilembaga.Set "jadiberkah"
+'								wait 1
+'								lbl_jadiberkah.Tap
+'		Case "kitabisa"			txt_carilembaga.Set "kitabisa"
+'								wait 1
+'								lbl_kitabisa.Tap
+'		Case "dompetdhuafa"		txt_carilembaga.Set "dompet"
+'								wait 1
+'								lbl_dompetdhuafa.Tap
 		Case "rumahzakat"		txt_carilembaga.Set "rumah"
 								wait 1
 								lbl_rumahzakat.Tap
@@ -666,9 +668,9 @@ Function LembagaLainnyaNegative(param)
 	Call Capture(lbl_pilihlembaga,"Dev","Lembaga","Berhasil memilih lembaga, masukkan nomor virtual account")
 	If txt_nomorva.Exist Then
 		Select Case param
-		Case "jadiberkah"			txt_nomorva.Set "002402219592543"
-		Case "kitabisa"			txt_nomorva.Set "123456"
-		Case "dompetdhuafa"		txt_nomorva.Set "123456"
+'		Case "jadiberkah"			txt_nomorva.Set "002402219592543"
+'		Case "kitabisa"			txt_nomorva.Set "123456"
+'		Case "dompetdhuafa"		txt_nomorva.Set "123456"
 		Case "rumahzakat"		txt_nomorva.Set "123456"
 		End Select
 	End If

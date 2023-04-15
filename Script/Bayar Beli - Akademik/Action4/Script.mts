@@ -4,5 +4,5 @@ Call Path_Folder()
 Call InitiateReact_V2_1(CoverTitle, "Bayar Beli  - Universitas Ahmad Dahlan", CompanyLogo, projectName, "Automation Testing", "BSI SuperApps Universitas Ahmad Dahlan")
 
 Call react.Addtitle("BSI SuperApps - Universitas Ahmad Dahlan - Negative")
-Call AkademikClosePaymentNegative("ahmad","99999910092011")
+Call AkademikOpenPaymentNegative("uad","99999910092021")
 Call SaveReact_Merge()	

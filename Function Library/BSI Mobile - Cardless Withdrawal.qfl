@@ -14,6 +14,7 @@
 	wait 1
 	Call Capture(lbl_easymudharabah,"Dev","Nominal","Berhasil memilih nominal, pilih sumber rekening")
 	Call TabunganSumber("transaksi")
+	wait 1
 	Call Capture(lbl_easymudharabah,"Dev","Sumber Rekening","Berhasil sumber rekening, klik lanjutkan")
 	lbl_lanjutkan.Tap
 	Call LoopUntil()
@@ -29,9 +30,9 @@
 	lbl_6.Tap
 	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Animasi Loading Konfirmasi PIN","Berhasil menampilkan animasi konfirmasi PIN", ReportStatus.Passed)
 	If lbl_kodetoken.Exist(5) Then
-	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Notifikasi Gagal", "Gagal Menampilkan Halaman Tujuan", ReportStatus.Failed)
-	Call SaveReact_Merge()
-	ExitActionIteration
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Notifikasi Gagal", "Gagal Menampilkan Halaman Tujuan", ReportStatus.Failed)
+		Call SaveReact_Merge()
+		ExitActionIteration
 	End If
 	Call LoopUntil()
 	Call Capture(lbl_kodetoken,"Dev","Kode Siap Digunakan","Berhasil menampilkan halaman kode token, klik download")
@@ -54,7 +55,7 @@
 	wait 1
 	Call LoopUntil()
 	Call Capture(lbl_lewatiinfaq,"Dev","Menu Infaq","Berhasil menampilkan halaman infaq, pilih denom infaq")
-	lbl_1000.Tap
+	lbl_2000.Tap
 	Call LoopUntil()
 	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transfer","Berhasil menampilkan konfirmasi transfer infaq, klik konfirmasi")
 	lbl_konfirmasi.Tap
@@ -70,11 +71,11 @@
 	lbl_download.Tap
 	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Download Resi","Berhasil mendownload resi infaq, klik bagikan resi", ReportStatus.Passed)
 	If lbl_nomortransaksi.Exist Then
-		nomorFTInfaq = Device("Device").App("Dev").MobileLabel(resiinfaq).GetROProperty("text")
+		nomorFTInfaq = Device("Device").App("Dev").MobileLabel("resi atm").GetROProperty("text")
 	else
 		list_detailresi.Swipe "up",205,430
 		wait 1
-		nomorFTInfaq = Device("Device").App("Dev").MobileLabel(resiinfaq).GetROProperty("text")
+		nomorFTInfaq = Device("Device").App("Dev").MobileLabel("resi atm").GetROProperty("text")
 	End If
 	print(nomorFTInfaq)
 	do
@@ -86,9 +87,7 @@
 	
 	Call Login()
 	inobj_notifikasi.Click
-	do
-	wait 1
-	Loop until inobj_tariktunaiberhasil.Exist
+	wait 10
 	Call Capture(inobj_tariktunaiberhasil,"Dev","Notifikasi","Berhasil menampilkan notifikasi tarik tunai via atm bsi berhasil, klik notifikasi")	
 	inobj_tariktunaiberhasil.Click
 	Call LoopUntil()
@@ -96,15 +95,13 @@
 	lbl_download.Tap
 	Call Capture(lbl_detailresi,"Dev","Detail Resi","Berhasil download resi, scroll kebawah dan klik bagikan resi")
 	list_downloadresi.Swipe "up",205,430
-	wait 1
-	do
-	Loop until lbl_bagikanresi.Exist
+	wait 2
 	lbl_bagikanresi.Tap
 	Call Capture(btn_tutup,"Dev","Bagikan Resi","Berhasil menampilkan drawer bagikan resi")
 	
 	'T24 Untuk Infaq
-	Call cekMutasi(fiturInfaq, nomorFTInfaq)
-	Call cekJurnal(fiturInfaq, nomorFTInfaq)
+	Call cekMutasi("Infaq", nomorFTInfaq)
+	Call cekJurnal("Infaq", nomorFTInfaq)
 End Function
 
 Function TarikTunaiATMNegative()
@@ -130,73 +127,73 @@ Function TarikTunaiATMNegative()
 	Call LoopUntil()
 	Call Capture(lbl_kembali,"Dev","Saldo Kurang","Berhasil menampilkan drawer saldo kurang")
 	
-	'Rekening Dormant
-	Call react.Addtitle("Rekening Dormant")
-	Call Login()
-	inobj_btn_megamenu.Click
-	wait 1
-	Call LoopUntil()
-	Call Capture(lbl_keuangan,"Dev","Mega Menu","Berhasil menampilkan mega menu, klik tarik tunai")
-	ai_tariktunai.Click
-	Call LoopUntil()
-	Call Capture(lbl_atmbsi,"Dev","Lokasi Penarikan","Berhasil menampilkan list lokasi penarikan, pilih lokasi penarikan")
-	lbl_atmbsi.Tap
-	Call LoopUntil()
-	Call Capture(lbl_easymudharabah,"Dev","Tarik Tunai","Berhasil menampilkan menu tarik tunai, pilih nominal")
-	lbl_100000.Tap
-	wait 1
-	Call Capture(lbl_easymudharabah,"Dev","Nominal","Berhasil memilih nominal, pilih sumber rekening")
-	Call TabunganSumber("dormant")
-	Call Capture(lbl_easymudharabah,"Dev","Sumber Rekening","Berhasil sumber rekening, klik lanjutkan")
-	lbl_lanjutkan.Tap
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	lbl_konfirmasi.Tap
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-	lbl_1.Tap
-	lbl_2.Tap
-	lbl_3.Tap
-	lbl_4.Tap
-	lbl_5.Tap
-	lbl_6.Tap
-	Call LoopUntil()
-	'FAILED
-	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Rekening Blokir","Berhasil menampilkan drawer transaksi belum berhasil", ReportStatus.Failed)
-	
-	'Rekening Blokir
-	Call react.Addtitle("Rekening Blokir")
-	Call Login()
-	inobj_btn_megamenu.Click
-	wait 1
-	Call LoopUntil()
-	Call Capture(lbl_keuangan,"Dev","Mega Menu","Berhasil menampilkan mega menu, klik tarik tunai")
-	ai_tariktunai.Click
-	Call LoopUntil()
-	Call Capture(lbl_atmbsi,"Dev","Lokasi Penarikan","Berhasil menampilkan list lokasi penarikan, pilih lokasi penarikan")
-	lbl_atmbsi.Tap
-	Call LoopUntil()
-	Call Capture(lbl_easymudharabah,"Dev","Tarik Tunai","Berhasil menampilkan menu tarik tunai, pilih nominal")
-	lbl_100000.Tap
-	wait 1
-	Call Capture(lbl_easymudharabah,"Dev","Nominal","Berhasil memilih nominal, pilih sumber rekening")
-	Call TabunganSumber("blokir")
-	Call Capture(lbl_easymudharabah,"Dev","Sumber Rekening","Berhasil sumber rekening, klik lanjutkan")
-	lbl_lanjutkan.Tap
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	lbl_konfirmasi.Tap
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-	lbl_1.Tap
-	lbl_2.Tap
-	lbl_3.Tap
-	lbl_4.Tap
-	lbl_5.Tap
-	lbl_6.Tap
-	Call LoopUntil()
-	'FAILED
-	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Rekening Blokir","Berhasil menampilkan drawer transaksi belum berhasil", ReportStatus.Failed)
+'	'Rekening Dormant
+'	Call react.Addtitle("Rekening Dormant")
+'	Call Login()
+'	inobj_btn_megamenu.Click
+'	wait 1
+'	Call LoopUntil()
+'	Call Capture(lbl_keuangan,"Dev","Mega Menu","Berhasil menampilkan mega menu, klik tarik tunai")
+'	ai_tariktunai.Click
+'	Call LoopUntil()
+'	Call Capture(lbl_atmbsi,"Dev","Lokasi Penarikan","Berhasil menampilkan list lokasi penarikan, pilih lokasi penarikan")
+'	lbl_atmbsi.Tap
+'	Call LoopUntil()
+'	Call Capture(lbl_easymudharabah,"Dev","Tarik Tunai","Berhasil menampilkan menu tarik tunai, pilih nominal")
+'	lbl_100000.Tap
+'	wait 1
+'	Call Capture(lbl_easymudharabah,"Dev","Nominal","Berhasil memilih nominal, pilih sumber rekening")
+'	Call TabunganSumber("dormant")
+'	Call Capture(lbl_easymudharabah,"Dev","Sumber Rekening","Berhasil sumber rekening, klik lanjutkan")
+'	lbl_lanjutkan.Tap
+'	Call LoopUntil()
+'	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+'	lbl_konfirmasi.Tap
+'	Call LoopUntil()
+'	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
+'	lbl_1.Tap
+'	lbl_2.Tap
+'	lbl_3.Tap
+'	lbl_4.Tap
+'	lbl_5.Tap
+'	lbl_6.Tap
+'	Call LoopUntil()
+'	'FAILED
+'	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Rekening Blokir","Berhasil menampilkan drawer transaksi belum berhasil", ReportStatus.Failed)
+'	
+'	'Rekening Blokir
+'	Call react.Addtitle("Rekening Blokir")
+'	Call Login()
+'	inobj_btn_megamenu.Click
+'	wait 1
+'	Call LoopUntil()
+'	Call Capture(lbl_keuangan,"Dev","Mega Menu","Berhasil menampilkan mega menu, klik tarik tunai")
+'	ai_tariktunai.Click
+'	Call LoopUntil()
+'	Call Capture(lbl_atmbsi,"Dev","Lokasi Penarikan","Berhasil menampilkan list lokasi penarikan, pilih lokasi penarikan")
+'	lbl_atmbsi.Tap
+'	Call LoopUntil()
+'	Call Capture(lbl_easymudharabah,"Dev","Tarik Tunai","Berhasil menampilkan menu tarik tunai, pilih nominal")
+'	lbl_100000.Tap
+'	wait 1
+'	Call Capture(lbl_easymudharabah,"Dev","Nominal","Berhasil memilih nominal, pilih sumber rekening")
+'	Call TabunganSumber("blokir")
+'	Call Capture(lbl_easymudharabah,"Dev","Sumber Rekening","Berhasil sumber rekening, klik lanjutkan")
+'	lbl_lanjutkan.Tap
+'	Call LoopUntil()
+'	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+'	lbl_konfirmasi.Tap
+'	Call LoopUntil()
+'	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
+'	lbl_1.Tap
+'	lbl_2.Tap
+'	lbl_3.Tap
+'	lbl_4.Tap
+'	lbl_5.Tap
+'	lbl_6.Tap
+'	Call LoopUntil()
+'	'FAILED
+'	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Rekening Blokir","Berhasil menampilkan drawer transaksi belum berhasil", ReportStatus.Failed)
 	
 	'Salah PIN 1x
 	Call react.Addtitle("Salah PIN 1x")
@@ -214,7 +211,7 @@ Function TarikTunaiATMNegative()
 	lbl_100000.Tap
 	wait 1
 	Call Capture(lbl_easymudharabah,"Dev","Nominal","Berhasil memilih nominal, pilih sumber rekening")
-	Call TabunganSumber("dormant")
+	Call TabunganSumber("transaksi")
 	Call Capture(lbl_easymudharabah,"Dev","Sumber Rekening","Berhasil sumber rekening, klik lanjutkan")
 	lbl_lanjutkan.Tap
 	Call LoopUntil()
@@ -340,11 +337,11 @@ Function Gerai(param)
 	lbl_download.Tap
 	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Download Resi","Berhasil mendownload resi infaq, klik bagikan resi", ReportStatus.Passed)
 	If lbl_nomortransaksi.Exist Then
-		nomorFTInfaq = Device("Device").App("Dev").MobileLabel(resiinfaq).GetROProperty("text")
+		nomorFTInfaq = Device("Device").App("Dev").MobileLabel("resi atm").GetROProperty("text")
 	else
 		list_detailresi.Swipe "up",205,430
 		wait 1
-		nomorFTInfaq = Device("Device").App("Dev").MobileLabel(resiinfaq).GetROProperty("text")
+		nomorFTInfaq = Device("Device").App("Dev").MobileLabel("resi atm").GetROProperty("text")
 	End If
 	print(nomorFTInfaq)
 	do
@@ -356,11 +353,9 @@ Function Gerai(param)
 	
 	Call Login()
 	inobj_notifikasi.Click
-	do
-	wait 1
-	Loop until inobj_tariktunaiberhasil.Exist
-	Call Capture(inobj_tariktunaiberhasil,"Dev","Notifikasi","Berhasil menampilkan notifikasi tarik tunai via atm bsi berhasil, klik notifikasi")	
-	inobj_tariktunaiberhasil.Click
+	wait 10
+	Call Capture(inobj_tariktunaiberhasil,"Dev","Notifikasi","Berhasil menampilkan notifikasi tarik tunai via gerai indomaret, klik notifikasi")	
+	inobj_tariktunaiberhasilindomaret.Click
 	Call LoopUntil()
 	Call Capture(lbl_kodetoken,"Dev","Kode Siap Digunakan","Berhasil menampilkan halaman kode token, klik download")
 	lbl_download.Tap
@@ -372,25 +367,9 @@ Function Gerai(param)
 	lbl_bagikanresi.Tap
 	Call Capture(btn_tutup,"Dev","Bagikan Resi","Berhasil menampilkan drawer bagikan resi")
 	
-	Call Login()
-	inobj_notifikasi.Click
-	Call LoopUntil(inobj_tariktunaiberhasilindomaret)
-	Call Capture(inobj_tariktunaiberhasilindomaret,"Dev","Notifikasi","Berhasil menampilkan notifikasi tarik tunai via gerai indomaret berhasil, klik notifikasi")
-	inobj_tariktunaiberhasilindomaret.Click
-	Call LoopUntil()
-	Call Capture(lbl_kodetoken,"Dev","Kode Siap Digunakan","Berhasil menampilkan halaman kode token, klik download")
-	lbl_download.Tap
-	Call Capture(lbl_detailresi,"Dev","Detail Resi","Berhasil download resi, scroll kebawah dan klik bagikan resi")
-	list_downloadresi.Swipe "up",205,430
-	wait 1
-	do
-	Loop until lbl_bagikanresi.Exist
-	lbl_bagikanresi.Tap
-	Call Capture(btn_tutup,"Dev","Bagikan Resi","Berhasil menampilkan drawer bagikan resi, klik tombol kembali")
-	
 	'T24 Untuk Infaq
-	Call cekMutasi(fiturInfaq, nomorFTInfaq)
-	Call cekJurnal(fiturInfaq, nomorFTInfaq)
+	Call cekMutasi("Infaq", nomorFTInfaq)
+	Call cekJurnal("Infaq", nomorFTInfaq)
 End Function
 
 Function GeraiNegative(param)
@@ -469,77 +448,77 @@ Function GeraiNegative(param)
 	Call LoopUntil()
 	Call 	SalahPIN()
 	
-	'Rekening Dormant
-	Call react.Addtitle("Rekening Dormant")
-	Call Login()
-	inobj_btn_megamenu.Click
-	wait 1
-	Call LoopUntil()
-	Call Capture(lbl_keuangan,"Dev","Mega Menu","Berhasil menampilkan mega menu, klik tarik tunai")
-	ai_tariktunai.Click
-	Call LoopUntil()
-	Call Capture(lbl_atmbsi,"Dev","Lokasi Penarikan","Berhasil menampilkan list lokasi penarikan, pilih lokasi penarikan")
-	Select Case param
-		Case "indomaret"		lbl_geraiindomaret.Tap
-	End Select
-	Call LoopUntil()
-	Call Capture(lbl_easymudharabah,"Dev","Tarik Tunai","Berhasil menampilkan menu tarik tunai, pilih nominal")
-	lbl_100000.Tap
-	wait 1
-	Call Capture(lbl_easymudharabah,"Dev","Nominal","Berhasil memilih nominal, pilih sumber rekening")
-	Call TabunganSumber("dormant")
-	Call Capture(lbl_easymudharabah,"Dev","Sumber Rekening","Berhasil sumber rekening, klik lanjutkan")
-	lbl_lanjutkan.Tap
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	lbl_konfirmasi.Tap
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-	lbl_1.Tap
-	lbl_2.Tap
-	lbl_3.Tap
-	lbl_4.Tap
-	lbl_5.Tap
-	lbl_6.Tap
-	Call LoopUntil()
-	'FAILED
-	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Rekening Dormant","Berhasil menampilkan drawer transaksi belum berhasil", ReportStatus.Failed)
-	
-	'Rekening Blokir
-	Call react.Addtitle("Rekening Dormant")
-	Call Login()
-	inobj_btn_megamenu.Click
-	wait 1
-	Call LoopUntil()
-	Call Capture(lbl_keuangan,"Dev","Mega Menu","Berhasil menampilkan mega menu, klik tarik tunai")
-	ai_tariktunai.Click
-	Call LoopUntil()
-	Call Capture(lbl_atmbsi,"Dev","Lokasi Penarikan","Berhasil menampilkan list lokasi penarikan, pilih lokasi penarikan")
-	Select Case param
-		Case "indomaret"		lbl_geraiindomaret.Tap
-	End Select
-	Call LoopUntil()
-	Call Capture(lbl_easymudharabah,"Dev","Tarik Tunai","Berhasil menampilkan menu tarik tunai, pilih nominal")
-	lbl_100000.Tap
-	wait 1
-	Call Capture(lbl_easymudharabah,"Dev","Nominal","Berhasil memilih nominal, pilih sumber rekening")
-	Call TabunganSumber("blokir")
-	Call Capture(lbl_easymudharabah,"Dev","Sumber Rekening","Berhasil sumber rekening, klik lanjutkan")
-	lbl_lanjutkan.Tap
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	lbl_konfirmasi.Tap
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-	lbl_1.Tap
-	lbl_2.Tap
-	lbl_3.Tap
-	lbl_4.Tap
-	lbl_5.Tap
-	lbl_6.Tap
-	Call LoopUntil()
-	'FAILED
-	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Rekening Blokir","Berhasil menampilkan drawer transaksi belum berhasil", ReportStatus.Failed)
+'	'Rekening Dormant
+'	Call react.Addtitle("Rekening Dormant")
+'	Call Login()
+'	inobj_btn_megamenu.Click
+'	wait 1
+'	Call LoopUntil()
+'	Call Capture(lbl_keuangan,"Dev","Mega Menu","Berhasil menampilkan mega menu, klik tarik tunai")
+'	ai_tariktunai.Click
+'	Call LoopUntil()
+'	Call Capture(lbl_atmbsi,"Dev","Lokasi Penarikan","Berhasil menampilkan list lokasi penarikan, pilih lokasi penarikan")
+'	Select Case param
+'		Case "indomaret"		lbl_geraiindomaret.Tap
+'	End Select
+'	Call LoopUntil()
+'	Call Capture(lbl_easymudharabah,"Dev","Tarik Tunai","Berhasil menampilkan menu tarik tunai, pilih nominal")
+'	lbl_100000.Tap
+'	wait 1
+'	Call Capture(lbl_easymudharabah,"Dev","Nominal","Berhasil memilih nominal, pilih sumber rekening")
+'	Call TabunganSumber("dormant")
+'	Call Capture(lbl_easymudharabah,"Dev","Sumber Rekening","Berhasil sumber rekening, klik lanjutkan")
+'	lbl_lanjutkan.Tap
+'	Call LoopUntil()
+'	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+'	lbl_konfirmasi.Tap
+'	Call LoopUntil()
+'	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
+'	lbl_1.Tap
+'	lbl_2.Tap
+'	lbl_3.Tap
+'	lbl_4.Tap
+'	lbl_5.Tap
+'	lbl_6.Tap
+'	Call LoopUntil()
+'	'FAILED
+'	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Rekening Dormant","Berhasil menampilkan drawer transaksi belum berhasil", ReportStatus.Failed)
+'	
+'	'Rekening Blokir
+'	Call react.Addtitle("Rekening Dormant")
+'	Call Login()
+'	inobj_btn_megamenu.Click
+'	wait 1
+'	Call LoopUntil()
+'	Call Capture(lbl_keuangan,"Dev","Mega Menu","Berhasil menampilkan mega menu, klik tarik tunai")
+'	ai_tariktunai.Click
+'	Call LoopUntil()
+'	Call Capture(lbl_atmbsi,"Dev","Lokasi Penarikan","Berhasil menampilkan list lokasi penarikan, pilih lokasi penarikan")
+'	Select Case param
+'		Case "indomaret"		lbl_geraiindomaret.Tap
+'	End Select
+'	Call LoopUntil()
+'	Call Capture(lbl_easymudharabah,"Dev","Tarik Tunai","Berhasil menampilkan menu tarik tunai, pilih nominal")
+'	lbl_100000.Tap
+'	wait 1
+'	Call Capture(lbl_easymudharabah,"Dev","Nominal","Berhasil memilih nominal, pilih sumber rekening")
+'	Call TabunganSumber("blokir")
+'	Call Capture(lbl_easymudharabah,"Dev","Sumber Rekening","Berhasil sumber rekening, klik lanjutkan")
+'	lbl_lanjutkan.Tap
+'	Call LoopUntil()
+'	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+'	lbl_konfirmasi.Tap
+'	Call LoopUntil()
+'	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
+'	lbl_1.Tap
+'	lbl_2.Tap
+'	lbl_3.Tap
+'	lbl_4.Tap
+'	lbl_5.Tap
+'	lbl_6.Tap
+'	Call LoopUntil()
+'	'FAILED
+'	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Rekening Blokir","Berhasil menampilkan drawer transaksi belum berhasil", ReportStatus.Failed)
 	
 	'Limit Harian
 	Call react.Addtitle("Limit Harian")

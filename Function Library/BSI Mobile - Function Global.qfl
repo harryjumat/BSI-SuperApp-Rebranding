@@ -9,6 +9,7 @@ Call RepositoriesCollection.Add(Environment("TestDir") & "\..\..\Repository\Repo
 Call RepositoriesCollection.Add(Environment("TestDir") & "\..\..\Repository\Repository Acc Rekening.tsr")
 Call RepositoriesCollection.Add(Environment("TestDir") & "\..\..\Repository\Repository Transfer.tsr")
 Call RepositoriesCollection.Add(Environment("TestDir") & "\..\..\Repository\Repository Cardless Withdrawal.tsr")
+Call RepositoriesCollection.Add(Environment("TestDir") & "\..\..\Repository\Repository Homescreen.tsr")
 
 'IMPORT FUNCTION LIBRARY
 Call LoadFunctionLibrary(Environment("TestDir") & "\..\..\Function Library\BSI Mobile - Bayar Beli.qfl")
@@ -18,6 +19,7 @@ Call LoadFunctionLibrary(Environment("TestDir") & "\..\..\Function Library\BSI M
 Call LoadFunctionLibrary(Environment("TestDir") & "\..\..\Function Library\BSI Mobile - Acc Rekening.qfl")
 Call LoadFunctionLibrary(Environment("TestDir") & "\..\..\Function Library\BSI Mobile - Transfer.qfl")
 Call LoadFunctionLibrary(Environment("TestDir") & "\..\..\Function Library\BSI Mobile - Cardless Withdrawal.qfl")
+Call LoadFunctionLibrary(Environment("TestDir") & "\..\..\Function Library\BSI Mobile - Homescreen.qfl")
 Call LoadFunctionLibrary(Environment("TestDir") & "\..\..\Function Library\BSI-T24.qfl")
 
 'IMPORT NAPALM
@@ -141,6 +143,7 @@ Function TransaksiBerhasil(fitur,nomorFT, resi, fiturInfaq, nomorFTInfaq,resiinf
 	wait 1
 	Loop until lbl_download.Exist
 	lbl_download.Tap
+	wait 1
 	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Download Resi","Berhasil mendownload resi, klik bagikan resi", ReportStatus.Passed)
 	If lbl_nomortransaksi.Exist Then
 		nomorFT = Device("Device").App("Dev").MobileLabel(resi).GetROProperty("text")
@@ -200,7 +203,6 @@ Function TransaksiBerhasil(fitur,nomorFT, resi, fiturInfaq, nomorFTInfaq,resiinf
 		wait 1
 		nomorFTInfaq = Device("Device").App("Dev").MobileLabel(resiinfaq).GetROProperty("text")
 	End If
-'	nomorFT = Device("Device").App("Dev").MobileLabel(resi).GetROProperty("text")
 	print(nomorFTInfaq)
 	do
 	list_downloadresi.Swipe "up",205,430
@@ -231,34 +233,34 @@ Function TabunganSumber(x)
 			inobj_easy.Click	
 		End If
 	End If
-	If x = "dormant" Then
-		If inobj_ubah.Exist Then
-			inobj_ubah.Click
-		End If
-		Call Capture(lbl_pilihtabungansumber,"Dev","Pilih Tabungan Sumber","Berhasil menampilkan list sumber tabungan, cari sumber tabungan")		
-		If txt_carirekening.Exist Then
-			txt_carirekening.Set "647"	
-		End If
-		wait 1
-		Call Capture(inobj_easy,"Dev","Cari Sumber Tabungan","Berhasil mencari sumber tabungan, pilih sumber tabungan")	
-		If inobj_easy.Exist Then
-			inobj_easy.Click	
-		End If
-	End If
-	If x = "blokir" Then
-		If inobj_ubah.Exist Then
-			inobj_ubah.Click
-		End If
-		Call Capture(lbl_pilihtabungansumber,"Dev","Pilih Tabungan Sumber","Berhasil menampilkan list sumber tabungan, cari sumber tabungan")		
-		If txt_carirekening.Exist Then
-			txt_carirekening.Set "777"	
-		End If
-		wait 1
-		Call Capture(inobj_easy,"Dev","Cari Sumber Tabungan","Berhasil mencari sumber tabungan, pilih sumber tabungan")	
-		If inobj_easy.Exist Then
-			inobj_easy.Click	
-		End If
-	End If
+'	If x = "dormant" Then
+'		If inobj_ubah.Exist Then
+'			inobj_ubah.Click
+'		End If
+'		Call Capture(lbl_pilihtabungansumber,"Dev","Pilih Tabungan Sumber","Berhasil menampilkan list sumber tabungan, cari sumber tabungan")		
+'		If txt_carirekening.Exist Then
+'			txt_carirekening.Set "647"	
+'		End If
+'		wait 1
+'		Call Capture(inobj_easy,"Dev","Cari Sumber Tabungan","Berhasil mencari sumber tabungan, pilih sumber tabungan")	
+'		If inobj_easy.Exist Then
+'			inobj_easy.Click	
+'		End If
+'	End If
+'	If x = "blokir" Then
+'		If inobj_ubah.Exist Then
+'			inobj_ubah.Click
+'		End If
+'		Call Capture(lbl_pilihtabungansumber,"Dev","Pilih Tabungan Sumber","Berhasil menampilkan list sumber tabungan, cari sumber tabungan")		
+'		If txt_carirekening.Exist Then
+'			txt_carirekening.Set "777"	
+'		End If
+'		wait 1
+'		Call Capture(inobj_easy,"Dev","Cari Sumber Tabungan","Berhasil mencari sumber tabungan, pilih sumber tabungan")	
+'		If inobj_easy.Exist Then
+'			inobj_easy.Click	
+'		End If
+'	End If
 	If x = "kosong" Then
 		If inobj_ubah.Exist Then
 			inobj_ubah.Click
@@ -280,6 +282,20 @@ Function TabunganSumber(x)
 		Call Capture(lbl_pilihtabungansumber,"Dev","Pilih Tabungan Sumber","Berhasil menampilkan list sumber tabungan, cari sumber tabungan")		
 		If txt_carirekening.Exist Then
 			txt_carirekening.Set "065"	
+		End If
+		wait 1
+		Call Capture(inobj_easy,"Dev","Cari Sumber Tabungan","Berhasil mencari sumber tabungan, pilih sumber tabungan")	
+		If inobj_easy.Exist Then
+			inobj_easy.Click	
+		End If
+	End If
+	If x = "100000" Then
+		If inobj_ubah.Exist Then
+			inobj_ubah.Click
+		End If
+		Call Capture(lbl_pilihtabungansumber,"Dev","Pilih Tabungan Sumber","Berhasil menampilkan list sumber tabungan, cari sumber tabungan")		
+		If txt_carirekening.Exist Then
+			txt_carirekening.Set "696"	
 		End If
 		wait 1
 		Call Capture(inobj_easy,"Dev","Cari Sumber Tabungan","Berhasil mencari sumber tabungan, pilih sumber tabungan")	
@@ -428,7 +444,7 @@ Function SalahPIN()
 		lbl_1.Tap
 	End If
 	wait 3
-	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Salah PIN 1x","Berhasil menampilkan helper text", ReportStatus.Passed)
+	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Salah PIN 2x","Berhasil menampilkan helper text", ReportStatus.Passed)
 End Function
 
 Function SetLimitHarian(param)
@@ -585,7 +601,7 @@ Function UnSetLimitHarian(param)
 		Call LoopUntil()
 '		do
 		list_downloadresi.Swipe "up",205,430
-		wait 2
+		wait 3
 '		Loop until lbl_pembayaran.Exist
 		inobj_penciltariktunai.Click
 		wait 1
@@ -730,8 +746,10 @@ Function UnSetLimitTransaksi(param)
 		inobj_aturlimit.Click
 		Call LoopUntil()
 '		do
+		lbl_pertransaksi.Tap
+		wait 1
 		list_downloadresi.Swipe "up",205,430
-		wait 2
+		wait 3
 '		Loop until lbl_pembayaran.Exist
 		inobj_penciltariktunai.Click
 		wait 1

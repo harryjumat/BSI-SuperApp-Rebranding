@@ -5,17 +5,17 @@
 		If lbl_HA.Exist Then
 			lbl_HA.Tap
 		End If
-		Call LoopUntil(inobj_informasiakun)
+		Call LoopUntil()
 		Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik informasi akun")
 		If inobj_informasiakun.Exist Then
 			inobj_informasiakun.Click
 		End If
-		Call LoopUntil(lbl_informasiakun)
+		Call LoopUntil()
 		Call Capture(lbl_informasiakun,"Dev","Informasi Akun","Berhasil menampilkan halaman informasi akun, klik icon pencil pada bagian email")
 		If inobj_pencilemail.Exist Then
 			inobj_pencilemail.Click
 		End If
-		Call LoopUntil(lbl_ubahemail)
+		Call LoopUntil()
 		Call Capture(lbl_ubahemail,"Dev","Ubah Email","Berhasil menampilkan halaman ubah email, ubah email")
 		If inobj_xkecil.Exist Then
 			inobj_xkecil.Click
@@ -28,7 +28,7 @@
 		If lbl_simpan.Exist Then
 			lbl_simpan.Tap
 		End If
-		Call LoopUntil(lvl_verifikasiemailkamu)
+		Call LoopUntil()
 		Call Capture(lvl_verifikasiemailkamu,"Dev","Verifikasi Email","Berhasil menampilkan halaman verifikasi email, masukkan kode OTP")
 		If btn_1.Exist Then
 			btn_1.Tap
@@ -48,7 +48,7 @@
 		If btn_6.Exist Then
 			btn_6.Tap
 		End If
-		Call LoopUntil(lbl_konfirmasipin)
+		Call LoopUntil()
 		Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
 		lbl_1.Tap
 		lbl_2.Tap
@@ -66,15 +66,15 @@
 		If lbl_HA.Exist Then
 			lbl_HA.Tap
 		End If
-		Call LoopUntil(inobj_informasiakun)
+		Call LoopUntil()
 		If inobj_informasiakun.Exist Then
 			inobj_informasiakun.Click
 		End If
-		Call LoopUntil(lbl_informasiakun)
+		Call LoopUntil()
 		If inobj_pencilemail.Exist Then
 			inobj_pencilemail.Click
 		End If
-		Call LoopUntil(lbl_ubahemail)
+		Call LoopUntil()
 		If inobj_xkecil.Exist Then
 			inobj_xkecil.Click
 		End If
@@ -85,7 +85,7 @@
 		If lbl_simpan.Exist Then
 			lbl_simpan.Tap
 		End If
-		Call LoopUntil(lvl_verifikasiemailkamu)
+		Call LoopUntil()
 		If btn_1.Exist Then
 			btn_1.Tap
 		End If
@@ -142,17 +142,17 @@
 		If lbl_HA.Exist Then
 			lbl_HA.Tap
 		End If
-		Call LoopUntil(inobj_informasiakun)
+		Call LoopUntil()
 		Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik informasi akun")
 		If inobj_informasiakun.Exist Then
 			inobj_informasiakun.Click
 		End If
-		Call LoopUntil(lbl_informasiakun)
+		Call LoopUntil()
 		Call Capture(lbl_informasiakun,"Dev","Informasi Akun","Berhasil menampilkan halaman informasi akun, klik icon pencil pada bagian email")
 		If inobj_pencilemail.Exist Then
 			inobj_pencilemail.Click
 		End If
-		Call LoopUntil(lbl_ubahemail)
+		Call LoopUntil()
 		Call Capture(lbl_ubahemail,"Dev","Ubah Email","Berhasil menampilkan halaman ubah email, ubah email")
 		If inobj_xkecil.Exist Then
 			inobj_xkecil.Click
@@ -346,40 +346,398 @@ Function SocialMedia()
 	Call Capture(btn_facebook,"Dev","Social Media","Berhasil menampikan social media")
 End Function
 
-'MENU NYA DI MEGA MENU
-Function ManagementKartuDebit(x,kartu,alamat)
+Function ManagementKartuDebit(x,kartu,alamat,masaberakhir,cvv)
+
+btn_megamenu.Tap
+wait 1
+Call Capture(btn_facebook,"Dev","Mega Menu","Berhasil menampikan mega menu, klik manajemen kartu")
+ai_manajemenkartu.Click
+wait 10
+
+
+
+
 	If x = "Request" Then
+		Call Login()
+		btn_megamenu.Tap
+		wait 1
+		Call Capture(btn_facebook,"Dev","Mega Menu","Berhasil menampikan mega menu, klik manajemen kartu")
+		ai_manajemenkartu.Click
+		wait 10
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Manajemen Kartu", "Berhasil Menampilkan halaman Manajemen Kartu, klik tambah kartu", ReportStatus.Passed)
+		btn_tambahkartu.Tap
+		wait 5
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "List Jenis Kartu", "Berhasil Menampilkan halaman list jenis kartu, pilih jenis kartu", ReportStatus.Passed)
+		Select Case kartu
+				Case "Debit" 		lbl_kartudebit.Tap
+		End Select
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "List Rekening", "Berhasil Menampilkan List Rekening, cari rekening", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileEdit("Cari Rekening").Set "759"
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Rekening Pilihan", "Berhasil Menampilkan rekening yang dicari, pilih rekening", ReportStatus.Passed)
+		AIUtil("button", "EW").Click
+		wait 5
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Pilih Jenis Kartu Debit", "Berhasil Menampilkan pilihan kartu debit, klik pilih kartu", ReportStatus.Passed)
+		btn_pilihkartu.Tap
+		wait 2
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Pilih Nama Pada Kartu", "Berhasil Menampilkan halaman Pilih Nama Pada Kartu, pilih nama", ReportStatus.Passed)
+		lbl_triosaputra.Tap
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Berhasil Pilih Nama", "Berhasil Pilih Nama pada kartu, klik lanjutkan", ReportStatus.Passed)
+		lbl_lanjutkan.Tap
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Metode Pengiriman Kartu Debit", "Berhasil menampilkan halaman Metode Pengiriman Kartu Debit, pilih metode pengiriman", ReportStatus.Passed)
+		Select Case alamat
+				Case "alamat_domisili" 	lbl_alamatdomisili.Tap
+				Case "alamat_baru"		lbl_alamatbaru.Tap
+		End Select
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Pilih Alamat", "Berhasil memilih alamat, klik lanjutkan", ReportStatus.Passed)
+		lbl_lanjutkan.Tap
+		wait 3
+		If alamat = "alamat_domisili" Then
+			Call CaptureImageUFTV2(Device("Device").App("Dev"), "Konfirmasi Data", "Berhasil menampilkan halaman Konfirmasi Data, klik konfirmasi", ReportStatus.Passed)
+			lbl_detailpengiriman.Swipe "up",205,430
+			wait 2
+			lbl_konfirmasi.Tap
+			wait 2
+		End If
+		If alamat = "alamat_baru" Then
+			Call CaptureImageUFTV2(Device("Device").App("Dev"), "Alamat Baru", "Berhasil menampilkan halaman Alamat Baru, klik provinsi", ReportStatus.Passed)
+			lbl_provinsi.Tap
+			wait 1
+			Call CaptureImageUFTV2(Device("Device").App("Dev"), "Alamat Domisili", "Berhasil menampilkan halaman provinsi, cari provinsi", ReportStatus.Passed)
+			ai_txt_alamatdomisili.Type "dki"
+			Call CaptureImageUFTV2(Device("Device").App("Dev"), "Provinsi", "Berhasil menampilkan provinsi yang di cari, klik provinsi", ReportStatus.Passed)
+			lbl_dkijakarta.Tap
+			wait 1
+			Call CaptureImageUFTV2(Device("Device").App("Dev"), "Cari Kabupaten", "Berhasil menampilkan list kabupaten, cari kabupaten", ReportStatus.Passed)
+			ai_txt_alamatdomisili.Type "pusat"
+			Call CaptureImageUFTV2(Device("Device").App("Dev"), "Kabupaten", "Berhasil menampilkan kabupaten yang di cari, klik kabupaten", ReportStatus.Passed)
+			lbl_jakartapusat.Tap
+			wait 1
+			Call CaptureImageUFTV2(Device("Device").App("Dev"), "Cari Kecamatan", "Berhasil menampilkan list kecamatan, cari kecamatan", ReportStatus.Passed)
+			ai_txt_alamatdomisili.Type "kemayoran"
+			Call CaptureImageUFTV2(Device("Device").App("Dev"), "Kecamatan", "Berhasil menampilkan kecamatan yang di cari, klik kecamatan", ReportStatus.Passed)
+			lbl_kemayoran.Tap
+			wait 1
+			Call CaptureImageUFTV2(Device("Device").App("Dev"), "Cari Kelurahan/Desa", "Berhasil menampilkan list kelurahan/desa, cari kelurahan/desa", ReportStatus.Passed)
+			ai_txt_alamatdomisili.Type "sumur batu"
+			Call CaptureImageUFTV2(Device("Device").App("Dev"), "Kelurahan/Desa", "Berhasil menampilkan kelurahan/desa  yang di cari, klik kelurahan/desa", ReportStatus.Passed)
+			lbl_sumurbatu.Tap
+			wait 1
+			Call CaptureImageUFTV2(Device("Device").App("Dev"), "Detail Alamat", "Berhasil memilih provinsi, kabupaten, kecamatan dan kelurahan/desa, masukkan detail alamat", ReportStatus.Passed)
+			wait 1
+			ai_txt_detailalamat.Type "Jalan Mawar"
+			wait 1
+			btn_done.Tap
+			Call CaptureImageUFTV2(Device("Device").App("Dev"), "Form RT", "Berhasil memasukkan detail alamat, masukkan RT", ReportStatus.Passed)
+			wait 1
+			ai_txt_RT.Type "03"
+			wait 1
+			btn_selesai.Tap
+			wait 1
+			Call CaptureImageUFTV2(Device("Device").App("Dev"), "Form RW", "Berhasil memasukkan RT, masukkan RW", ReportStatus.Passed)
+			ai_txt_RW.Type "04"
+			wait 1
+			btn_selesai.Tap
+			wait 1
+			Call CaptureImageUFTV2(Device("Device").App("Dev"), "Kode Pos", "Berhasil memasukkan RW, masukkan kode pos", ReportStatus.Passed)
+			ai_txt_kodepos.Type "14145"
+			wait 1
+			btn_selesai.Tap
+			wait 1
+			Call CaptureImageUFTV2(Device("Device").App("Dev"), "Input Alamat", "Berhasil memasukkan kode pos, klik simpan", ReportStatus.Passed)
+			wait 1
+			lbl_simpan.Tap
+			wait 2
+			Call CaptureImageUFTV2(Device("Device").App("Dev"), "Konfirmasi Data", "Berhasil menampilkan halaman Konfirmasi Data", ReportStatus.Passed)
+			lbl_detailpengiriman.Swipe "up",205,430
+			wait 2
+			lbl_konfirmasi.Tap
+			wait 1
+		End If		
+		Call LoopUntil()
+		Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
+		lbl_1.Tap
+		lbl_2.Tap
+		lbl_3.Tap
+		lbl_4.Tap
+		lbl_5.Tap
+		lbl_6.Tap
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Animasi Loading Konfirmasi PIN","Berhasil menampilkan animasi konfirmasi PIN", ReportStatus.Passed)
+		wait 10
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Permintaan Kartu Berhasil", "Berhasil menampilkan halaman Permintaan Kartu Berhasil", ReportStatus.Passed)
 		
+		Call Login()
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Dashboard", "Berhasil masuk ke halaman dashboard", ReportStatus.Passed)
+		wait 1
+		Device("Device").App("Dev").MobileButton("Notifikasi").Tap
+		Do 
+		wait 0.1
+		Loop until Device("Device").InsightObject("InsightObject notifikasi 2023").Exist
+		Device("Device").App("Dev").MobileLabel("Info").Tap
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Notifikasi Info", "Berhasil menampilkan Notifikasi Info", ReportStatus.Passed)
+		'permintaan kartu debit.tap
+		wait 10
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Notifikasi Permintaan Kartu Debit", "Berhasil menampilkan Notifikasi Permintaan Kartu Debit", ReportStatus.Passed)
 	End If
 	
 	If x = "Aktivasi" Then
-		
+		Call Login()
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Dashboard", "Berhasil masuk ke halaman dashboard", ReportStatus.Passed)
+		wait 1
+		Device("Device").App("Dev").MobileLabel("HA").Tap
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Profile", "Berhasil Menampilkan halaman Profil nasabah/user", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileButton("MobileButton informasi akun").Swipe "up",205,430
+		wait 2
+		Device("Device").App("Dev").MobileButton("MobileButton manajemen kartu").Tap
+		Do
+		wait 1
+		Loop until Device("Device").App("Dev").MobileLabel("Silver VISA").Exist
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Manajemen Kartu", "Berhasil Menampilkan list Manajemen Kartu, pilih kartu", ReportStatus.Passed)
+		wait 10
+	'	Device("Device").InsightObject("InsightObject silver gpn 1").Click
+	'	Device("Device").InsightObject("InsightObject silver gpn 2").Click
+		Do 
+		wait 1
+		Loop until Device("Device").App("Dev").MobileLabel("Easy Mudharabah").Exist
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Detail Kartu Debit", "Berhasil Menampilkan halaman detail kartu debit, pilih aktivasi kartu debit", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileLabel("Aktivasi Kartu Debit").Tap
+		do
+		wait 1
+		loop until Device("Device").App("Dev").MobileLabel("No. Kartu").Exist
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Aktivasi Kartu Debit", "Berhasil Menampilkan form aktivasi kartu debit, masukkan no kartu", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileEdit("Cari Rekening").Set nokartu
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Nomor Kartu Debit", "Berhasil memasukkan nomor kartu debit, klik informasi masa berakhir kartu", ReportStatus.Passed)
+		wait 1
+		Device("Device").InsightObject("InsightObject info masa berakhir kartu").Click
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Informasi Masa Berakhir Kartu", "Berhasil Menampilkan drawer masa berakhir kartu, klik kembali dan masukkan masa berakhir kartu", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileLabel("Kembali").Tap
+		wait 1
+		Device("Device").App("Dev").MobileEdit("Masa Berakhir Kartu").Set masaberakhir
+		wait 1
+		Device("Device").App("Dev").MobileButton("Selesai").Tap
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Nomor CVV", "Berhasil memasukkan masa berakhir kartu, klik informasi cvv", ReportStatus.Passed)
+		wait 1
+		Device("Device").InsightObject("InsightObject info cvv").Click
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Informasi CVV", "Berhasil Menampilkan drawer cvv, klik kembali dan masukkan cvv", ReportStatus.Passed)
+		wait 1
+		Device("Device").App("Dev").MobileLabel("Kembali").Tap
+		wait 1
+		Device("Device").App("Dev").MobileEdit("CVV").Set cvv
+		wait 1
+		Device("Device").App("Dev").MobileButton("Selesai").Tap
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Input Nomor Kartu, Masa Berakhir dan CVV", "Berhasil memasukkan nomor kartu, masa berakhir kartu dan cvv. Pilih lanjutkan", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileLabel("Lanjutkan").Tap
+		do
+		wait 1
+		loop until Device("Device").App("Dev").MobileLabel("Masukkan PIN kartu debit").Exist
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Masukkan PIN Kartu Debit", "Masukkan PIN kartu debit", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileObject("1").Tap
+		Device("Device").App("Dev").MobileObject("2").Tap
+		Device("Device").App("Dev").MobileObject("3").Tap
+		Device("Device").App("Dev").MobileObject("6").Tap
+		Device("Device").App("Dev").MobileObject("5").Tap
+		Device("Device").App("Dev").MobileObject("4").Tap
+		wait 2
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Konfirmasi PIN Kartu Debit", "Masukkan Konfirmasi PIN kartu debit", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileObject("1").Tap
+		Device("Device").App("Dev").MobileObject("2").Tap
+		Device("Device").App("Dev").MobileObject("3").Tap
+		Device("Device").App("Dev").MobileObject("6").Tap
+		Device("Device").App("Dev").MobileObject("5").Tap
+		Device("Device").App("Dev").MobileObject("4").Tap
+		Do 
+		wait 1
+		loop until Device("Device").App("Dev").MobileLabel("Konfirmasi PIN").Exist
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Konfirmasi PIN", "Masukkan Konfirmasi PIN kartu debit", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileLabel("1").Tap
+		Device("Device").App("Dev").MobileLabel("2").Tap
+		Device("Device").App("Dev").MobileLabel("3").Tap
+		Device("Device").App("Dev").MobileLabel("4").Tap
+		Device("Device").App("Dev").MobileLabel("5").Tap
+		Device("Device").App("Dev").MobileLabel("6").Tap
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Loading Konfirmasi PIN", "Berhasil menampilkan loading konfirmasi PIN", ReportStatus.Passed)
+		wait 10
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Kartu Teraktivasi", "Berhasil melakukan aktivasi", ReportStatus.Passed)
+	'	Device("Device").InsightObject("InsightObject silver gpn 2").Click
+		wait 10
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Detail Kartu Debit", "Berhasil menampilkan detail kartu debit", ReportStatus.Passed)
 	End If
 	
 	If x = "UbahPIN" Then
-		
+		Call Login()
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Dashboard", "Berhasil masuk ke halaman dashboard, pilih icon profile", ReportStatus.Passed)
+		wait 1
+		Device("Device").App("Dev").MobileLabel("HA").Tap
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Profile", "Berhasil Menampilkan halaman Profil nasabah/user, pilih manajemen kartu", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileButton("MobileButton informasi akun").Swipe "up",205,430
+		wait 2
+		Device("Device").App("Dev").MobileButton("MobileButton manajemen kartu").Tap
+		Do
+		wait 1
+		Loop until Device("Device").App("Dev").MobileButton("MobileButton tambah kartu").Exist
+		wait 3
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Manajemen Kartu", "Berhasil Menampilkan halaman Manajemen Kartu, pilih kartu yang ingin diubah PIN", ReportStatus.Passed)
+		wait 10
+'		Device("Device").InsightObject("InsightObject silver gpn 1").Click
+		Do 
+		wait 2
+		Loop until Device("Device").App("Dev").MobileLabel("Detail Kartu Debit").Exist
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Detail Kartu Debit", "Berhasil masuk ke halaman detail kartu debit, pilih icon gear", ReportStatus.Passed)
+		Device("Device").InsightObject("InsightObject gear").Click
+		wait 2
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Pengaturan Kartu Debit", "Berhasil menampilkan pengaturan kartu debit, pilih ubah PIN kartu debit", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileLabel("Ubah PIN Kartu Debit").Tap
+		Do 
+		wait 0.1
+		Loop until Device("Device").App("Dev").MobileLabel("Verifikasi Kartu Debit").Exist
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Verifikasi Kartu Debit", "Berhasil menampilkan halaman verifikasi kartu debit, pilih button info masa berakhir kartu untuk melihat masa berakhir kartu", ReportStatus.Passed)
+		Device("Device").InsightObject("InsightObject info masa berakhir kartu").Click
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Masa Berakhir Kartu", "Berhasil menampilkan info masa berakhir kartu, pilih kembali", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileLabel("Kembali").Tap
+		wait 1
+		Device("Device").App("Dev").MobileEdit("Masa Berakhir Kartu").Set masaberakhir
+		wait 1
+		Device("Device").App("Dev").MobileButton("Selesai").Tap
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Kode CVV", "Berhasil memasukkan masa berakhir kartu, pilih button info CVV", ReportStatus.Passed)
+		Device("Device").InsightObject("InsightObject info cvv").Click
+		wait 2
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "3 Digit kode CVV", "Berhasil menampilkan info 3 digit kode CVV, pilih kembali", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileLabel("Kembali").Tap
+		wait 1
+		Device("Device").App("Dev").MobileEdit("CVV").Set cvv
+		wait 1
+		Device("Device").App("Dev").MobileButton("Selesai").Tap
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "CVV", "Berhasil memasukkan CVV, pilih lanjutkan", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileLabel("Lanjutkan").Tap
+		wait 2
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Masukkan PIN Lama", "Berhasil menampilkan halaman input PIN lama, masukkan PIN lama kartu debit", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileObject("1").Tap
+		Device("Device").App("Dev").MobileObject("2").Tap
+		Device("Device").App("Dev").MobileObject("3").Tap
+		Device("Device").App("Dev").MobileObject("6").Tap
+		Device("Device").App("Dev").MobileObject("5").Tap
+		Device("Device").App("Dev").MobileObject("4").Tap
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Loading PIN Lama", "Berhasil menampilkan animasi loading", ReportStatus.Passed)
+		wait 3
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Masukkan PIN Baru", "Berhasil menampilkan halaman input PIN baru, masukkan PIN baru kartu debit", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileObject("1").Tap
+		Device("Device").App("Dev").MobileObject("2").Tap
+		Device("Device").App("Dev").MobileObject("3").Tap
+		Device("Device").App("Dev").MobileObject("6").Tap
+		Device("Device").App("Dev").MobileObject("9").Tap
+		Device("Device").App("Dev").MobileObject("0").Tap
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Loading PIN Baru", "Berhasil menampilkan animasi loading", ReportStatus.Passed)
+		wait 3
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Masukkan Konfirmasi PIN Baru", "Berhasil menampilkan halaman input konfirmasi PIN baru, masukkan konfirmasi PIN baru kartu debit", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileObject("1").Tap
+		Device("Device").App("Dev").MobileObject("2").Tap
+		Device("Device").App("Dev").MobileObject("3").Tap
+		Device("Device").App("Dev").MobileObject("6").Tap
+		Device("Device").App("Dev").MobileObject("9").Tap
+		Device("Device").App("Dev").MobileObject("0").Tap
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Loading Konfirmasi PIN Baru", "Berhasil menampilkan animasi loading", ReportStatus.Passed)
+		wait 3
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Input PIN", "Berhasil menampilkan halaman input PIN, Masukkan PIN", ReportStatus.Passed)
+		wait 1
+		Device("Device").App("Dev").MobileLabel("1").Tap
+		Device("Device").App("Dev").MobileLabel("2").Tap
+		Device("Device").App("Dev").MobileLabel("3").Tap
+		Device("Device").App("Dev").MobileLabel("4").Tap
+		Device("Device").App("Dev").MobileLabel("5").Tap
+		Device("Device").App("Dev").MobileLabel("6").Tap
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Loading Konfirmasi PIN", "Berhasil menampilkan loading konfirmasi PIN", ReportStatus.Passed)
+		wait 10
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Berhasil Ubah PIN", "Berhasil mengubah PIN kartu debit", ReportStatus.Passed)
 	End If
 	
 	If x = "Blokir" Then
-		
+		Call Login()
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Dashboard", "Berhasil masuk ke halaman dashboard, pilih icon profile", ReportStatus.Passed)
+		wait 1
+		Device("Device").App("Dev").MobileLabel("HA").Tap
+		wait 1
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Profile", "Berhasil Menampilkan halaman Profil nasabah/user, pilih manajemen kartu", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileButton("MobileButton informasi akun").Swipe "up",205,430
+		wait 2
+		Device("Device").App("Dev").MobileButton("MobileButton manajemen kartu").Tap
+		Do
+		wait 1
+		Loop until Device("Device").App("Dev").MobileButton("MobileButton tambah kartu").Exist
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Manajemen Kartu", "Berhasil Menampilkan halaman Manajemen Kartu, pilih kartu yang ingin diubah PIN", ReportStatus.Passed)
+		wait 10
+	'	Device("Device").InsightObject("InsightObject silver gpn 1").Click
+		Do 
+		wait 2
+		Loop until Device("Device").App("Dev").MobileLabel("Detail Kartu Debit").Exist
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Detail Kartu Debit", "Berhasil masuk ke halaman detail kartu debit, pilih icon gear", ReportStatus.Passed)
+		Device("Device").InsightObject("InsightObject gear").Click
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Pengaturan Kartu Debit", "Berhasil menampilkan pengaturan kartu debit, pilih blokir kartu", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileLabel("Blokir Kartu").Tap
+		Do 
+		wait 1
+		Loop until Device("Device").App("Dev").MobileLabel("Blokir kartu debit?").Exist
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Blokir Kartu Debit", "Berhasil Menampilkan halaman konfirmasi blokir kartu debit, pilih blokir kartu debit", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileLabel("Blokir Kartu Debit").Tap
+		Do 
+		wait 1
+		loop until Device("Device").App("Dev").MobileLabel("Konfirmasi PIN").Exist
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Konfirmasi PIN", "Masukkan Konfirmasi PIN kartu debit", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileLabel("1").Tap
+		Device("Device").App("Dev").MobileLabel("2").Tap
+		Device("Device").App("Dev").MobileLabel("3").Tap
+		Device("Device").App("Dev").MobileLabel("4").Tap
+		Device("Device").App("Dev").MobileLabel("5").Tap
+		Device("Device").App("Dev").MobileLabel("6").Tap
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Loading Konfirmasi PIN", "Berhasil menampilkan loading konfirmasi PIN", ReportStatus.Passed)
+		do
+		wait 1
+		Loop until Device("Device").App("Dev").MobileLabel("Tutup").Exist
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Detail Kartu Debit", "Berhasil blokir kartu debit, pilih tutup", ReportStatus.Passed)
+		Device("Device").App("Dev").MobileLabel("Tutup").Tap
+		Do
+		wait 1
+		Loop until Device("Device").InsightObject("InsightObject silver gpn 1").Exist
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Manajemen Kartu", "Berhasil Menampilkan halaman Manajemen Kartu, pilih kartu yang telah di blokir", ReportStatus.Passed)
+	'	Device("Device").InsightObject("InsightObject silver gpn 1").Click
+		wait 10
+		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Kartu Terblokir", "Berhasil Menampilkan kartu yang telah diblokir", ReportStatus.Passed)
 	End If
 End Function
 
 Function SanggahanTransaksi(x)
 	If x = "Pelaporan Transaksi" Then
+		Call Login()
 		lbl_HA.Tap
 		Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik pelaporan transaksi")
 		btn_objlist.Swipe "up",205,430
 		wait 2
-		inobj_pelaporantransaksi.Click
+		btn_pelaporantransaksi.Tap
 		Call LoopUntil()		
 		Call Capture(lbl_buatlaporan,"Dev","Pelaporan Transaksi","Berhasil menampilkan halaman pealporan transaksi, klik buat laporan")
 		lbl_buatlaporan.Tap
 		Call LoopUntil()
 		Call Capture(lbl_buatlaporan,"Dev","Tabungan Sumber","Berhasil menampilkan list tabungan sumber, cari dan pilih tabungan sumber")
-		txt_alamatemail.Set "759"
+		txt_alamatemail.Set "579"
 		wait 1
-		lbl_easywadiah.Tap
+		lbl_easymudharabah.Tap
 		Call LoopUntil()
 		Call Capture(lbl_lanjutkan,"Dev","List Transaksi","Berhasil menampilkan list transaksi, pilih transaksi yang diinginkan")
 		inobj_nominallisttrsansaksi.Click
@@ -406,13 +764,13 @@ Function SanggahanTransaksi(x)
 	
 	If x = "Pelaporan Melalui Mutasi" Then
 		Call Login()
-		lbl_easymudharabah.Tap
+		lbl_wadiah.Tap
 		Call LoopUntil()
 		Call Capture(lbl_Rp15000,"Dev","Banner Rekening Nasabah","Berhasil menampilkan banner rekening nasabah, klik transaksi yang diinginkan pada list transaksi")
-		lbl_Rp15000.Tap
+		inobj_listtransaksi.Click
 		Call LoopUntil()
-		Call Capture(btn_arrow,"Dev","Detail Transaksi","Berhasil menampilkan halaman resi, klik panah bawah detail transaksi")
-		btn_arrow.Tap
+		Call Capture(inobj_detailtransaksi,"Dev","Detail Transaksi","Berhasil menampilkan halaman resi, klik panah bawah detail transaksi")
+		inobj_detailtransaksi.Click
 		wait 1
 		Call Capture(lbl_detailtransaksi,"Dev","Detail Resi","Berhasil menampilkan detail resi, klik ajukan laporan")	
 		list_detailresi.Swipe "up",205,430
@@ -422,7 +780,7 @@ Function SanggahanTransaksi(x)
 		Call Capture(lbl_lanjutkan,"Dev","Form Masalah Transaksi","Berhasil menampilkan halaman form masalah transaksi, pilih topik keluhan")
 		lbl_topikkeluhan.Tap
 		Call LoopUntil()
-		Call Capture(lbl_pembayarangagal,"Dev","Topik Keluhan","Berhasil list topik keluhan, pilih topik keluhan")
+		Call Capture(lbl_pembayarangagal,"Dev","Topik Keluhan","Berhasil menampilkan list topik keluhan, pilih topik keluhan")
 		lbl_pembayarangagal.Tap
 		wait 2
 		Call Capture(lbl_lanjutkan,"Dev","Form Masalah Transaksi","Berhasil memilih topik keluhan, klik lanjutkan")
@@ -436,10 +794,11 @@ Function SanggahanTransaksi(x)
 		lbl_6.Tap
 		Call CaptureImageUFTV2(Device("Device").App("Dev"), "Animasi Loading Konfirmasi PIN","Berhasil menampilkan animasi konfirmasi PIN", ReportStatus.Passed)
 		Call LoopUntil()
-		Call Capture(lbl_selesai,"Dev","Gagal Pembayaran","Berhasil menampilkan halaman gagal pembyaran")
+		Call Capture(lbl_selesai,"Dev","Gagal Pembayaran","Berhasil menampilkan halaman gagal pembayaran")
 		End If
 	
 	If x = "Pelaporan Melalui Pusat Bantuan" Then
+		Call Login()
 		lbl_HA.Tap
 		Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik pelaporan transaksi")
 		btn_objlist.Swipe "up",205,430
@@ -541,14 +900,6 @@ Function SanggahanTransaksi(x)
 End Function
 
 Function SanggahanTransaksiNegative(x)
-	If x = "Pelaporan Transaksi" Then
-		
-	End If
-	
-	If x = "Pelaporan Melalui Mutasi" Then
-		
-	End If
-	
 	If x = "Pelaporan Melalui Pusat Bantuan" Then
 		'Input Nominal 0 Rupiah
 		Call react.Addtitle("Input Nominal 0 Rupiah")
@@ -556,7 +907,7 @@ Function SanggahanTransaksiNegative(x)
 		Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik pelaporan transaksi")
 		btn_objlist.Swipe "up",205,430
 		wait 2
-		inobj_pelaporantransaksi.Click
+		btn_pelaporantransaksi.Tap
 		Call LoopUntil()		
 		Call Capture(lbl_buatlaporan,"Dev","Pelaporan Transaksi","Berhasil menampilkan halaman pealporan transaksi, klik buat laporan")
 		lbl_buatlaporan.Tap
@@ -621,17 +972,10 @@ Function SanggahanTransaksiNegative(x)
 		Call LoopUntil()
 		Call Capture(lbl_pembayarangagal,"Dev","Topik Keluhan","Berhasil menampilkan button lanjutkan yang terdisable")
 		
-		'cek button lanjutkan saat tidak pilh topik keluhan
-		Call react.Addtitle("Cek Button Lanjutkan Saat Tidak Pilih Topik Keluhan")
-		
 		'Menampilkan pop up pemberitahuan PIN salah 1x
 		Call react.Addtitle("Menampilkan Pop Up Pemberitahuan PIN Salah 1x")
 		
-		
-		
-	End If
-	
-	If x = "Riwayat Pelaporan" Then
+		'input periode tanggal lebih dari 7 hari kalender
 		
 	End If
 End Function
