@@ -27,4 +27,17 @@
 
 
 
+Call TabunganSumber("transaksi")
+		Call Capture(lbl_jenispajak,"Dev","Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
+'		If inobj_lanjutkan.Exist Then
+			lbl_lanjutkan.Tap
+'		End If
+		Call LoopUntil()
+'		If lbl_konfirmasi.Exist Then
+			Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+'		End If
+'		If lbl_konfirmasi Then
+			lbl_konfirmasi.Tap
+
+
 

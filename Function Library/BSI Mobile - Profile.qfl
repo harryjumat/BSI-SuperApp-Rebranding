@@ -225,32 +225,32 @@ Function ChangeProfilePic()
 	If lbl_HA.Exist Then
 		lbl_HA.Tap
 	End If
-	Call LoopUntil(inobj_informasiakun)
+	Call LoopUntil()
 	Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik informasi akun")
 	If btn_iccamera.Exist Then
 		btn_iccamera.Tap
 	End If
-	Call	LoopUntil(lbl_fotoprofil)
+	Call	LoopUntil()
 	Call Capture(lbl_fotoprofil,"Dev","Foto Profil","Berhasil menampilkan drawer foto profil, klik ambil foto")
 	If lbl_ambilfoto.Exist Then
 		lbl_ambilfoto.Tap
 	End If
-	Call LoopUntil(btn_ambilgambar)
+	Call LoopUntil()
 	Call Capture(btn_ambilgambar,"Dev","Kamera","Berhasil menampilkan kamera, klik tombol ambil gambar")
 	If btn_ambilgambar.Exist Then
 		btn_ambilgambar.Tap
 	End If
-	Call LoopUntil(btn_gunakanfoto)
+	Call LoopUntil()
 	Call Capture(btn_gunakanfoto,"Dev","Berhasil Mengambil Gambar","Berhasil mengambil gambar, klik gunakan foto")
 	If btn_gunakanfoto.Exist Then
 		btn_gunakanfoto.Tap
 	End If
-	Call LoopUntil(lbl_simpan)
+	Call LoopUntil()
 	Call Capture(lbl_simpan,"Dev","Edit Foto","Berhasil menampilkan halaman edit foto, klik simpan")
 	If lbl_simpan.Exist Then
 		lbl_simpan.Tap
 	End If
-	Call LoopUntil(inobj_informasiakun)
+	Call LoopUntil()
 	Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil mengganti foto profil")
 	
 	'Mengganti Foto Profil dari Galeri
@@ -260,17 +260,17 @@ Function ChangeProfilePic()
 	If inobj_profile.Exist Then
 		inobj_profile.Click
 	End If
-	Call LoopUntil(inobj_informasiakun)
+	Call LoopUntil()
 	Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik informasi akun")
 	If btn_iccamera.Exist Then
 		btn_iccamera.Tap
 	End If
-	Call	LoopUntil(lbl_fotoprofil)
+	Call	LoopUntil()
 	Call Capture(lbl_fotoprofil,"Dev","Foto Profil","Berhasil menampilkan drawer foto profil, klik pilih dari galeri")
 	If lbl_pilihdarigaleri.Exist Then
 		lbl_pilihdarigaleri.Tap
 	End If
-	Call LoopUntil(btn_batalkan)
+	Call LoopUntil()
 	If inobj_album.Exist Then
 		inobj_album.Click
 		wait 1
@@ -283,11 +283,11 @@ Function ChangeProfilePic()
 	If btn_saitama.Exist Then
 		btn_saitama.Tap
 	End If
-	Call LoopUntil(lbl_pilih)
+	Call LoopUntil()
 	If lbl_pilih.Exist Then
 		lbl_pilih.Tap
 	End If
-	Call LoopUntil(lbl_simpan)
+	Call LoopUntil()
 	Call Capture(lbl_simpan,"Dev","Edit Foto","Berhasil halaman edit foto, klik simpan")
 	If lbl_simpan.Exist Then
 		lbl_simpan.Tap
@@ -301,17 +301,17 @@ Function DeleteProfilePic()
 	If inobj_profilesaitama.Exist Then
 		inobj_profilesaitama.Click
 	End If
-	Call LoopUntil(inobj_informasiakun)
+	Call LoopUntil()
 	Call Capture(inobj_informasiakun,"Dev","Profile","Berhasil menampilkan halaman profile, klik informasi akun")
 	If btn_iccamera.Exist Then
 		btn_iccamera.Tap
 	End If
-	Call	LoopUntil(lbl_fotoprofil)
+	Call	LoopUntil()
 	Call Capture(lbl_fotoprofil,"Dev","Foto Profil","Berhasil menampilkan drawer foto profil, klik hapus foto")
 	If lbl_hapusfoto.Exist Then
 		lbl_hapusfoto.Tap
 	End If
-	Call LoopUntil(lbl_hapus)
+	Call LoopUntil()
 	Call Capture(lbl_hapus,"Dev","Konfirmasi Hapus Foto","Berhasil menampilkan drawer konfirmasi hapus foto, klik hapus")
 	If lbl_hapus.Exist Then
 		lbl_hapus.Tap

@@ -9,9 +9,9 @@ Project("") = "ZGUITest1", "Script\ZGUITest1\Test.tsp", "3F2F3879-7743-4C99-8A59
 		OpenAsReadOnly = False
 	EndProjectSection
 EndProject
-Project("") = "Bayar Beli - EWallet", "Script\Bayar Beli - EWallet\Test.tsp", "0FCE6F1C-608D-4AEC-B703-F176ED276DD0"
+Project("") = "Change Profile Pic", "Script\Change Profile Pic\Test.tsp", "213E4BFF-3976-4B38-8E67-252B151F315D"
 	ProjectSection(ProjectMetadata) = HP.UFT.ProjectSystem.Dynamic.ProjectMetadata
-		PathInformation = D:\BSI SuperApp Rebranding\Script\Bayar Beli - EWallet\Test.tsp
+		PathInformation = D:\BSI SuperApp Rebranding\Script\Change Profile Pic\Test.tsp
 		Keyword = QTP
 		OpenAsReadOnly = False
 		BaselineId = 
@@ -27,10 +27,10 @@ Global
 		3F2F3879-7743-4C99-8A59-ED7B562C22F8.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		3F2F3879-7743-4C99-8A59-ED7B562C22F8.Release|Any CPU.Build.0 = Release|Any CPU
 		3F2F3879-7743-4C99-8A59-ED7B562C22F8.Release|Any CPU.ActiveCfg = Release|Any CPU
-		0FCE6F1C-608D-4AEC-B703-F176ED276DD0.Debug|Any CPU.Build.0 = Debug|Any CPU
-		0FCE6F1C-608D-4AEC-B703-F176ED276DD0.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		0FCE6F1C-608D-4AEC-B703-F176ED276DD0.Release|Any CPU.Build.0 = Release|Any CPU
-		0FCE6F1C-608D-4AEC-B703-F176ED276DD0.Release|Any CPU.ActiveCfg = Release|Any CPU
+		213E4BFF-3976-4B38-8E67-252B151F315D.Debug|Any CPU.Build.0 = Debug|Any CPU
+		213E4BFF-3976-4B38-8E67-252B151F315D.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		213E4BFF-3976-4B38-8E67-252B151F315D.Release|Any CPU.Build.0 = Release|Any CPU
+		213E4BFF-3976-4B38-8E67-252B151F315D.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(Function Libraries) = postProject
 		BSI Mobile - Function Global = D:\BSI SuperApp Rebranding\Function Library\BSI Mobile - Function Global.qfl

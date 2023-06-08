@@ -964,12 +964,13 @@ Function EwalletNegative(param)
 			lbl_lanjutkan.Tap
 		Call LoopUntil()
 		Call Capture(lbl_easymudharabah,"Dev","Nominal","Berhasil menampilkan halaman input nominal, masukkan nominal")
-			txt_nomorhandphone.Set "100000"
+'			txt_nomorhandphone.Set "100000"
+			txt_nomorhandphone.Set "10000"
 			btn_selesai.Tap
 			wait 1
 		Call Capture(lbl_easymudharabah,"Dev","Berhasil Input Nominal","Berhasil memasukkan nominal, pilih sumber rekening")
 '		Call TabunganSumber("100000")
-		Call TabunganSumber("50000")
+		Call TabunganSumber("100000")
 		Call LoopUntil()
 		lbl_lanjutkan.Tap
 		wait 1
@@ -1302,6 +1303,7 @@ Function MPN(param,biller)
 		Call Capture(lbl_jenispajak,"Dev","Detail Pelanggan","Berhasil menampilkan detail pelanggan, scroll kebawah dan pilih sumber rekening")
 '		If inobj_arrowdetail.Exist Then
 			obj_listmpn.Swipe "up",205,430
+			Call LoopUntil()
 '		End If
 		Call TabunganSumber("transaksi")
 		Call Capture(lbl_jenispajak,"Dev","Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
@@ -1361,6 +1363,7 @@ Function MPNNegative(param,biller)
 		Call Capture(lbl_jenispajak,"Dev","Detail Pelanggan","Berhasil menampilkan detail pelanggan, scroll kebawah dan pilih sumber rekening")
 '		If inobj_arrowdetail.Exist Then
 			obj_listmpn.Swipe "up",205,430
+			Call LoopUntil()
 '		End If
 		Call TabunganSumber("kosong")
 		Call Capture(lbl_jenispajak,"Dev","Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
@@ -1402,56 +1405,6 @@ Function MPNNegative(param,biller)
 		Call LoopUntil()
 		Call Capture(lbl_cobalagi,"Dev","Nomor Pembayaran Salah","Berhasil menampilkan drawer nomor pembayaran salah")
 		
-'		'Nomor Pelanggan Kurang dari 15 Karakter
-'		Call react.Addtitle("Nomor Pelanggan Kurang dari 15 Karakter")
-'		Call Login()
-'		Call Navigate("Bayar Beli")
-'		If ai_MPN.Exist Then
-'			ai_MPN.Click
-'		End If
-'		Call LoopUntil()
-'		Call Capture(lbl_pajak,"Dev","Penerimaan Negara","Berhasil menampilkan list penerimaan negara")
-'		If lbl_pajak.Exist Then
-'			lbl_pajak.Tap
-'		End If
-'		Call LoopUntil()
-'		Call Capture(txt_nomorhandphone,"Dev","Pajak/Cukai/SBN/Paspor","Berhasil menampilkan nomor pembayaran untuk pajak/cukai/sbn/paspor, masukkan nomor pembayaran")
-'		If txt_nomorhandphone.Exist Then
-'			txt_nomorhandphone.Set "12345"
-'			wait 1
-'		End If
-'		Call Capture(txt_nomorhandphone,"Dev","Nomor Pembayaran","Berhasil memasukkan nomor pembayaran, klik cek tagihan")
-'		If lbl_cektagihan.Exist Then
-'			lbl_cektagihan.Tap
-'		End If
-'		Call LoopUntil()
-'		Call Capture(lbl_cobalagi,"Dev","Nomor Pelanggan Kurang dari 15 Karakter","Berhasil menampilkan drawer nomor pelanggan salah")
-		
-'		'Nomor Pelanggan Lebih dari 15 Karakter
-'		Call react.Addtitle("Nomor Pelanggan Lebih dari 15 Karakter")
-'		Call Login()
-'		Call Navigate("Bayar Beli")
-'		If ai_MPN.Exist Then
-'			ai_MPN.Click
-'		End If
-'		Call LoopUntil()
-'		Call Capture(lbl_pajak,"Dev","Penerimaan Negara","Berhasil menampilkan list penerimaan negara")
-'		If lbl_pajak.Exist Then
-'			lbl_pajak.Tap
-'		End If
-'		Call LoopUntil()
-'		Call Capture(txt_nomorhandphone,"Dev","Pajak/Cukai/SBN/Paspor","Berhasil menampilkan nomor pembayaran untuk pajak/cukai/sbn/paspor, masukkan nomor pembayaran")
-'		If txt_nomorhandphone.Exist Then
-'			txt_nomorhandphone.Set "12345678912345678912"
-'			wait 1
-'		End If
-'		Call Capture(txt_nomorhandphone,"Dev","Nomor Pembayaran","Berhasil memasukkan nomor pembayaran, klik cek tagihan")
-'		If lbl_cektagihan.Exist Then
-'			lbl_cektagihan.Tap
-'		End If
-'		Call LoopUntil()
-'		Call Capture(lbl_cobalagi,"Dev","Nomor Pelanggan Kurang dari 15 Karakter","Berhasil menampilkan drawer nomor pelanggan salah")
-		
 		'Tagihan Sudah Lunas
 		Call react.Addtitle("Tagihan Sudah Lunas")
 		Call Login()
@@ -1467,7 +1420,7 @@ Function MPNNegative(param,biller)
 		Call LoopUntil()
 		Call Capture(txt_nomorhandphone,"Dev","Pajak/Cukai/SBN/Paspor","Berhasil menampilkan nomor pembayaran untuk pajak/cukai/sbn/paspor, masukkan nomor pembayaran")
 		If txt_nomorhandphone.Exist Then
-			txt_nomorhandphone.Set "127406963946099"
+			txt_nomorhandphone.Set "820191209264395"
 			wait 1
 		End If
 		Call Capture(txt_nomorhandphone,"Dev","Nomor Pembayaran","Berhasil memasukkan nomor pembayaran, klik cek tagihan")
@@ -1476,141 +1429,7 @@ Function MPNNegative(param,biller)
 		End If
 		Call LoopUntil()
 		Call Capture(lbl_kembali,"Dev","Tagihan Sudah Lunas","Berhasil menampilkan drawer tagihan sudah lunas")
-	
-		'Rekening Blokir
-		Call react.Addtitle("Rekening Blokir")
-		Call Login()
-		Call Navigate("Bayar Beli")
-'		If ai_MPN.Exist Then
-			ai_MPN.Click
-'		End If
-		Call LoopUntil()
-		Call Capture(lbl_pajak,"Dev","Penerimaan Negara","Berhasil menampilkan list penerimaan negara")
-'		If lbl_pajak.Exist Then
-			lbl_pajak.Tap
-'		End If
-		Call LoopUntil()
-		Call Capture(txt_nomorhandphone,"Dev","Pajak/Cukai/SBN/Paspor","Berhasil menampilkan nomor pembayaran untuk pajak/cukai/sbn/paspor, masukkan nomor pembayaran")
-'		If txt_nomorhandphone.Exist Then
-			txt_nomorhandphone.Set biller
-			wait 1
-'		End If
-		Call Capture(txt_nomorhandphone,"Dev","Nomor Pembayaran","Berhasil memasukkan nomor pembayaran, klik cek tagihan")
-'		If lbl_cektagihan.Exist Then
-			lbl_cektagihan.Tap
-'		End If
-		Call LoopUntil()
-		Call Capture(lbl_jenispajak,"Dev","Institusi Tujuan","Berhasil menampilkan institusi tujuan, klik panah bawah pada detail pelanggan")
-'		If inobj_arrowdetail.Exist Then
-			inobj_arrowdetail.Click
-			wait 1
-'		End If
-		Call Capture(lbl_jenispajak,"Dev","Detail Pelanggan","Berhasil menampilkan detail pelanggan, scroll kebawah dan pilih sumber rekening")
-'		If inobj_arrowdetail.Exist Then
-			obj_listmpn.Swipe "up",205,430
-'		End If
-		Call TabunganSumber("blokir")
-		Call Capture(lbl_jenispajak,"Dev","Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
-'		If inobj_lanjutkan.Exist Then
-			lbl_lanjutkan.Tap
-'		End If
-		Call LoopUntil()
-'		If lbl_konfirmasi.Exist Then
-			Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-'		End If
-'		If lbl_konfirmasi Then
-			lbl_konfirmasi.Tap
-'		End If
-		Call LoopUntil()
-		Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-'		If lbl_1 Then
-			lbl_1.Tap
-'		End If
-'		If lbl_2 Then
-			lbl_2.Tap
-'		End If
-'		If lbl_3 Then
-			lbl_3.Tap
-'		End If
-'		If lbl_4 Then
-			lbl_4.Tap
-'		End If
-'		If lbl_5 Then
-			lbl_5.Tap
-'		End If
-'		If lbl_6 Then
-			lbl_6.Tap
-'		End If
-		Call LoopUntil()
-		Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening terblokir")
-		
-		'Rekening Dormant
-		Call react.Addtitle("Rekening Dormant")
-		Call Login()
-		Call Navigate("Bayar Beli")
-'		If ai_MPN.Exist Then
-			ai_MPN.Click
-'		End If
-		Call LoopUntil()
-		Call Capture(lbl_pajak,"Dev","Penerimaan Negara","Berhasil menampilkan list penerimaan negara")
-'		If lbl_pajak.Exist Then
-			lbl_pajak.Tap
-'		End If
-		Call LoopUntil()
-		Call Capture(txt_nomorhandphone,"Dev","Pajak/Cukai/SBN/Paspor","Berhasil menampilkan nomor pembayaran untuk pajak/cukai/sbn/paspor, masukkan nomor pembayaran")
-'		If txt_nomorhandphone.Exist Then
-			txt_nomorhandphone.Set biller
-			wait 1
-'		End If
-		Call Capture(txt_nomorhandphone,"Dev","Nomor Pembayaran","Berhasil memasukkan nomor pembayaran, klik cek tagihan")
-'		If lbl_cektagihan.Exist Then
-			lbl_cektagihan.Tap
-'		End If
-		Call LoopUntil()
-		Call Capture(lbl_jenispajak,"Dev","Institusi Tujuan","Berhasil menampilkan institusi tujuan, klik panah bawah pada detail pelanggan")
-'		If inobj_arrowdetail.Exist Then
-			inobj_arrowdetail.Click
-			wait 1
-'		End If
-		Call Capture(lbl_jenispajak,"Dev","Detail Pelanggan","Berhasil menampilkan detail pelanggan, scroll kebawah dan pilih sumber rekening")
-'		If inobj_arrowdetail.Exist Then
-			obj_listmpn.Swipe "up",205,430
-'		End If
-		Call TabunganSumber("dormant")
-		Call Capture(lbl_jenispajak,"Dev","Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
-'		If inobj_lanjutkan.Exist Then
-			lbl_lanjutkan.Tap
-'		End If
-		Call LoopUntil()
-'		If lbl_konfirmasi.Exist Then
-			Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-'		End If
-'		If lbl_konfirmasi Then
-			lbl_konfirmasi.Tap
-'		End If
-		Call LoopUntil()
-		Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-'		If lbl_1 Then
-			lbl_1.Tap
-'		End If
-'		If lbl_2 Then
-			lbl_2.Tap
-'		End If
-'		If lbl_3 Then
-			lbl_3.Tap
-'		End If
-'		If lbl_4 Then
-			lbl_4.Tap
-'		End If
-'		If lbl_5 Then
-			lbl_5.Tap
-'		End If
-'		If lbl_6 Then
-			lbl_6.Tap
-'		End If
-		Call LoopUntil()
-		Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening dormant")
-		
+
 		'Salah PIN 1x
 		Call react.Addtitle("Salah PIN 1x")
 		If param = "Pajak" Then
@@ -1643,6 +1462,7 @@ Function MPNNegative(param,biller)
 		Call Capture(lbl_jenispajak,"Dev","Detail Pelanggan","Berhasil menampilkan detail pelanggan, scroll kebawah dan pilih sumber rekening")
 '		If inobj_arrowdetail.Exist Then
 			obj_listmpn.Swipe "up",205,430
+			Call LoopUntil()
 '		End If
 		Call TabunganSumber("transaksi")
 		Call Capture(lbl_jenispajak,"Dev","Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
@@ -1659,103 +1479,6 @@ Function MPNNegative(param,biller)
 		Call SalahPIN()
 		End If
 		
-'		'Limit Harian
-'		Call react.Addtitle("Limit Harian")
-'		Call SetLimitHarian("pembayaran")
-'		Call Login()
-'		Call Navigate("Bayar Beli")
-'		If ai_MPN.Exist Then
-'			ai_MPN.Click
-'		End If
-'		Call LoopUntil()
-'		Call Capture(lbl_pajak,"Dev","Penerimaan Negara","Berhasil menampilkan list penerimaan negara")
-'		If lbl_pajak.Exist Then
-'			lbl_pajak.Tap
-'		End If
-'		Call LoopUntil()
-'		Call Capture(txt_nomorhandphone,"Dev","Pajak/Cukai/SBN/Paspor","Berhasil menampilkan nomor pembayaran untuk pajak/cukai/sbn/paspor, masukkan nomor pembayaran")
-'		If txt_nomorhandphone.Exist Then
-'			txt_nomorhandphone.Set biller
-'			wait 1
-'		End If
-'		Call Capture(txt_nomorhandphone,"Dev","Nomor Pembayaran","Berhasil memasukkan nomor pembayaran, klik cek tagihan")
-'		If lbl_cektagihan.Exist Then
-'			lbl_cektagihan.Tap
-'		End If
-'		Call LoopUntil()
-'		Call Capture(lbl_jenispajak,"Dev","Institusi Tujuan","Berhasil menampilkan institusi tujuan, klik panah bawah pada detail pelanggan")
-'		If inobj_arrowdetail.Exist Then
-'			inobj_arrowdetail.Click
-'			wait 1
-'		End If
-'		Call Capture(lbl_jenispajak,"Dev","Detail Pelanggan","Berhasil menampilkan detail pelanggan, scroll kebawah dan pilih sumber rekening")
-'		If inobj_arrowdetail.Exist Then
-'			inobj_arrowdetail.Swipe "up",205,430
-'		End If
-'		Call TabunganSumber("transaksi")
-'		Call Capture(lbl_jenispajak,"Dev","Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
-'		If inobj_lanjutkan.Exist Then
-'			lbl_lanjutkan.Tap
-'		End If
-'		Call LoopUntil()
-'		If lbl_konfirmasi.Exist Then
-'			Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-'		End If
-'		If lbl_konfirmasi Then
-'			lbl_konfirmasi.Tap
-'		End If
-'		Call LoopUntil()
-'		Call Capture(lbl_kembali,"Dev","Limit Harian","Berhasil menampilkan drawer limit harian")
-'		Call UnSetLimitHarian("pembayaran")
-'		
-'		'Limit Transaksi
-'		Call react.Addtitle("Limit Transaksi")
-'		Call SetLimitHarian("pembayaran")
-'		Call Login()
-'		Call Navigate("Bayar Beli")
-'		If ai_MPN.Exist Then
-'			ai_MPN.Click
-'		End If
-'		Call LoopUntil()
-'		Call Capture(lbl_pajak,"Dev","Penerimaan Negara","Berhasil menampilkan list penerimaan negara")
-'		If lbl_pajak.Exist Then
-'			lbl_pajak.Tap
-'		End If
-'		Call LoopUntil()
-'		Call Capture(txt_nomorhandphone,"Dev","Pajak/Cukai/SBN/Paspor","Berhasil menampilkan nomor pembayaran untuk pajak/cukai/sbn/paspor, masukkan nomor pembayaran")
-'		If txt_nomorhandphone.Exist Then
-'			txt_nomorhandphone.Set biller
-'			wait 1
-'		End If
-'		Call Capture(txt_nomorhandphone,"Dev","Nomor Pembayaran","Berhasil memasukkan nomor pembayaran, klik cek tagihan")
-'		If lbl_cektagihan.Exist Then
-'			lbl_cektagihan.Tap
-'		End If
-'		Call LoopUntil()
-'		Call Capture(lbl_jenispajak,"Dev","Institusi Tujuan","Berhasil menampilkan institusi tujuan, klik panah bawah pada detail pelanggan")
-'		If inobj_arrowdetail.Exist Then
-'			inobj_arrowdetail.Click
-'			wait 1
-'		End If
-'		Call Capture(lbl_jenispajak,"Dev","Detail Pelanggan","Berhasil menampilkan detail pelanggan, scroll kebawah dan pilih sumber rekening")
-'		If inobj_arrowdetail.Exist Then
-'			inobj_arrowdetail.Swipe "up",205,430
-'		End If
-'		Call TabunganSumber("transaksi")
-'		Call Capture(lbl_jenispajak,"Dev","Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
-'		If inobj_lanjutkan.Exist Then
-'			lbl_lanjutkan.Tap
-'		End If
-'		Call LoopUntil()
-'		If lbl_konfirmasi.Exist Then
-'			Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-'		End If
-'		If lbl_konfirmasi Then
-'			lbl_konfirmasi.Tap
-'		End If
-'		Call LoopUntil()
-'		Call Capture(lbl_kembali,"Dev","Limit Harian","Berhasil menampilkan drawer limit transaksi")
-'		Call UnSetLimitTransaksi("pembayaran")
 	End If
 End Function
 
@@ -3664,166 +3387,6 @@ Function AsuransiOpenPaymentNegative(param,biller)
 	Call LoopUntil()
 	Call Capture(lbl_kembali,"Dev","Saldo Kurang","Berhasil menampilkan drawer saldo kurang")
 	
-	'Rekening Terblokir
-	Call react.Addtitle("Rekening Terblokir")
-	Call Login()
-	Call Navigate("Bayar Beli")
-'	If lbl_layananpemerintah.Exist Then
-		lbl_layananpemerintah.Swipe "up",100,100
-		wait 3
-'	End If
-'	If ai_asuransi.Exist Then
-		ai_asuransi.Click
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_carpremireguler,"Dev","Asuransi","Berhasil menampilkan list asuransi, klik cari asuransi")
-	Select Case param
-		Case "cartagihanlainnya"	'If txt_nomorhandphone.Exist Then
-									txt_nomorhandphone.Set "tagihan lainnya"
-								'End If
-	End Select
-	wait 1
-	Call Capture(txt_nomorhandphone,"Dev","Cari Lembaga","Berhasil menampilkan lembaga asuransi, klik lembaga asuransi")
-	Select Case param
-		Case "cartagihanlainnya"	'If lbl_cartagihanlainnya.Exist Then
-									lbl_cartagihanlainnya.Tap
-								'End If
-	End Select
-	wait 1
-	Call LoopUntil()
-	Call Capture(lbl_easymudharabah,"Dev","Asuransi","Berhasil menampilkan halaman asuransi, masukkan nomor polis")
-'	If txt_nomorhandphone.Exist Then
-		txt_nomorhp.Set biller
-		wait 1
-'	End If
-'	If btn_selesai.Exist Then
-		btn_selesai.Tap
-		wait 1
-'	End If
-	Call Capture(lbl_easymudharabah,"Dev","Nomor Polis","Berhasil memasukkan nomor polis, masukkan nominal")
-'	If txt_nominalExist Then
-		txt_nominal.Set "150000"
-'	End If
-'	If btn_selesai.Exist Then
-		btn_selesai.Tap
-		wait 1
-'	End If
-	Call Capture(lbl_easymudharabah,"Dev","Nominal","Berhasil memasukkan nominal, pilih sumber rekening")
-	Call TabunganSumber("blokir")
-	Call Capture(txt_nomorhandphone,"Dev","Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
-'	If lbl_lanjutkan.Exist Then
-		lbl_lanjutkan.Tap
-'	End If
-	Call LoopUntil()
-'	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-'	End If
-'	If lbl_konfirmasi Then
-		lbl_konfirmasi.Tap
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-'	If lbl_1 Then
-		lbl_1.Tap
-'	End If
-'	If lbl_2 Then
-		lbl_2.Tap
-'	End If
-'	If lbl_3 Then
-		lbl_3.Tap
-'	End If
-'	If lbl_4 Then
-		lbl_4.Tap
-'	End If
-'	If lbl_5 Then
-		lbl_5.Tap
-'	End If
-'	If lbl_6 Then
-		lbl_6.Tap
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening terblokir")
-	
-	'Rekening Dormant
-	Call react.Addtitle("Rekening Dormant")
-	Call Login()
-	Call Navigate("Bayar Beli")
-'	If lbl_layananpemerintah.Exist Then
-		lbl_layananpemerintah.Swipe "up",100,100
-		wait 3
-'	End If
-'	If ai_asuransi.Exist Then
-		ai_asuransi.Click
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_carpremireguler,"Dev","Asuransi","Berhasil menampilkan list asuransi, klik cari asuransi")
-	Select Case param
-		Case "cartagihanlainnya"	'If txt_nomorhandphone.Exist Then
-									txt_nomorhandphone.Set "tagihan lainnya"
-								'End If
-	End Select
-	wait 1
-	Call Capture(txt_nomorhandphone,"Dev","Cari Lembaga","Berhasil menampilkan lembaga asuransi, klik lembaga asuransi")
-	Select Case param
-		Case "cartagihanlainnya"	'If lbl_cartagihanlainnya.Exist Then
-									lbl_cartagihanlainnya.Tap
-								'End If
-	End Select
-	wait 1
-	Call LoopUntil()
-	Call Capture(lbl_easymudharabah,"Dev","Asuransi","Berhasil menampilkan halaman asuransi, masukkan nomor polis")
-'	If txt_nomorhandphone.Exist Then
-		txt_nomorhp.Set biller
-		wait 1
-'	End If
-'	If btn_selesai.Exist Then
-		btn_selesai.Tap
-		wait 1
-'	End If
-	Call Capture(lbl_easymudharabah,"Dev","Nomor Polis","Berhasil memasukkan nomor polis, masukkan nominal")
-'	If txt_nominalExist Then
-		txt_nominal.Set "150000"
-'	End If
-'	If btn_selesai.Exist Then
-		btn_selesai.Tap
-		wait 1
-'	End If
-	Call Capture(lbl_easymudharabah,"Dev","Nominal","Berhasil memasukkan nominal, pilih sumber rekening")
-	Call TabunganSumber("dormant")
-	Call Capture(txt_nomorhandphone,"Dev","Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
-'	If lbl_lanjutkan.Exist Then
-		lbl_lanjutkan.Tap
-'	End If
-	Call LoopUntil()
-'	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-'	End If
-'	If lbl_konfirmasi Then
-		lbl_konfirmasi.Tap
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-'	If lbl_1 Then
-		lbl_1.Tap
-'	End If
-'	If lbl_2 Then
-		lbl_2.Tap
-'	End If
-'	If lbl_3 Then
-		lbl_3.Tap
-'	End If
-'	If lbl_4 Then
-		lbl_4.Tap
-'	End If
-'	If lbl_5 Then
-		lbl_5.Tap
-'	End If
-'	If lbl_6 Then
-		lbl_6.Tap
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening dormant")
-	
 	'Salah PIN 1x
 	Call react.Addtitle("Salah PIN 1x")
 	Call Login()
@@ -4165,160 +3728,6 @@ Function AsuransiClosePaymentNegative(param,biller)
 	Call LoopUntil()
 	Call Capture(lbl_kembali,"Dev","Saldo Kurang","Berhasil menampilkan drawer saldo kurang")
 	
-'	Rekening Terblokir
-	Call react.Addtitle("Rekening Terblokir")
-	Call Login()
-	Call Navigate("Bayar Beli")
-'	If lbl_layananpemerintah.Exist Then
-		lbl_layananpemerintah.Swipe "up",100,100
-		Call LoopUntil()
-'	End If
-'	If ai_asuransi.Exist Then
-		ai_asuransi.Click
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_carpremireguler,"Dev","Asuransi","Berhasil menampilkan list asuransi, klik cari asuransi")
-	Select Case param
-		Case "carpremireguler"	'If txt_nomorhandphone.Exist Then
-									txt_nomorhandphone.Set "premi reguler"
-								'End If
-		Case "takaful"			'If txt_nomorhandphone.Exist Then
-									txt_nomorhandphone.Set "takaful"
-								'End If
-	End Select
-	wait 1
-	Call Capture(txt_nomorhandphone,"Dev","Cari Lembaga","Berhasil menampilkan lembaga asuransi, klik lembaga asuransi")
-	Select Case param
-		Case "carpremireguler"	'If lbl_carpremireguler.Exist Then
-									lbl_carpremireguler.Tap
-								'End If
-		Case "takaful"			'If lbl_takaful.Exist Then
-									lbl_takaful.Tap
-								'End If
-	End Select
-	wait 1
-	Call LoopUntil()
-	Call Capture(lbl_easymudharabah,"Dev","Asuransi","Berhasil menampilkan halaman asuransi, masukkan nomor polis")
-'	If txt_nomorhandphone.Exist Then
-		txt_nomorhandphone.Set biller
-		wait 1
-'	End If
-'	If btn_selesai.Exist Then
-		btn_selesai.Tap
-'	End If
-	Call Capture(lbl_easymudharabah,"Dev","Nomor Polis","Berhasil memasukkan nomor polis, pilih sumber rekening")
-	Call TabunganSumber("blokir")
-	Call Capture(txt_nomorhandphone,"Dev","Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
-'	If lbl_lanjutkan.Exist Then
-		lbl_lanjutkan.Tap
-'	End If
-	Call LoopUntil()
-'	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-'	End If
-'	If lbl_konfirmasi Then
-		lbl_konfirmasi.Tap
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-'	If lbl_1 Then
-		lbl_1.Tap
-'	End If
-'	If lbl_2 Then
-		lbl_2.Tap
-'	End If
-'	If lbl_3 Then
-		lbl_3.Tap
-'	End If
-'	If lbl_4 Then
-		lbl_4.Tap
-'	End If
-'	If lbl_5 Then
-		lbl_5.Tap
-'	End If
-'	If lbl_6 Then
-		lbl_6.Tap
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening terblokir")
-	
-'	Rekening Dormant
-	Call react.Addtitle("Rekening Dormant")
-	Call Login()
-	Call Navigate("Bayar Beli")
-'	If lbl_layananpemerintah.Exist Then
-		lbl_layananpemerintah.Swipe "up",100,100
-		Call LoopUntil()
-'	End If
-'	If ai_asuransi.Exist Then
-		ai_asuransi.Click
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_carpremireguler,"Dev","Asuransi","Berhasil menampilkan list asuransi, klik cari asuransi")
-	Select Case param
-		Case "carpremireguler"	'If txt_nomorhandphone.Exist Then
-									txt_nomorhandphone.Set "premi reguler"
-								'End If
-		Case "takaful"			'If txt_nomorhandphone.Exist Then
-									txt_nomorhandphone.Set "takaful"
-								'End If
-	End Select
-	wait 1
-	Call Capture(txt_nomorhandphone,"Dev","Cari Lembaga","Berhasil menampilkan lembaga asuransi, klik lembaga asuransi")
-	Select Case param
-		Case "carpremireguler"	'If lbl_carpremireguler.Exist Then
-									lbl_carpremireguler.Tap
-								'End If
-		Case "takaful"			'If lbl_takaful.Exist Then
-									lbl_takaful.Tap
-								'End If
-	End Select
-	wait 1
-	Call LoopUntil()
-	Call Capture(lbl_easymudharabah,"Dev","Asuransi","Berhasil menampilkan halaman asuransi, masukkan nomor polis")
-'	If txt_nomorhandphone.Exist Then
-		txt_nomorhandphone.Set biller
-		wait 1
-'	End If
-'	If btn_selesai.Exist Then
-		btn_selesai.Tap
-'	End If
-	Call Capture(lbl_easymudharabah,"Dev","Nomor Polis","Berhasil memasukkan nomor polis, pilih sumber rekening")
-	Call TabunganSumber("dormant")
-	Call Capture(txt_nomorhandphone,"Dev","Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
-'	If lbl_lanjutkan.Exist Then
-		lbl_lanjutkan.Tap
-'	End If
-	Call LoopUntil()
-'	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-'	End If
-'	If lbl_konfirmasi Then
-		lbl_konfirmasi.Tap
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-'	If lbl_1 Then
-		lbl_1.Tap
-'	End If
-'	If lbl_2 Then
-		lbl_2.Tap
-'	End If
-'	If lbl_3 Then
-		lbl_3.Tap
-'	End If
-'	If lbl_4 Then
-		lbl_4.Tap
-'	End If
-'	If lbl_5 Then
-		lbl_5.Tap
-'	End If
-'	If lbl_6 Then
-		lbl_6.Tap
-'	End If
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening dormant")
-	
 	'Salah PIN 1x
 	Call react.Addtitle("Salah PIN 1x")
 	Call Login()
@@ -4610,687 +4019,256 @@ Function AqiqahNegative(param,jenkel,toogle)
 	Call react.Addtitle("Nama Anak Tanpa Nama Orang Tua")
 	Call Login()
 	Call Navigate("Bayar Beli")
-	If lbl_layananpemerintah.Exist Then
-		lbl_layananpemerintah.Swipe "up",100,100
+	lbl_layananpemerintah.Swipe "up",100,100
 		wait 2
-	End If
-	If ai_aqiqah.Exist Then
-		ai_aqiqah.Click
-	End If
+	ai_aqiqah.Click
 	Call LoopUntil()
 	Call Capture(lbl_dompetdhuafa,"Dev","List Supplier","Berhasil menampilkan list supplier, pilih cari supplier")
-	If txt_nomorhandphone.Exist Then
-		txt_nomorhandphone.Set "dompet"
+	txt_nomorhandphone.Set "dompet"
 		wait 1
-	End If
 	Call Capture(lbl_dompetdhuafa,"Dev","Nama Supplier","Berhasil menampilkan nama supplier, klik supplier")
-	If lbl_dompetdhuafa.Exist Then
-		lbl_dompetdhuafa.Tap
-	End If
+	lbl_dompetdhuafa.Tap
 	Call LoopUntil()
 	Call Capture(lbl_kambing,"Dev","List Hewan","Berhasil menampilkan list hewan aqiqah, klik hewan aqiqah")
-	If lbl_kambing.Exist Then
-		lbl_kambing.Tap
+	lbl_kambing.Tap
 		wait 1
-	End If
 	Call Capture(lbl_kambing,"Dev","Pilih Hewan","Berhasil memilih hewan aqiqah, klik pilih")
-	If lbl_pilih.Exist Then
-		lbl_pilih.Tap
-	End If
+	lbl_pilih.Tap
 	Call LoopUntil()
 	Call Capture(lbl_easymudharabah,"Dev","Aqiqah","Berhasil menampilkan halaman aqiqah, pilih icon '?' untuk melihat ketentuan aqiqah")	
-	If inobj_tandatanya.Exist Then
-		inobj_tandatanya.Click
+	inobj_tandatanya.Click
 		wait 1
-	End If
 	Call Capture(lbl_ketentuanaqiqah,"Dev","Ketentuan Aqiqah","Berhasil menampilkan ketentuan aqiqah, klik ''x' untuk keluar dari drawer")
-	If inobj_X.Exist Then
-		inobj_X.Click
+	inobj_X.Click
 		wait 1
-	End If
 	Call Capture(lbl_easymudharabah,"Dev","Jenis Kelamin","Berhasil menampilkan halaman aqiqah, pilih jenis kelamin")
 	Select Case jenkel
-		Case "pria"		if lbl_pria.Exist then
-							lbl_pria.Tap
-						End If
+		Case "pria"		lbl_pria.Tap
 	End Select
 	wait 1
 	Call Capture(lbl_easymudharabah,"Dev","Nama Anak","Berhasil memilih jenis kelamin, masukkan nama anak")
-	if txt_nomorhandphone.Exist then
-		txt_nomorhandphone.Set "Harry Setiawan"
-	End If
-	If btn_selesai.Exist Then
-		btn_selesai.Tap
+	txt_nomorhandphone.Set "Harry Setiawan"
+	btn_selesai.Tap
 		wait 1
-	End If
 	Call Capture(lbl_janganlupa,"Dev","Nama Anak Tanpa Nama Orang Tua","Berhasil menampilkan helper text")
 	
 	'Nomor Handphone Tidak Sesuai Format
 	Call react.Addtitle("Nomor Handphone Tidak Sesuai Format")
 	Call Login()
 	Call Navigate("Bayar Beli")
-	If lbl_layananpemerintah.Exist Then
-		lbl_layananpemerintah.Swipe "up",100,100
+	lbl_layananpemerintah.Swipe "up",100,100
 		wait 2
-	End If
-	If ai_aqiqah.Exist Then
-		ai_aqiqah.Click
+	ai_aqiqah.Click
 		wait 2
-	End If
 	Call LoopUntil()
 	Call Capture(lbl_dompetdhuafa,"Dev","List Supplier","Berhasil menampilkan list supplier, pilih cari supplier")
-	If txt_nomorhandphone.Exist Then
-		txt_nomorhandphone.Set "dompet"
+	txt_nomorhandphone.Set "dompet"
 		wait 1
-	End If
 	Call Capture(lbl_dompetdhuafa,"Dev","Nama Supplier","Berhasil menampilkan nama supplier, klik supplier")
-	If lbl_dompetdhuafa.Exist Then
-		lbl_dompetdhuafa.Tap
-	End If
+	lbl_dompetdhuafa.Tap
 	Call LoopUntil()
 	Call Capture(lbl_kambing,"Dev","List Hewan","Berhasil menampilkan list hewan aqiqah, klik hewan aqiqah")
-	If lbl_kambing.Exist Then
-		lbl_kambing.Tap
+	lbl_kambing.Tap
 		wait 1
-	End If
 	Call Capture(lbl_kambing,"Dev","Pilih Hewan","Berhasil memilih hewan aqiqah, klik pilih")
-	If lbl_pilih.Exist Then
-		lbl_pilih.Tap
-	End If
+	lbl_pilih.Tap
 	Call LoopUntil()
 	Call Capture(lbl_easymudharabah,"Dev","Aqiqah","Berhasil menampilkan halaman aqiqah, pilih icon '?' untuk melihat ketentuan aqiqah")	
-	If inobj_tandatanya.Exist Then
-		inobj_tandatanya.Click
+	inobj_tandatanya.Click
 		wait 1
-	End If
 	Call Capture(lbl_ketentuanaqiqah,"Dev","Ketentuan Aqiqah","Berhasil menampilkan ketentuan aqiqah, klik ''x' untuk keluar dari drawer")
-	If inobj_X.Exist Then
-		inobj_X.Click
+	inobj_X.Click
 		wait 1
-	End If
 	Call Capture(lbl_easymudharabah,"Dev","Jenis Kelamin","Berhasil menampilkan halaman aqiqah, pilih jenis kelamin")
-	if lbl_pria.Exist then
-		lbl_pria.Tap
-	End If
+	lbl_pria.Tap
 	wait 1
 	Call Capture(lbl_easymudharabah,"Dev","Nama Anak","Berhasil memilih jenis kelamin, masukkan nama anak")
-	if txt_nomorhandphone.Exist then
-		txt_nomorhandphone.Set "Fulan bin Fulan"
-	End If
-	If btn_selesai.Exist Then
-		btn_selesai.Tap
+	txt_nomorhandphone.Set "Fulan bin Fulan"
+	btn_selesai.Tap
 		wait 1
-	End If
 	Call Capture(lbl_easymudharabah,"Dev","Detail Penerima Laporan","Berhasil memasukkan nama anak, masukkan nomor handphone")
-	If txt_nomorhp.Exist Then
-		txt_nomorhp.Set "123456789"
-	End If
-	If btn_selesai.Exist Then
+	txt_nomorhp.Set "123456789"
 		btn_selesai.Tap
 	wait 1
-	End If
 	Call Capture(lbl_nomorhpsalah,"Dev","Nomor Handphone Tidak Sesuai Format","Berhasil menampilkan helper text")
 	
 	'Email Tidak Sesuai Format
 	Call react.Addtitle("Email Tidak Sesuai Format")
 	Call Login()
 	Call Navigate("Bayar Beli")
-	If lbl_layananpemerintah.Exist Then
-		lbl_layananpemerintah.Swipe "up",100,100
+	lbl_layananpemerintah.Swipe "up",100,100
 		wait 2
-	End If
-	If ai_aqiqah.Exist Then
-		ai_aqiqah.Click
-	End If
+	ai_aqiqah.Click
 	Call LoopUntil()
 	Call Capture(lbl_dompetdhuafa,"Dev","List Supplier","Berhasil menampilkan list supplier, pilih cari supplier")
-	If txt_nomorhandphone.Exist Then
-		txt_nomorhandphone.Set "dompet"
+	txt_nomorhandphone.Set "dompet"
 		wait 1
-	End If
 	Call Capture(lbl_dompetdhuafa,"Dev","Nama Supplier","Berhasil menampilkan nama supplier, klik supplier")
-	If lbl_dompetdhuafa.Exist Then
-		lbl_dompetdhuafa.Tap
-	End If
+	lbl_dompetdhuafa.Tap
 	Call LoopUntil()
 	Call Capture(lbl_kambing,"Dev","List Hewan","Berhasil menampilkan list hewan aqiqah, klik hewan aqiqah")
-	If lbl_kambing.Exist Then
-		lbl_kambing.Tap
+	lbl_kambing.Tap
 		wait 1
-	End If
 	Call Capture(lbl_kambing,"Dev","Pilih Hewan","Berhasil memilih hewan aqiqah, klik pilih")
-	If lbl_pilih.Exist Then
-		lbl_pilih.Tap
-	End If
+	lbl_pilih.Tap
 	Call LoopUntil()
 	Call Capture(lbl_easymudharabah,"Dev","Aqiqah","Berhasil menampilkan halaman aqiqah, pilih icon '?' untuk melihat ketentuan aqiqah")	
-	If inobj_tandatanya.Exist Then
-		inobj_tandatanya.Click
+	inobj_tandatanya.Click
 		wait 1
-	End If
 	Call Capture(lbl_ketentuanaqiqah,"Dev","Ketentuan Aqiqah","Berhasil menampilkan ketentuan aqiqah, klik ''x' untuk keluar dari drawer")
-	If inobj_X.Exist Then
-		inobj_X.Click
+	inobj_X.Click
 		wait 1
-	End If
 	Call Capture(lbl_easymudharabah,"Dev","Jenis Kelamin","Berhasil menampilkan halaman aqiqah, pilih jenis kelamin")
-	if lbl_pria.Exist then
-		lbl_pria.Tap
-	End If
+	lbl_pria.Tap
 	wait 1
 	Call Capture(lbl_easymudharabah,"Dev","Nama Anak","Berhasil memilih jenis kelamin, masukkan nama anak")
-	if txt_nomorhandphone.Exist then
-		txt_nomorhandphone.Set "Fulan bin Fulan"
-	End If
-	If btn_selesai.Exist Then
-		btn_selesai.Tap
+	txt_nomorhandphone.Set "Fulan bin Fulan"
+	btn_selesai.Tap
 		wait 1
-	End If
 	Call Capture(lbl_easymudharabah,"Dev","Detail Penerima Laporan","Berhasil memasukkan nama anak, masukkan nomor handphone")
-	If txt_nomorhp.Exist Then
-		txt_nomorhp.Set "089668980862"
-	End If
-	If btn_selesai.Exist Then
-		btn_selesai.Tap
+	txt_nomorhp.Set "089668980862"
+	btn_selesai.Tap
 	wait 1
-	End If
 	Call Capture(lbl_easymudharabah,"Dev","Email Penerima Laporan","Berhasil nomor handphone, masukkan email penerima laporan")
-	If txt_emailpenerimalaporan.Exist Then
-		txt_emailpenerimalaporan.Set "harrysetiawan1005gmailcom"
-	End If
-	If btn_selesai.Exist Then
-		btn_selesai.Tap
+	txt_emailpenerimalaporan.Set "harrysetiawan1005gmailcom"
+	btn_selesai.Tap
 	wait 1
-	End If
 	Call Capture(lbl_formatemail,"Dev","Email Tidak Sesuai Format","Berhasil menampilkan helper text")
 
 	'Saldo Kurang
 	Call react.Addtitle("Saldo Kurang")
 	Call Login()
 	Call Navigate("Bayar Beli")
-	If lbl_layananpemerintah.Exist Then
-		lbl_layananpemerintah.Swipe "up",100,100
+	lbl_layananpemerintah.Swipe "up",100,100
 		wait 2
-	End If
-	If ai_aqiqah.Exist Then
-		ai_aqiqah.Click
-	End If
+	ai_aqiqah.Click
 	Call LoopUntil()
 	Call Capture(lbl_dompetdhuafa,"Dev","List Supplier","Berhasil menampilkan list supplier, pilih cari supplier")
-	If txt_nomorhandphone.Exist Then
-		txt_nomorhandphone.Set "dompet"
+	txt_nomorhandphone.Set "dompet"
 		wait 1
-	End If
 	Call Capture(lbl_dompetdhuafa,"Dev","Nama Supplier","Berhasil menampilkan nama supplier, klik supplier")
-	If lbl_dompetdhuafa.Exist Then
-		lbl_dompetdhuafa.Tap
-	End If
+	lbl_dompetdhuafa.Tap
 	Call LoopUntil()
 	Call Capture(lbl_kambing,"Dev","List Hewan","Berhasil menampilkan list hewan aqiqah, klik hewan aqiqah")
-	If lbl_kambing.Exist Then
-		lbl_kambing.Tap
+	lbl_kambing.Tap
 		wait 1
-	End If
 	Call Capture(lbl_kambing,"Dev","Pilih Hewan","Berhasil memilih hewan aqiqah, klik pilih")
-	If lbl_pilih.Exist Then
-		lbl_pilih.Tap
-	End If
+	lbl_pilih.Tap
 	Call LoopUntil()
 	Call Capture(lbl_easymudharabah,"Dev","Aqiqah","Berhasil menampilkan halaman aqiqah, pilih icon '?' untuk melihat ketentuan aqiqah")	
-	If inobj_tandatanya.Exist Then
-		inobj_tandatanya.Click
+	inobj_tandatanya.Click
 		wait 1
-	End If
 	Call Capture(lbl_ketentuanaqiqah,"Dev","Ketentuan Aqiqah","Berhasil menampilkan ketentuan aqiqah, klik ''x' untuk keluar dari drawer")
-	If inobj_X.Exist Then
-		inobj_X.Click
+	inobj_X.Click
 		wait 1
-	End If
 	Call Capture(lbl_easymudharabah,"Dev","Jenis Kelamin","Berhasil menampilkan halaman aqiqah, pilih jenis kelamin")
 	Select Case jenkel
-		Case "wanita"	if lbl_wanita.Exist then
-							lbl_wanita.Tap
-						End If
-		Case "pria"		if lbl_pria.Exist then
-							lbl_pria.Tap
-						End If
+		Case "wanita"	lbl_wanita.Tap
+		Case "pria"		lbl_pria.Tap
 	End Select
 	wait 1
 	Call Capture(lbl_easymudharabah,"Dev","Nama Anak","Berhasil memilih jenis kelamin, masukkan nama anak")
 	Select Case jenkel
-		Case "wanita"	if txt_nomorhandphone.Exist then
-							txt_nomorhandphone.Set "Fulanah binti Fulan"
-						End If
-		Case "pria"		if txt_nomorhandphone.Exist then
-							txt_nomorhandphone.Set "Fulan bin Fulan"
-						End If
+		Case "wanita"	txt_nomorhandphone.Set "Fulanah binti Fulan"
+		Case "pria"		txt_nomorhandphone.Set "Fulan bin Fulan"
 	End Select
-	If btn_selesai.Exist Then
-		btn_selesai.Tap
+	btn_selesai.Tap
 		wait 1
-	End If
 	If toogle = "off" Then
 		Call Capture(lbl_easymudharabah,"Dev","Detail Penerima Laporan","Berhasil memasukkan nama anak, masukkan nomor handphone")
-		If txt_nomorhp.Exist Then
-			txt_nomorhp.Set "089668980862"
-		End If
-		If btn_selesai.Exist Then
-			btn_selesai.Tap
+		txt_nomorhp.Set "089668980862"
+		btn_selesai.Tap
 		wait 1
-		End If
 		Call Capture(lbl_easymudharabah,"Dev","Email Penerima Laporan","Berhasil nomor handphone, masukkan email penerima laporan")
-		If txt_emailpenerimalaporan.Exist Then
-			txt_emailpenerimalaporan.Set "harrysetiawan1005@gmail.com"
-		End If
-		If btn_selesai.Exist Then
-			btn_selesai.Tap
+		txt_emailpenerimalaporan.Set "harrysetiawan1005@gmail.com"
+		btn_selesai.Tap
 		wait 1
-		End If
 		Call Capture(lbl_easymudharabah,"Dev","Sumber Rekening","Berhasil email penerima laporan, pilih sumber rekening")
 	End If	
 	If toogle = "on" Then
 		Call Capture(lbl_easymudharabah,"Dev","Detail Penerima Laporan","Berhasil memasukkan nama anak, klik toogle untuk mengirimkan detail penerima laporan ke kontak saya")
-		If inobj_toogle.Exist Then
-			inobj_toogle.Click
+		inobj_toogle.Click
 			wait 1
-		End If
 		Call Capture(lbl_easymudharabah,"Dev","Detail Penerima Laporan","Berhasil mengaktifkan toogle, pilih sumber rekening")
 	End If
-	If lbl_easymudharabah.Exist Then
-		lbl_easymudharabah.Swipe "up",100,100
+	lbl_easymudharabah.Swipe "up",100,100
 		wait 2
-	End If
 	Call TabunganSumber("kosong")
 	Call LoopUntil()
 	Call Capture(lbl_lanjutkan,"Dev","Berhasil Pilih Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
-	If lbl_lanjutkan.Exist Then
-		lbl_lanjutkan.Tap
-	End If
+	lbl_lanjutkan.Tap
 	Call LoopUntil()
-	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	End If
-	If lbl_konfirmasi.Exist Then
-		lbl_konfirmasi.Tap
-	End If
+	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
 	Call LoopUntil()
 	Call Capture(lbl_kembali,"Dev","Saldo Kurang","Berhasil menampilkan drawer saldo kurang")
 	
-	
-'	Rekening Terblokir
-	Call react.Addtitle("Rekening Terblokir")
-	Call Login()
-	Call Navigate("Bayar Beli")
-	If lbl_layananpemerintah.Exist Then
-		lbl_layananpemerintah.Swipe "up",100,100
-		wait 2
-	End If
-	If ai_aqiqah.Exist Then
-		ai_aqiqah.Click
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_dompetdhuafa,"Dev","List Supplier","Berhasil menampilkan list supplier, pilih cari supplier")
-	If txt_nomorhandphone.Exist Then
-		txt_nomorhandphone.Set "dompet"
-		wait 1
-	End If
-	Call Capture(lbl_dompetdhuafa,"Dev","Nama Supplier","Berhasil menampilkan nama supplier, klik supplier")
-	If lbl_dompetdhuafa.Exist Then
-		lbl_dompetdhuafa.Tap
-	End If
-	Call LoopUntil(lbl_kambing)
-	Call Capture(lbl_kambing,"Dev","List Hewan","Berhasil menampilkan list hewan aqiqah, klik hewan aqiqah")
-	If lbl_kambing.Exist Then
-		lbl_kambing.Tap
-		wait 1
-	End If
-	Call Capture(lbl_kambing,"Dev","Pilih Hewan","Berhasil memilih hewan aqiqah, klik pilih")
-	If lbl_pilih.Exist Then
-		lbl_pilih.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_easymudharabah,"Dev","Aqiqah","Berhasil menampilkan halaman aqiqah, pilih icon '?' untuk melihat ketentuan aqiqah")	
-	If inobj_tandatanya.Exist Then
-		inobj_tandatanya.Click
-		wait 1
-	End If
-	Call Capture(lbl_ketentuanaqiqah,"Dev","Ketentuan Aqiqah","Berhasil menampilkan ketentuan aqiqah, klik ''x' untuk keluar dari drawer")
-	If inobj_X.Exist Then
-		inobj_X.Click
-		wait 1
-	End If
-	Call Capture(lbl_easymudharabah,"Dev","Jenis Kelamin","Berhasil menampilkan halaman aqiqah, pilih jenis kelamin")
-	Select Case jenkel
-		Case "wanita"	if lbl_wanita.Exist then
-							lbl_wanita.Tap
-						End If
-		Case "pria"		if lbl_pria.Exist then
-							lbl_pria.Tap
-						End If
-	End Select
-	wait 1
-	Call Capture(lbl_easymudharabah,"Dev","Nama Anak","Berhasil memilih jenis kelamin, masukkan nama anak")
-	Select Case jenkel
-		Case "wanita"	if txt_nomorhandphone.Exist then
-							txt_nomorhandphone.Set "Fulanah binti Fulan"
-						End If
-		Case "pria"		if txt_nomorhandphone.Exist then
-							txt_nomorhandphone.Set "Fulan bin Fulan"
-						End If
-	End Select
-	If btn_selesai.Exist Then
-		btn_selesai.Tap
-		wait 1
-	End If
-	If toogle = "off" Then
-		Call Capture(lbl_easymudharabah,"Dev","Detail Penerima Laporan","Berhasil memasukkan nama anak, masukkan nomor handphone")
-		If txt_nomorhp.Exist Then
-			txt_nomorhp.Set "089668980862"
-		End If
-		If btn_selesai.Exist Then
-			btn_selesai.Tap
-		wait 1
-		End If
-		Call Capture(lbl_easymudharabah,"Dev","Email Penerima Laporan","Berhasil nomor handphone, masukkan email penerima laporan")
-		If txt_emailpenerimalaporan.Exist Then
-			txt_emailpenerimalaporan.Set "harrysetiawan1005@gmail.com"
-		End If
-		If btn_selesai.Exist Then
-			btn_selesai.Tap
-		wait 1
-		End If
-		Call Capture(lbl_easymudharabah,"Dev","Sumber Rekening","Berhasil email penerima laporan, pilih sumber rekening")
-	End If	
-	If toogle = "on" Then
-		Call Capture(lbl_easymudharabah,"Dev","Detail Penerima Laporan","Berhasil memasukkan nama anak, klik toogle untuk mengirimkan detail penerima laporan ke kontak saya")
-		If inobj_toogle.Exist Then
-			inobj_toogle.Click
-			wait 1
-		End If
-		Call Capture(lbl_easymudharabah,"Dev","Detail Penerima Laporan","Berhasil mengaktifkan toogle, pilih sumber rekening")
-	End If
-	If lbl_easymudharabah.Exist Then
-		lbl_easymudharabah.Swipe "up",100,100
-		wait 1
-	End If
-	Call TabunganSumber("blokir")
-	Call LoopUntil()
-	Call Capture(lbl_lanjutkan,"Dev","Berhasil Pilih Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
-	If lbl_lanjutkan.Exist Then
-		lbl_lanjutkan.Tap
-	End If
-	Call LoopUntil()
-	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	End If
-	If lbl_konfirmasi.Exist Then
-		lbl_konfirmasi.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-	If lbl_1 Then
-		lbl_1.Tap
-	End If
-	If lbl_2 Then
-		lbl_2.Tap
-	End If
-	If lbl_3 Then
-		lbl_3.Tap
-	End If
-	If lbl_4 Then
-		lbl_4.Tap
-	End If
-	If lbl_5 Then
-		lbl_5.Tap
-	End If
-	If lbl_6 Then
-		lbl_6.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening terblokir")
-	
-	
-'	Rekening Dormant
-	Call react.Addtitle("Rekening Dormant")
-	Call Login()
-	Call Navigate("Bayar Beli")
-	If lbl_layananpemerintah.Exist Then
-		lbl_layananpemerintah.Swipe "up",100,100
-		wait 2
-	End If
-	If ai_aqiqah.Exist Then
-		ai_aqiqah.Click
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_dompetdhuafa,"Dev","List Supplier","Berhasil menampilkan list supplier, pilih cari supplier")
-	If txt_nomorhandphone.Exist Then
-		txt_nomorhandphone.Set "dompet"
-		wait 1
-	End If
-	Call Capture(lbl_dompetdhuafa,"Dev","Nama Supplier","Berhasil menampilkan nama supplier, klik supplier")
-	If lbl_dompetdhuafa.Exist Then
-		lbl_dompetdhuafa.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_kambing,"Dev","List Hewan","Berhasil menampilkan list hewan aqiqah, klik hewan aqiqah")
-	If lbl_kambing.Exist Then
-		lbl_kambing.Tap
-		wait 1
-	End If
-	Call Capture(lbl_kambing,"Dev","Pilih Hewan","Berhasil memilih hewan aqiqah, klik pilih")
-	If lbl_pilih.Exist Then
-		lbl_pilih.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_easymudharabah,"Dev","Aqiqah","Berhasil menampilkan halaman aqiqah, pilih icon '?' untuk melihat ketentuan aqiqah")	
-	If inobj_tandatanya.Exist Then
-		inobj_tandatanya.Click
-		wait 1
-	End If
-	Call Capture(lbl_ketentuanaqiqah,"Dev","Ketentuan Aqiqah","Berhasil menampilkan ketentuan aqiqah, klik ''x' untuk keluar dari drawer")
-	If inobj_X.Exist Then
-		inobj_X.Click
-		wait 1
-	End If
-	Call Capture(lbl_easymudharabah,"Dev","Jenis Kelamin","Berhasil menampilkan halaman aqiqah, pilih jenis kelamin")
-	Select Case jenkel
-		Case "wanita"	if lbl_wanita.Exist then
-							lbl_wanita.Tap
-						End If
-		Case "pria"		if lbl_pria.Exist then
-							lbl_pria.Tap
-						End If
-	End Select
-	wait 1
-	Call Capture(lbl_easymudharabah,"Dev","Nama Anak","Berhasil memilih jenis kelamin, masukkan nama anak")
-	Select Case jenkel
-		Case "wanita"	if txt_nomorhandphone.Exist then
-							txt_nomorhandphone.Set "Fulanah binti Fulan"
-						End If
-		Case "pria"		if txt_nomorhandphone.Exist then
-							txt_nomorhandphone.Set "Fulan bin Fulan"
-						End If
-	End Select
-	If btn_selesai.Exist Then
-		btn_selesai.Tap
-		wait 1
-	End If
-	If toogle = "off" Then
-		Call Capture(lbl_easymudharabah,"Dev","Detail Penerima Laporan","Berhasil memasukkan nama anak, masukkan nomor handphone")
-		If txt_nomorhp.Exist Then
-			txt_nomorhp.Set "089668980862"
-		End If
-		If btn_selesai.Exist Then
-			btn_selesai.Tap
-		wait 1
-		End If
-		Call Capture(lbl_easymudharabah,"Dev","Email Penerima Laporan","Berhasil nomor handphone, masukkan email penerima laporan")
-		If txt_emailpenerimalaporan.Exist Then
-			txt_emailpenerimalaporan.Set "harrysetiawan1005@gmail.com"
-		End If
-		If btn_selesai.Exist Then
-			btn_selesai.Tap
-		wait 1
-		End If
-		Call Capture(lbl_easymudharabah,"Dev","Sumber Rekening","Berhasil email penerima laporan, pilih sumber rekening")
-	End If	
-	If toogle = "on" Then
-		Call Capture(lbl_easymudharabah,"Dev","Detail Penerima Laporan","Berhasil memasukkan nama anak, klik toogle untuk mengirimkan detail penerima laporan ke kontak saya")
-		If inobj_toogle.Exist Then
-			inobj_toogle.Click
-			wait 1
-		End If
-		Call Capture(lbl_easymudharabah,"Dev","Detail Penerima Laporan","Berhasil mengaktifkan toogle, pilih sumber rekening")
-	End If
-	If lbl_easymudharabah.Exist Then
-		lbl_easymudharabah.Swipe "up",100,100
-		wait 1
-	End If
-	Call TabunganSumber("dormant")
-	Call LoopUntil()
-	Call Capture(lbl_lanjutkan,"Dev","Berhasil Pilih Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
-	If lbl_lanjutkan.Exist Then
-		lbl_lanjutkan.Tap
-	End If
-	Call LoopUntil()
-	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	End If
-	If lbl_konfirmasi.Exist Then
-		lbl_konfirmasi.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_konfirmasipin,"Dev","Konfirmasi PIN","Berhasil menampilkan halaman konfirmasi PIN, masukkan PIN")
-	If lbl_1 Then
-		lbl_1.Tap
-	End If
-	If lbl_2 Then
-		lbl_2.Tap
-	End If
-	If lbl_3 Then
-		lbl_3.Tap
-	End If
-	If lbl_4 Then
-		lbl_4.Tap
-	End If
-	If lbl_5 Then
-		lbl_5.Tap
-	End If
-	If lbl_6 Then
-		lbl_6.Tap
-	End If
-	Call LoopUntil()
-	Call Capture(lbl_kedashboard,"Dev","Transaksi Belum Berhasil","Berhasil menampilkan drawer transaksi belum berhasil karena menggunakan rekening dormant")
-	
+
 	'Salah PIN 1x
 	Call react.Addtitle("Salah PIN 1x")
 	Call Login()
 	Call Navigate("Bayar Beli")
-	If lbl_layananpemerintah.Exist Then
-		lbl_layananpemerintah.Swipe "up",100,100
+	lbl_layananpemerintah.Swipe "up",100,100
 		wait 2
-	End If
-	If ai_aqiqah.Exist Then
-		ai_aqiqah.Click
-	End If
+	ai_aqiqah.Click
 	Call LoopUntil()
 	Call Capture(lbl_dompetdhuafa,"Dev","List Supplier","Berhasil menampilkan list supplier, pilih cari supplier")
-	If txt_nomorhandphone.Exist Then
-		txt_nomorhandphone.Set "dompet"
+	txt_nomorhandphone.Set "dompet"
 		wait 1
-	End If
 	Call Capture(lbl_dompetdhuafa,"Dev","Nama Supplier","Berhasil menampilkan nama supplier, klik supplier")
-	If lbl_dompetdhuafa.Exist Then
-		lbl_dompetdhuafa.Tap
-	End If
+	lbl_dompetdhuafa.Tap
 	Call LoopUntil()
 	Call Capture(lbl_kambing,"Dev","List Hewan","Berhasil menampilkan list hewan aqiqah, klik hewan aqiqah")
-	If lbl_kambing.Exist Then
-		lbl_kambing.Tap
+	lbl_kambing.Tap
 		wait 1
-	End If
 	Call Capture(lbl_kambing,"Dev","Pilih Hewan","Berhasil memilih hewan aqiqah, klik pilih")
-	If lbl_pilih.Exist Then
-		lbl_pilih.Tap
-	End If
+	lbl_pilih.Tap
 	Call LoopUntil()
 	Call Capture(lbl_easymudharabah,"Dev","Aqiqah","Berhasil menampilkan halaman aqiqah, pilih icon '?' untuk melihat ketentuan aqiqah")	
-	If inobj_tandatanya.Exist Then
-		inobj_tandatanya.Click
+	inobj_tandatanya.Click
 		wait 1
-	End If
 	Call Capture(lbl_ketentuanaqiqah,"Dev","Ketentuan Aqiqah","Berhasil menampilkan ketentuan aqiqah, klik ''x' untuk keluar dari drawer")
-	If inobj_X.Exist Then
-		inobj_X.Click
+	inobj_X.Click
 		wait 1
-	End If
 	Call Capture(lbl_easymudharabah,"Dev","Jenis Kelamin","Berhasil menampilkan halaman aqiqah, pilih jenis kelamin")
 	Select Case jenkel
-		Case "wanita"	if lbl_wanita.Exist then
-							lbl_wanita.Tap
-						End If
-		Case "pria"		if lbl_pria.Exist then
-							lbl_pria.Tap
-						End If
+		Case "wanita"	lbl_wanita.Tap
+		Case "pria"		lbl_pria.Tap
 	End Select
 	wait 1
 	Call Capture(lbl_easymudharabah,"Dev","Nama Anak","Berhasil memilih jenis kelamin, masukkan nama anak")
 	Select Case jenkel
-		Case "wanita"	if txt_nomorhandphone.Exist then
-							txt_nomorhandphone.Set "Fulanah binti Fulan"
-						End If
-		Case "pria"		if txt_nomorhandphone.Exist then
-							txt_nomorhandphone.Set "Fulan bin Fulan"
-						End If
+		Case "wanita"	txt_nomorhandphone.Set "Fulanah binti Fulan"
+		Case "pria"		txt_nomorhandphone.Set "Fulan bin Fulan"
 	End Select
-	If btn_selesai.Exist Then
-		btn_selesai.Tap
+	btn_selesai.Tap
 		wait 1
-	End If
 	If toogle = "off" Then
 		Call Capture(lbl_easymudharabah,"Dev","Detail Penerima Laporan","Berhasil memasukkan nama anak, masukkan nomor handphone")
-		If txt_nomorhp.Exist Then
-			txt_nomorhp.Set "089668980862"
-		End If
-		If btn_selesai.Exist Then
-			btn_selesai.Tap
+		txt_nomorhp.Set "089668980862"
+		btn_selesai.Tap
 		wait 1
-		End If
 		Call Capture(lbl_easymudharabah,"Dev","Email Penerima Laporan","Berhasil nomor handphone, masukkan email penerima laporan")
-		If txt_emailpenerimalaporan.Exist Then
-			txt_emailpenerimalaporan.Set "harrysetiawan1005@gmail.com"
-		End If
-		If btn_selesai.Exist Then
-			btn_selesai.Tap
+		txt_emailpenerimalaporan.Set "harrysetiawan1005@gmail.com"
+		btn_selesai.Tap
 		wait 1
-		End If
 		Call Capture(lbl_easymudharabah,"Dev","Sumber Rekening","Berhasil email penerima laporan, pilih sumber rekening")
 	End If	
 	If toogle = "on" Then
 		Call Capture(lbl_easymudharabah,"Dev","Detail Penerima Laporan","Berhasil memasukkan nama anak, klik toogle untuk mengirimkan detail penerima laporan ke kontak saya")
-		If inobj_toogle.Exist Then
-			inobj_toogle.Click
+		inobj_toogle.Click
 			wait 1
-		End If
 		Call Capture(lbl_easymudharabah,"Dev","Detail Penerima Laporan","Berhasil mengaktifkan toogle, pilih sumber rekening")
 	End If
-	If lbl_easymudharabah.Exist Then
-		lbl_easymudharabah.Swipe "up",100,100
+	lbl_easymudharabah.Swipe "up",100,100
 		wait 1
-	End If
 	Call TabunganSumber("transaksi")
 	Call LoopUntil(lbl_lanjutkan)
 	Call Capture(lbl_lanjutkan,"Dev","Berhasil Pilih Sumber Rekening","Berhasil memilih sumber rekening, klik lanjutkan")
-	If lbl_lanjutkan.Exist Then
-		lbl_lanjutkan.Tap
-	End If
+	lbl_lanjutkan.Tap
 	Call LoopUntil()
-	If lbl_konfirmasi.Exist Then
-		Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
-	End If
-	If lbl_konfirmasi.Exist Then
-		lbl_konfirmasi.Tap
-	End If
+	Call Capture(lbl_konfirmasi,"Dev","Konfirmasi Transaksi","Berhasil menampilkan konfirmasi transaksi, klik konfirmasi")
+	lbl_konfirmasi.Tap
 	Call SalahPIN()
 End Function
 

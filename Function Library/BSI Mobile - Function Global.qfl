@@ -423,8 +423,8 @@ Function SalahPIN()
 	End If
 	wait 3
 	Call CaptureImageUFTV2(Device("Device").App("Dev"), "Salah PIN 1x","Berhasil menampilkan helper text", ReportStatus.Passed)
+	
 	'Salah PIN 2x
-	Call react.Addtitle("Salah PIN 2x")
 	If lbl_1.Exist Then
 		lbl_1.Tap
 	End If
